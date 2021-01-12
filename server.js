@@ -19,3 +19,8 @@ app.use(routes);
 
 //Connect to MondoDB
 mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/reactcms");
+
+//Start the API server
+app.listen(PORT, function() {
+    console.log(`🌎  ==> API Server now listening on PORT ${PORT}!`);
+});
