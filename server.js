@@ -11,16 +11,18 @@ app.use(express.json());
 
 //static assets
 if (process.env.NODE_ENV === "production") {
-    app.use(express.static("client/build"));
+  app.use(express.static("client/build"));
 }
 
 //routes
 app.use(routes);
 
 //Connect to MondoDB
-mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/reactcms");
+mongoose.connect(
+  process.env.MONGODB_URI || "mongodb://localhost/phone-eats-first"
+);
 
 //Start the API server
-app.listen(PORT, function() {
-    console.log(`🌎  ==> API Server now listening on PORT ${PORT}!`);
+app.listen(PORT, function () {
+  console.log(`🌎  ==> API Server now listening on PORT ${PORT}!`);
 });
