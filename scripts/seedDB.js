@@ -68,11 +68,6 @@ const userSeed = [
     }
 ];
 
-const postSeed = [];
-
-const commentSeed = [];
-
-
 db.User.remove({})
     .then(() => db.User.collection.insertMany(userSeed))
     .then(data => {
