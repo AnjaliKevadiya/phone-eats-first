@@ -34,12 +34,13 @@ module.exports = {
     // db.User.create(req.body).then((dbModel) => res.json(dbModel));
   },
   login: (req, res) => {
+    console.log("req", req.body);
+
     db.User.findOne({
-      where: {
-        email: req.body.email,
-      },
+      email: req.body.email,
     })
       .then(async function (userData) {
+        console.log("userData", userData);
         if (!userData) {
           res.send({
             user: false,
@@ -60,7 +61,7 @@ module.exports = {
         }
       })
       .catch((err) => {
-        console.log("We caught an error");
+        console.log("We caught an error", err);
         res.send(err);
       });
   },
