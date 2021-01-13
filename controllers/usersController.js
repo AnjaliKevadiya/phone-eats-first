@@ -33,7 +33,7 @@ module.exports = {
     }
     // db.User.create(req.body).then((dbModel) => res.json(dbModel));
   },
-  login: function (req, res) {
+  login: (req, res) => {
     db.User.findOne({
       where: {
         email: req.body.email,
