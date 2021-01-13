@@ -33,6 +33,37 @@ module.exports = {
     }
     // db.User.create(req.body).then((dbModel) => res.json(dbModel));
   },
+  login: function (req, res) {
+    db.User.findOne({
+      where: {
+        email: req.body.email,
+      },
+    })
+      .then(async function (userData) {
+        if (!userData) {
+          res.send({
+            user: false,
+            message: "No user with that email",
+          });
+          return;
+        }
+        if (await bcrypt.compare(req.body.password, userData.password)) {
+          res.send({
+            user: userData.id,
+            message: "Welcome Back",
+          });
+        } else {
+          res.send({
+            user: false,
+            message: "Password Incorrect",
+          });
+        }
+      })
+      .catch((err) => {
+        console.log("We caught an error");
+        res.send(err);
+      });
+  },
   update: function (req, res) {
     db.User.findOneAndUpdate({ _id: req.params.id }, req.body)
       .then((dbModel) => res.json(dbModel))
