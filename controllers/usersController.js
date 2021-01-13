@@ -26,12 +26,14 @@ module.exports = {
         password: hashedPassword,
       }).then((userData) => {
         console.log("registerd successfully", userData);
-        res.send({ user: userData.id, message: "Welcome!" });
+        res.send({
+          user: userData.id,
+          message: "Welcome!",
+        });
       });
     } catch (err) {
       res.status(422).json(err);
     }
-    // db.User.create(req.body).then((dbModel) => res.json(dbModel));
   },
   login: (req, res) => {
     console.log("req", req.body);
