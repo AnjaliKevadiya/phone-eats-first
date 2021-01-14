@@ -5,10 +5,14 @@ const bcrypt = require("bcrypt");
 
 module.exports = {
   findAll: function (req, res) {
-    db.User.find(req.query)
-      .sort({ date: -1 })
-      .then((dbModel) => res.json(dbModel))
-      .catch((err) => res.status(422).json(err));
+    if (!req.user) {
+      res.json({});
+    } else {
+      db.User.find(req.query)
+        .sort({ date: -1 })
+        .then((dbModel) => res.json(dbModel))
+        .catch((err) => res.status(422).json(err));
+    }
   },
   findById: function (req, res) {
     db.User.findById(req.params.id)
