@@ -1,14 +1,18 @@
 import React from "react";
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import "./App.css";
-import Form from "./Components/Form";
-import Navbar from "./Components/Navbar";
+import SignUp from "./pages/SignUp"
 
 function App() {
   return (
-    <div className="App">
-      <Navbar />
-      <Form />
-    </div>
+    <Router>
+      <div>
+        <Switch>
+          <Route exact path="/signup" component={SignUp} />
+        </Switch>
+            </div>
+    </Router>
+
   );
 }
 
