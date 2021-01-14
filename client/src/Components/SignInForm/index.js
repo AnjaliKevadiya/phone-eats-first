@@ -6,8 +6,11 @@ import Button from '@material-ui/core/Button';
 const useStyles = makeStyles((theme) => ({
   root: {
     '& > *': {
-      margin: theme.spacing(1),
+      marginTop: "50px",
+      marginLeft: "25rem",
       width: '25ch',
+      justifyContent: "center",
+      textAlign: "center"
     },
   },
 }));
@@ -16,6 +19,7 @@ export default function BasicTextFields() {
   const classes = useStyles();
 
   return (
+      <div>
     <form className={classes.root} noValidate autoComplete="off">
       <TextField id="standard-basic" label="Email" />
       <TextField
@@ -23,9 +27,10 @@ export default function BasicTextFields() {
           label="Password"
           type="password"
           autoComplete="current-password" />
-      <Button variant="contained" color="primary" href="/home">
-        Sign In
-      </Button>
+          <Button variant="contained" color="primary" href="/home">
+    Sign In
+  </Button>
     </form>
+  </div>
   );
 }
