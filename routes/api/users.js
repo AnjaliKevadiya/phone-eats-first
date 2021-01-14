@@ -19,6 +19,9 @@ router.post("/login", passport.authenticate("local"), function (req, res) {
   }
 });
 
+// endpoint /api/user/userdata
+router.route("/userdata").get(usersController.checkUserLogin);
+
 //Matches with "/api/user/:id"
 router.route("/:id").get(usersController.findById).put(usersController.update);
 
