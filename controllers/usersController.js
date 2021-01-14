@@ -36,13 +36,13 @@ module.exports = {
     }
   },
   login: (req, res) => {
-    console.log("req", req.body);
-
+    // checks to see if the user exists
     db.User.findOne({
       email: req.body.email,
     })
       .then(async function (userData) {
         console.log("userData", userData);
+        // if there is no user with that email
         if (!userData) {
           res.send({
             user: false,
@@ -50,8 +50,10 @@ module.exports = {
           });
           return;
         }
+
+        // checks if both password are same then send the Welcome message
         if (await bcrypt.compare(req.body.password, userData.password)) {
-          res.send({
+          res.cookie("userAuth", userData.id).send({
             user: userData.id,
             message: "Welcome Back",
           });
