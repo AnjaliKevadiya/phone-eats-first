@@ -14,11 +14,22 @@ module.exports = {
         .catch((err) => res.status(422).json(err));
     }
   },
+
+  checkUserLogin: function (req, res) {
+    if (!req.user) {
+      // user not logged in
+      res.json({});
+    } else {
+      res.json(req.user);
+    }
+  },
+
   findById: function (req, res) {
     db.User.findById(req.params.id)
       .then((dbModel) => res.json(dbModel))
       .catch((err) => res.status(422).json(err));
   },
+
   register: async function (req, res) {
     try {
       const hashedPassword = await bcrypt.hash(req.body.password, 10);
@@ -28,17 +39,22 @@ module.exports = {
         last_name: req.body.last_name,
         email: req.body.email,
         password: hashedPassword,
-      }).then((userData) => {
-        console.log("registerd successfully", userData);
-        res.send({
-          user: userData,
-          message: "Welcome!",
+      })
+        .then((userData) => {
+          console.log("registerd successfully", userData);
+          res.json({
+            user: userData,
+            message: "Welcome!",
+          });
+        })
+        .catch((err) => {
+          res.status(400).json(err);
         });
-      });
     } catch (err) {
       res.status(422).json(err);
     }
   },
+
   //   login: (req, res) => {
   //     // checks to see if the user exists
   //     db.User.findOne({
@@ -73,6 +89,7 @@ module.exports = {
   //         res.send(err);
   //       });
   //   },
+
   update: function (req, res) {
     db.User.findOneAndUpdate({ _id: req.params.id }, req.body)
       .then((dbModel) => res.json(dbModel))

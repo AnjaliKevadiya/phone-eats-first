@@ -25,6 +25,15 @@ UserSchema.methods.comparePassword = function (plaintext) {
   return bcrypt.compareSync(plaintext, this.password);
 };
 
+// //Before a User is created, automatically hash their password
+// UserSchema.pre("create", function (next) {
+//   if (!this.isModified("password")) {
+//     return next();
+//   }
+//   this.password = bcrypt.hashSync(this.password, 10);
+//   next();
+// });
+
 const User = mongoose.model("User", UserSchema);
 
 module.exports = User;
