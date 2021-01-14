@@ -1,5 +1,6 @@
 const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
+var bcrypt = require("bcryptjs");
 
 const UserSchema = new Schema({
   email: {
@@ -17,6 +18,12 @@ const UserSchema = new Schema({
     },
   ],
 });
+
+//Validate hashed password
+UserSchema.methods.comparePassword = function (plaintext) {
+  console.log("checking password");
+  return bcrypt.compareSync(plaintext, this.password);
+};
 
 const User = mongoose.model("User", UserSchema);
 
