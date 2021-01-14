@@ -1,7 +1,7 @@
 import React from "react";
 import { MDBContainer, MDBRow, MDBCol, MDBInput, MDBBtn, MDBCard, MDBCardBody } from 'mdbreact';
 
-const SignUp = () => {
+const SignUpForm = () => {
     return (
         <MDBContainer>
             <MDBRow>
@@ -60,4 +60,4 @@ const SignUp = () => {
     );
 };
 
-export default SignUp;
+export default SignUpForm;
