@@ -5,6 +5,8 @@ function Home() {
   return (
     <div>
       <Post />
+      <Post />
+      <Post />
     </div>
   );
 }
