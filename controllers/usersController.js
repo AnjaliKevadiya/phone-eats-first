@@ -27,7 +27,7 @@ module.exports = {
       }).then((userData) => {
         console.log("registerd successfully", userData);
         res.send({
-          user: userData.id,
+          user: userData,
           message: "Welcome!",
         });
       });
