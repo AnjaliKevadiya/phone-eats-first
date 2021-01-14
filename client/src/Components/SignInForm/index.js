@@ -30,6 +30,11 @@ export default function BasicTextFields() {
           <Button variant="contained" color="primary" href="/home">
     Sign In
   </Button>
+  <Button variant="contained" color="primary" href="/home">
+    Sign in With Facebook
+  </Button><Button variant="contained" color="primary" href="/home">
+    Sign in With Google
+  </Button>
     </form>
   </div>
   );
