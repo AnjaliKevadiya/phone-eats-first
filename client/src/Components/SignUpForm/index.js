@@ -1,6 +1,8 @@
 import React from "react";
 import "./style.css";
 import 'bootstrap/dist/css/bootstrap.min.css';
+//import { useStoreContext } from "../../utils/GlobalState";
+//import { } from "../../utils/actions";
 import API from "../../utils/API";
 
 const SignUpForm = () => {
@@ -8,6 +10,24 @@ const SignUpForm = () => {
     const lastNameRef = useRef();
     const emailRef = useRef();
     const passwordRef = useRef();
+    // const [state, dispatch] = useStoreContext();
+
+    const handleSubmit = e => {
+        e.preventDefault();
+        // dispatch({ type: })
+        API.signup({
+            first_name: firstNameRef.current.value,
+            last_name: lastNameRef.current.value,
+            email: emailRef.current.value,
+            password: passwordRef.current.value
+        })
+            // .then(result => {
+            //     dispatch({
+            //         type: 
+            //     })
+            // })
+            .catch(err => console.log(err));
+    }
 
     return (
         <div className="container">
