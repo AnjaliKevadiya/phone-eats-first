@@ -1,18 +1,18 @@
 import React from "react";
-import Post from "../components/Post";
+import PostCard from "../components/PostCard";
 import "./style.css";
 
 function Home() {
   return (
     <div>
       <div className="postCard">
-        <Post />
+        <PostCard />
       </div>
       <div className="postCard">
-        <Post />
+        <PostCard />
       </div>
       <div className="postCard">
-        <Post />
+        <PostCard />
       </div>
     </div>
   );

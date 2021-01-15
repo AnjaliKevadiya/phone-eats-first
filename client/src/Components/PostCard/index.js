@@ -45,7 +45,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-function Post() {
+function PostCard() {
   const classes = useStyles();
   const [expanded, setExpanded] = React.useState(false);
 
@@ -134,4 +134,4 @@ function Post() {
   );
 }
 
-export default Post;
+export default PostCard;
