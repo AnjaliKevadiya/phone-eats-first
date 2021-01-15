@@ -4,6 +4,10 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import API from "../../utils/API";
 
 const SignUpForm = () => {
+    const firstNameRef = useRef();
+    const lastNameRef = useRef();
+    const emailRef = useRef();
+    const passwordRef = useRef();
 
     return (
         <div className="container">
