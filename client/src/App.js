@@ -6,6 +6,7 @@ import Home from "./pages/Home";
 import Navbar from "./components/Navbar";
 import Wrapper from "./components/Wrapper";
 import SignIn from "./pages/SignIn";
+import Profile from "./pages/Profile";
 
 function App() {
   return (
@@ -17,6 +18,7 @@ function App() {
             <Route exact path="/signin" component={SignIn} />
             <Route exact path="/signup" component={SignUp} />
             <Route exact path="/home" component={Home} />
+            <Route exact path="/profile" component={Profile} />
           </Switch>
         </Wrapper>
       </div>
