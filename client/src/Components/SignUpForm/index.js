@@ -1,25 +1,25 @@
 import React from "react";
 import "./style.css";
-import 'bootstrap/dist/css/bootstrap.min.css';
 //import { useStoreContext } from "../../utils/GlobalState";
 //import { } from "../../utils/actions";
 import API from "../../utils/API";
 
 export function Container(props) {
     return (
-        <div className="container"></div>
+        <div className="container">{props.children}</div>
     );
 }
 
 export function Row(props) {
     return (
-        <div className="row"></div>
+        <div className="row">{props.children}</div>
+
     );
 }
 
 export function Form(props) {
     return (
-        <form className="col s12"></form>
+        <form className="col s12">{props.children}</form>
     );
 }
 
@@ -27,6 +27,7 @@ export function FirstNameInput(props) {
     return (
         <div className="input-field col s6">
             <input placeholder="First Name" id="first_name" type="text" />
+            {props.children}
         </div>
     );
 }
@@ -35,6 +36,7 @@ export function LastNameInput(props) {
     return (
         <div className="input-field col s6">
             <input placeholder="Last Name" id="last_name" type="text" />
+            {props.children}
         </div>
     );
 }
