@@ -3,7 +3,6 @@ import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import "./App.css";
 import SignUp from "./pages/signUp";
 import Home from "./pages/Home";
-import Navbar from "./components/Navbar";
 import Wrapper from "./components/Wrapper";
 import SignIn from "./pages/signIn";
 import Profile from "./pages/Profile";
@@ -12,7 +11,6 @@ function App() {
   return (
     <Router>
       <div>
-        <Navbar />
         <Wrapper>
           <Switch>
             <Route exact path={["/", "/signin"]} component={SignIn} />
