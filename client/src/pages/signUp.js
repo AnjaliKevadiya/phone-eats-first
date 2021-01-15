@@ -35,6 +35,7 @@ function SignUp() {
             })
             .then(res => {
                 console.log("api.signup - res: ",res);
+                window.location.href = "/home";
             })
             .catch(err => console.log("api.signup error: ", err));
         }
