@@ -3,7 +3,7 @@ const usersController = require("../../controllers/usersController");
 var passport = require("../../config/passport");
 
 // signup endpoint "/api/user/singup"
-router.route("/singup").post(usersController.register);
+router.route("/signup").post(usersController.register);
 
 // login endpoint /api/user/login
 // router.route("/login").post(usersController.login);
