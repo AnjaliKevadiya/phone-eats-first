@@ -5,6 +5,7 @@ import SignUp from "./pages/SignUp";
 import Home from "./pages/Home";
 import Navbar from "./components/Navbar";
 import Wrapper from "./components/Wrapper";
+import SignIn from "./pages/SignIn";
 
 function App() {
   return (
@@ -13,6 +14,7 @@ function App() {
         <Navbar />
         <Wrapper>
           <Switch>
+            <Route exact path="/signin" component={SignIn} />
             <Route exact path="/signup" component={SignUp} />
             <Route exact path="/home" component={Home} />
           </Switch>
