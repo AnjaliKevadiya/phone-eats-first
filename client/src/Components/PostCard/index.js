@@ -1,6 +1,7 @@
 import React from "react";
 import { makeStyles } from "@material-ui/core/styles";
 import clsx from "clsx";
+import Ratings from "../Ratings";
 
 import {
   Card,
@@ -62,9 +63,10 @@ function PostCard() {
           </Avatar>
         }
         action={
-          <IconButton aria-label="settings">
-            <MoreVertIcon />
-          </IconButton>
+          <Ratings />
+          // <IconButton aria-label="settings">
+          //   <MoreVertIcon />
+          // </IconButton>
         }
         title="Shrimp and Chorizo Paella"
         subheader="September 14, 2016"
