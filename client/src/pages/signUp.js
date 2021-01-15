@@ -17,7 +17,6 @@ function SignUp() {
                     </Form>
                 </Row>
             </Container>
-
         </div>
     )
 }
