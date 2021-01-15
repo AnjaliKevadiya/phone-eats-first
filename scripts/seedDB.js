@@ -59,6 +59,7 @@ const postSeed = [
     rating: 5,
     caption: "sushi rolls",
     number_of_likes: 100,
+    username: "Cody Collins",
     comments: [
       {
         type: Schema.Types.ObjectId,
@@ -72,6 +73,7 @@ const postSeed = [
     rating: 5,
     caption: "sushi rolls",
     number_of_likes: 100,
+    username: "Debbie Jensen",
     comments: [
       {
         type: Schema.Types.ObjectId,

@@ -55,7 +55,8 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-function PostCard() {
+function PostCard(props) {
+  console.log("props ", props.data);
   const classes = useStyles();
   return (
     <Card className={classes.root}>
@@ -66,7 +67,7 @@ function PostCard() {
           </Avatar>
         }
         action={<Ratings />}
-        title={"Anjali Kevadiya"}
+        title={props.username}
         subheader="Burger King"
       />
       <CardMedia

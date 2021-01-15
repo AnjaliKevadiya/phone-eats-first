@@ -7,6 +7,7 @@ const PostSchema = new Schema({
   rating: Number,
   caption: String,
   number_of_likes: Number,
+  username: String,
   comments: [{ type: Schema.Types.ObjectId, ref: "Comment" }],
 });
 
