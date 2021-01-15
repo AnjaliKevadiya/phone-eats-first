@@ -59,7 +59,7 @@ export function PasswordInput(props) {
 export function SignUpBtn(props) {
     return (
         <div className="input-field col s12">
-            <button type="submit" className="btn btn-outline-success">Sign Up</button>
+            <button type="submit" className="btn btn-primary">Sign Up</button>
             {props.children}
         </div>
     );

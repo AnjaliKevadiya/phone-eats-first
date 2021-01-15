@@ -1,5 +1,15 @@
 import React from "react";
-import { Container, Row, Form, FirstNameInput, LastNameInput } from "../components/SignUpForm";
+import 
+{ 
+    Container, 
+    Row, 
+    Form, 
+    FirstNameInput, 
+    LastNameInput, 
+    EmailInput, 
+    PasswordInput,
+    SignUpBtn
+} from "../components/SignUpForm";
 import API from "../utils/API";
 
 function SignUp() {
@@ -14,17 +24,19 @@ function SignUp() {
                     <Form>
                     <h1>SIGN UP</h1>
                         <Row>
-                            <FirstNameInput 
-                                onChange={handleInputChange}
-                                name="first_name" />
-                            <LastNameInput 
-                                onChange={handleInputChange}
-                                name="last_name" />
-
+                            <FirstNameInput />
+                            <LastNameInput  />
+                        </Row>
+                        <Row>
+                            <EmailInput />
+                        </Row>
+                        <Row>
+                            <PasswordInput />
                         </Row>
                     </Form>
                 </Row>
             </Container>
+            <SignUpBtn />
         </div>
     )
 }
