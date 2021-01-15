@@ -15,7 +15,7 @@ function App() {
         <Navbar />
         <Wrapper>
           <Switch>
-            <Route exact path="/signin" component={SignIn} />
+            <Route exact path={["/", "/signin"]} component={SignIn} />
             <Route exact path="/signup" component={SignUp} />
             <Route exact path="/home" component={Home} />
             <Route exact path="/profile" component={Profile} />
