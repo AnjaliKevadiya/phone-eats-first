@@ -1,16 +1,4 @@
-import React from "react";
-import SignInForm from "../components/SignInForm";
-
-function SignIn() {
-    return (
-        <div>
-            <SignInForm />
-            
-        </div>
-    )
-}
-
-export default SignIn;import React, { useState } from "react";
+import React, { useState } from "react";
 import { Container, Row } from "../components/SignUpForm";
 function SignIn() {
   const [username, setEmail] = useState();
