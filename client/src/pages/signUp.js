@@ -4,14 +4,22 @@ import API from "../utils/API";
 
 function SignUp() {
 
+
+
     return (
         <div>
             <Container>
                 <Row>
+                    
                     <Form>
+                    <h1>SIGN UP</h1>
                         <Row>
-                            <FirstNameInput />
-                            <LastNameInput />
+                            <FirstNameInput 
+                                onChange={handleInputChange}
+                                name="first_name" />
+                            <LastNameInput 
+                                onChange={handleInputChange}
+                                name="last_name" />
 
                         </Row>
                     </Form>
