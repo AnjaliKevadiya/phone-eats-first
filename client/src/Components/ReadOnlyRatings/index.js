@@ -1,15 +1,15 @@
 import React from "react";
 import Rating from "@material-ui/lab/Rating";
+import Box from "@material-ui/core/Box";
 
 function ReadOnlyRatings() {
+  const [value, setValue] = React.useState(2);
+
   return (
     <div>
-      <Rating
-        name="half-rating-read"
-        defaultValue={2.5}
-        precision={0.5}
-        readOnly
-      />
+      <Box component="fieldset" mb={3} borderColor="transparent">
+        <Rating name="read-only" value={value} readOnly />
+      </Box>
     </div>
   );
 }
