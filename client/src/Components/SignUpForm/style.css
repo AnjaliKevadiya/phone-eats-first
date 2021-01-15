@@ -1,10 +1,8 @@
 div.container {
     position: relative;
-    width: 420px;
-    height: 299px;
-    margin-top: 10%;
-    border: 1px solid black;
-    padding-top: 5%;
+    max-width: 600px;
+    backgroud-color: white;
+    border-radius: 4px;
 }
 
 input#email {
@@ -16,10 +14,4 @@ input#password {
     margin-top: 5%;
     width: 385px;
     margin-bottom: 5%;
-}
-
-button {
-    height: 30px;
-    width: 385px;
-    text-align:justify;
 }
