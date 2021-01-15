@@ -1,8 +1,10 @@
 import React from "react";
 import "./style.css";
 import 'bootstrap/dist/css/bootstrap.min.css';
+import API from "../../utils/API";
 
 const SignUpForm = () => {
+
     return (
         <div className="container">
             <div className="row">
