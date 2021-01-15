@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import 
 { 
     Container, 
@@ -15,6 +15,19 @@ import API from "../utils/API";
 function SignUp() {
 
 
+function handleFormSubmit(event) {
+    event.preventDefault();
+    if (formObject.first_name && formObject.last_name && formObject.email && formObject.password) {
+        API.signup({
+            first_name: formObject.first_name,
+            last_name: formObject.last_name,
+            email: formObject.email,
+            password: formObject.password
+        })
+        .then(res => getAllPosts())
+        .catch(err => console.log(err));
+    }
+};
 
     return (
         <div>
@@ -24,19 +37,30 @@ function SignUp() {
                     <Form>
                     <h1>SIGN UP</h1>
                         <Row>
-                            <FirstNameInput />
-                            <LastNameInput  />
+                            <FirstNameInput 
+                                name="first_name"
+                            />
+                            <LastNameInput
+                                name="last_name"
+                            />
                         </Row>
                         <Row>
-                            <EmailInput />
+                            <EmailInput 
+                                name="email"
+                            />
                         </Row>
                         <Row>
-                            <PasswordInput />
+                            <PasswordInput 
+                                name="password"
+                            />
                         </Row>
                     </Form>
                 </Row>
             </Container>
-            <SignUpBtn />
+            <SignUpBtn 
+                // disabled={!(formObject.first_name && formObject.last_name && formObject.email && formObject.password)}
+                onClick={handleFormSubmit}
+            />
         </div>
     )
 }
