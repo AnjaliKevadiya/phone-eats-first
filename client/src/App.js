@@ -4,16 +4,19 @@ import "./App.css";
 import SignUp from "./pages/SignUp";
 import Home from "./pages/Home";
 import Navbar from "./components/Navbar";
+import Wrapper from "./components/Wrapper";
 
 function App() {
   return (
     <Router>
       <div>
         <Navbar />
-        <Switch>
-          <Route exact path="/signup" component={SignUp} />
-          <Route exact path="/home" component={Home} />
-        </Switch>
+        <Wrapper>
+          <Switch>
+            <Route exact path="/signup" component={SignUp} />
+            <Route exact path="/home" component={Home} />
+          </Switch>
+        </Wrapper>
       </div>
     </Router>
   );

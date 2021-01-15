@@ -10,6 +10,8 @@ import {
   Avatar,
   IconButton,
   Typography,
+  TextField,
+  Button,
 } from "@material-ui/core";
 
 import FavoriteIcon from "@material-ui/icons/Favorite";
@@ -36,6 +38,19 @@ const useStyles = makeStyles((theme) => ({
   },
   comments: {
     paddingTop: "0px",
+    paddingBottom: "10px",
+  },
+  addComment: {
+    padding: "1px",
+    width: "88%",
+  },
+  sendButton: {
+    width: "10%",
+    margin: "6px",
+    float: "right",
+  },
+  actionButtons: {
+    paddingTop: "0px",
     paddingBottom: "0px",
   },
 }));
@@ -60,11 +75,11 @@ function PostCard() {
         title="Paella dish"
       />
       <CardContent className={classes.caption}>
-        <Typography variant="body3" color="textSecondary" component="h4">
+        <Typography variant="body3" color="textSecondary" component="h6">
           {"It was delicious!!"}
         </Typography>
       </CardContent>
-      <CardActions disableSpacing>
+      <CardActions className={classes.actionButtons} disableSpacing>
         <IconButton aria-label="add to favorites">
           <FavoriteIcon />
           <Typography variant="body3" color="textSecondary" component="h6">
@@ -79,9 +94,33 @@ function PostCard() {
         </IconButton>
       </CardActions>
       <CardContent className={classes.comments}>
-        <Typography variant="body2" color="textSecondary" component="p">
+        <Typography
+          className={classes.comments}
+          variant="body2"
+          color="textSecondary"
+          component="p"
+        >
           {"It was delicious!!"}
         </Typography>
+
+        {/* <form noValidate> */}
+        <TextField
+          className={classes.addComment}
+          id="filled-textarea"
+          placeholder="Add Comment"
+          multiline
+          variant="outlined"
+        />
+        <Button
+          variant="outlined"
+          size="large"
+          color="primary"
+          className={classes.sendButton}
+        >
+          Send
+        </Button>
+
+        {/* </form> */}
       </CardContent>
     </Card>
   );
