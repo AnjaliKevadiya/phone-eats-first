@@ -1,6 +1,6 @@
 import React from "react";
-import { makeStyles } from "@material-ui/core/styles";
 import Ratings from "../ReadOnlyRatings";
+import { makeStyles } from "@material-ui/core/styles";
 import {
   Card,
   CardHeader,
@@ -30,7 +30,7 @@ const useStyles = makeStyles((theme) => ({
     paddingTop: "56.25%", // 16:9
   },
   avatar: {
-    backgroundColor: red[500],
+    backgroundColor: red[(500, 400, 300)],
   },
   caption: {
     paddingTop: "10px",
@@ -55,35 +55,45 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-function PostCard() {
+// PostList renders a
+export function PostList({ children }) {
+  return <div className="postCard"> {children} </div>;
+}
+
+// PostListItem renders a item containing data from the posts api call
+export function PostListItem({
+  username,
+  image,
+  restaurant_name,
+  rating,
+  caption,
+  number_of_likes,
+}) {
   const classes = useStyles();
+
   return (
     <Card className={classes.root}>
       <CardHeader
         avatar={
           <Avatar aria-label="recipe" className={classes.avatar}>
-            R
+            {username[0]}
           </Avatar>
         }
-        action={<Ratings />}
-        title={"Anjali Kevadiya"}
-        subheader="Burger King"
+        action={<Ratings ratingValue={rating} />}
+        title={username}
+        subheader={restaurant_name}
       />
-      <CardMedia
-        className={classes.media}
-        image="https://pbs.twimg.com/profile_images/572395168905457664/lCtqj0ak.jpeg"
-        title="Paella dish"
-      />
+      <CardMedia className={classes.media} image={image} title={caption} />
       <CardContent className={classes.caption}>
         <Typography variant="body3" color="textSecondary" component="h6">
-          {"It was delicious!!"}
+          {caption}
         </Typography>
       </CardContent>
       <CardActions className={classes.actionButtons} disableSpacing>
         <IconButton aria-label="add to favorites">
           <FavoriteIcon />
           <Typography variant="body3" color="textSecondary" component="h6">
-            {" 10 "}likes
+            {number_of_likes} likes
           </Typography>
         </IconButton>
         <IconButton aria-label="comment">
@@ -125,5 +135,3 @@ function PostCard() {
     </Card>
   );
 }
-
-export default PostCard;
