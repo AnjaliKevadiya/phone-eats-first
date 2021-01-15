@@ -1,11 +1,12 @@
 import React from "react";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import "./App.css";
-import SignUp from "./pages/SignUp";
+import SignUp from "./pages/signUp";
 import Home from "./pages/Home";
 import Navbar from "./components/Navbar";
 import Wrapper from "./components/Wrapper";
-import SignIn from "./pages/SignIn";
+import SignIn from "./pages/signIn";
+import Profile from "./pages/Profile";
 
 function App() {
   return (
@@ -14,9 +15,10 @@ function App() {
         <Navbar />
         <Wrapper>
           <Switch>
-            <Route exact path="/signin" component={SignIn} />
+            <Route exact path={["/", "/signin"]} component={SignIn} />
             <Route exact path="/signup" component={SignUp} />
             <Route exact path="/home" component={Home} />
+            <Route exact path="/profile" component={Profile} />
           </Switch>
         </Wrapper>
       </div>
