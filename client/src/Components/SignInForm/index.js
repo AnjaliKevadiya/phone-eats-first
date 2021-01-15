@@ -15,14 +15,15 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-export default function BasicTextFields() {
+export default function BasicTextFields(props) {
   const classes = useStyles();
 
   return (
-    <div>
-      <form className={classes.root} noValidate autoComplete="off">
-        <TextField id="standard-basic" label="Email" />
-        <TextField
+      <div>
+        <h1>Phone Eats Frist!</h1>
+    <form className={classes.root} noValidate autoComplete="off" {...props}>
+      <TextField id="standard-basic" label="Email" />
+      <TextField
           id="standard-password-input"
           label="Password"
           type="password"
