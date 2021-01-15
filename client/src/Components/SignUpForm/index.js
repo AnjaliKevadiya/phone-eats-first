@@ -23,7 +23,7 @@ export function Form(props) {
 export function FirstNameInput(props) {
     return (
         <div className="input-field col s6">
-            <input placeholder="First Name" id="first_name" type="text" />
+            <input name={props.name} onChange={props.onChange} placeholder="First Name" id="first_name" type="text" />
             {props.children}
         </div>
     );
@@ -32,7 +32,7 @@ export function FirstNameInput(props) {
 export function LastNameInput(props) {
     return (
         <div className="input-field col s6">
-            <input placeholder="Last Name" id="last_name" type="text" />
+            <input name={props.name} onChange={props.onChange} placeholder="Last Name" id="last_name" type="text" />
             {props.children}
         </div>
     );
@@ -41,7 +41,7 @@ export function LastNameInput(props) {
 export function EmailInput(props) {
     return (
         <div className="input-field col s12">
-            <input placeholder="Email Address" id="email" type="email" />
+            <input name={props.name} onChange={props.onChange} placeholder="Email Address" id="email" type="email" />
             {props.children}
         </div>
     );
@@ -50,7 +50,7 @@ export function EmailInput(props) {
 export function PasswordInput(props) {
     return (
         <div className="input-field col s12">
-            <input placeholder="password" id="password" type="password" />
+            <input name={props.name} onChange={props.onChange} placeholder="password" id="password" type="password" />
             {props.children}
         </div>
     );
@@ -59,7 +59,7 @@ export function PasswordInput(props) {
 export function SignUpBtn(props) {
     return (
         <div className="input-field col s12">
-            <button type="submit" className="btn btn-primary">Sign Up</button>
+            <button onClick={props.onClick} type="submit" className="btn btn-primary">Sign Up</button>
             {props.children}
         </div>
     );
