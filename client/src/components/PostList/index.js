@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import Ratings from "../ReadOnlyRatings";
 import { makeStyles } from "@material-ui/core/styles";
 import {
@@ -19,6 +19,7 @@ import ShareIcon from "@material-ui/icons/Share";
 import CommentIcon from "@material-ui/icons/Comment";
 
 import { red } from "@material-ui/core/colors";
+import API from "../../utils/API";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -63,6 +64,7 @@ export function PostList({ children }) {
 
 // PostListItem renders a item containing data from the posts api call
 export function PostListItem({
+  id,
   username,
   image,
   restaurant_name,
@@ -72,20 +74,20 @@ export function PostListItem({
 }) {
   const classes = useStyles();
 
+  const [likes, setLikes] = useState(number_of_likes);
+
+  // useEffect(() => {
+  //   setLikes(num)
+  // }, []);
+
   const handleLikeClick = (e) => {
     e.preventDefault();
-    alert("Hey");
-    // console.log("email is " + email);
-    // console.log("password is " + password);
-    // API.login({
-    //   email: email,
-    //   password: password,
-    // })
-    //   .then((res) => {
-    //     console.log("login response ", res);
-    //     window.location.href = "/home";
-    //   })
-    //   .catch((err) => console.log(err));
+    API.updateLike(id)
+      .then((res) => {
+        console.log("liked");
+        setLikes(likes + 1);
+      })
+      .catch((err) => console.log(err));
   };
 
   return (
@@ -113,7 +115,7 @@ export function PostListItem({
         </IconButton>
 
         <Typography variant="body3" color="textSecondary" component="h6">
-          {number_of_likes} likes
+          {likes} likes
         </Typography>
 
         <IconButton aria-label="comment">

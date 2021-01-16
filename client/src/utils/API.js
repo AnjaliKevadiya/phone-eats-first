@@ -30,4 +30,9 @@ export default {
   deletePost: function (id) {
     return axios.delete("/api/posts/", id);
   },
+
+  // update like
+  updateLike: function (id) {
+    return axios.post("/api/posts/updateLike", { id: id });
+  },
 };

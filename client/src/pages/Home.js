@@ -33,6 +33,7 @@ function Home() {
           {posts.map((post) => {
             return (
               <PostListItem
+                id={post._id}
                 key={post.username}
                 image={post.image}
                 restaurant_name={post.restaurant_name}
