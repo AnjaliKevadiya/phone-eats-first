@@ -6,7 +6,6 @@ var passport = require("../../config/passport");
 router.route("/signup").post(usersController.register);
 
 // login endpoint /api/user/login
-// router.route("/login").post(usersController.login);
 router.post("/login", passport.authenticate("local"), function (req, res) {
   console.log("Requested User: ", req.user);
   if (!req.user) {

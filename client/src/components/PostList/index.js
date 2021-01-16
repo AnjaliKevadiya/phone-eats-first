@@ -1,4 +1,4 @@
-import React, { useState, useRef } from "react";
+import React, { useState, useRef, useEffect } from "react";
 import Ratings from "../ReadOnlyRatings";
 import { makeStyles } from "@material-ui/core/styles";
 import {
@@ -77,6 +77,8 @@ export function PostListItem({
   const commentInput = useRef(null);
 
   const [likes, setLikes] = useState(number_of_likes);
+  const [comment, setComment] = useState("");
+  const [comments, setComments] = useState([]);
 
   const handleCommentClick = (e) => {
     e.preventDefault();
@@ -91,6 +93,22 @@ export function PostListItem({
         setLikes(likes + 1);
       })
       .catch((err) => console.log(err));
+  };
+
+  const handleAddCommentButtonClick = (e) => {
+    e.preventDefault();
+    if (comment.length > 0) {
+      API.createComment({
+        id: id,
+        comment: comment,
+        username: username,
+      })
+        .then((res) => {
+          setComment("");
+          console.log("load all the comments");
+        })
+        .catch((err) => console.log(err));
+    }
   };
 
   return (
@@ -149,12 +167,15 @@ export function PostListItem({
           multiline
           variant="outlined"
           inputRef={commentInput}
+          value={comment}
+          onChange={(e) => setComment(e.target.value)}
         />
         <Button
           variant="outlined"
           size="large"
           color="primary"
           className={classes.sendButton}
+          onClick={handleAddCommentButtonClick}
         >
           Send
         </Button>

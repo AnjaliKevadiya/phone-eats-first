@@ -35,4 +35,9 @@ export default {
   updateLike: function (id) {
     return axios.post("/api/posts/updateLike", { id: id });
   },
+
+  // create comment
+  createComment: function (commentData) {
+    return axios.post("/api/comments/create", commentData);
+  },
 };
