@@ -6,11 +6,13 @@ import Home from "./pages/Home";
 import Wrapper from "./components/Wrapper";
 import SignIn from "./pages/signIn";
 import Profile from "./pages/Profile";
+import Navbar from "./components/Navbar";
 
 function App() {
   return (
     <Router>
       <div>
+      <Navbar />
         <Wrapper>
           <Switch>
             <Route exact path={["/", "/signin"]} component={SignIn} />
