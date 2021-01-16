@@ -7,6 +7,12 @@ export function Container(props) {
     );
 }
 
+export function Card(props) {
+    return (
+        <div className="card">{props.children}</div>
+    );
+}
+
 export function Row(props) {
     return (
         <div className="row">{props.children}</div>

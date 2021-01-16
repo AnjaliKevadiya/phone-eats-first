@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import {
   Container,
+  Card,
   Row,
   Form,
   FirstNameInput,
@@ -46,23 +47,27 @@ function SignUp() {
   return (
     <div>
       <Container>
-        <Row>
-          <Form>
-            <h1>SIGN UP</h1>
-            <Row>
-              <FirstNameInput onChange={handleInputChange} name="first_name" />
-              <LastNameInput onChange={handleInputChange} name="last_name" />
-            </Row>
-            <Row>
-              <EmailInput onChange={handleInputChange} name="email" />
-            </Row>
-            <Row>
-              <PasswordInput onChange={handleInputChange} name="password" />
-            </Row>
-          </Form>
-        </Row>
+        <Card>
+          <Row>
+            <Form>
+              <h1>SIGN UP</h1>
+              <Row>
+                <FirstNameInput onChange={handleInputChange} name="first_name" />
+                <LastNameInput onChange={handleInputChange} name="last_name" />
+              </Row>
+              <Row>
+                <EmailInput onChange={handleInputChange} name="email" />
+              </Row>
+              <Row>
+                <PasswordInput onChange={handleInputChange} name="password" />
+              </Row>
+              <Row>
+                <SignUpBtn onClick={handleFormSubmit} />
+              </Row>
+            </Form>
+          </Row>
+        </Card>
       </Container>
-      <SignUpBtn onClick={handleFormSubmit} />
     </div>
   );
 }

@@ -1,9 +1,11 @@
-div.container {
+container {
     position: relative;
     max-width: 600px;
     backgroud-color: white;
     border-radius: 4px;
 }
+
+
 
 input#email {
     margin-top: 5%;
