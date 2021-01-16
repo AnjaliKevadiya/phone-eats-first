@@ -7,6 +7,17 @@ export function Container(props) {
     );
 }
 
+export function Card(props) {
+    return (
+        <div className="card">{props.children}</div>
+    );
+}
+export function H1(props) {
+    return (
+        <h1>Sign Up</h1>
+    )
+}
+
 export function Row(props) {
     return (
         <div className="row">{props.children}</div>
@@ -22,7 +33,7 @@ export function Form(props) {
 
 export function FirstNameInput(props) {
     return (
-        <div className="input-field col s6">
+        <div className="input-field">
             <input name={props.name} onChange={props.onChange} placeholder="First Name" id="first_name" type="text" />
             {props.children}
         </div>
@@ -31,7 +42,7 @@ export function FirstNameInput(props) {
 
 export function LastNameInput(props) {
     return (
-        <div className="input-field col s6">
+        <div className="input-field">
             <input name={props.name} onChange={props.onChange} placeholder="Last Name" id="last_name" type="text" />
             {props.children}
         </div>
@@ -59,7 +70,7 @@ export function PasswordInput(props) {
 export function SignUpBtn(props) {
     return (
         <div className="input-field col s12">
-            <button onClick={props.onClick} type="submit" className="btn btn-primary">Sign Up</button>
+            <button onClick={props.onClick} type="submit" className="btn">Sign Up</button>
             {props.children}
         </div>
     );
