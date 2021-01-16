@@ -14,12 +14,13 @@ import {
   Button,
 } from "@material-ui/core";
 
+import { red } from "@material-ui/core/colors";
 import FavoriteIcon from "@material-ui/icons/Favorite";
 import ShareIcon from "@material-ui/icons/Share";
 import CommentIcon from "@material-ui/icons/Comment";
 
-import { red } from "@material-ui/core/colors";
 import API from "../../utils/API";
+import FBShareButton from "../FBShareButton";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -126,6 +127,7 @@ export function PostListItem({
 
         <IconButton aria-label="share">
           <ShareIcon />
+          {/* <FBShareButton /> */}
         </IconButton>
       </CardActions>
 
