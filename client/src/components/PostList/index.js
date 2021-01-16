@@ -72,6 +72,22 @@ export function PostListItem({
 }) {
   const classes = useStyles();
 
+  const handleLikeClick = (e) => {
+    e.preventDefault();
+    alert("Hey");
+    // console.log("email is " + email);
+    // console.log("password is " + password);
+    // API.login({
+    //   email: email,
+    //   password: password,
+    // })
+    //   .then((res) => {
+    //     console.log("login response ", res);
+    //     window.location.href = "/home";
+    //   })
+    //   .catch((err) => console.log(err));
+  };
+
   return (
     <Card className={classes.root}>
       <CardHeader
@@ -90,20 +106,25 @@ export function PostListItem({
           {caption}
         </Typography>
       </CardContent>
+
       <CardActions className={classes.actionButtons} disableSpacing>
         <IconButton aria-label="add to favorites">
-          <FavoriteIcon />
-          <Typography variant="body3" color="textSecondary" component="h6">
-            {number_of_likes} likes
-          </Typography>
+          <FavoriteIcon onClick={handleLikeClick} />
         </IconButton>
+
+        <Typography variant="body3" color="textSecondary" component="h6">
+          {number_of_likes} likes
+        </Typography>
+
         <IconButton aria-label="comment">
           <CommentIcon />
         </IconButton>
+
         <IconButton aria-label="share">
           <ShareIcon />
         </IconButton>
       </CardActions>
+
       <CardContent className={classes.comments}>
         <Typography
           className={classes.comments}
