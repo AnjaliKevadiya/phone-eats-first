@@ -1,17 +1,105 @@
-div.container {
+.container {
     position: relative;
-    max-width: 600px;
-    backgroud-color: white;
-    border-radius: 4px;
+    width: 300px;
+    height: 400px;
+}
+
+.card {
+    margin: 0 auto;
+    margin-top: 7%; 
+    float: none;
+    margin-bottom: 10px;
+    width: 300px;
+    height: 400px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    text-align: center;
+    padding: 0 0 0 0;
+
+    
+}
+
+h1 {
+    text-align:center;
+    font-family:Helvetica;
+    font-variant:small-caps;
+    letter-spacing:2px;
+    color:#ffff;
+    background-color:#3399FF;
+    padding-bottom: 5%;
+    padding-top: 5%;
+}
+
+div.row {
+    justify-content: center;
+}
+
+input#first_name {
+    width: 130px;
+    margin-right: 5px;
+    margin-top: 25%;
+
+}
+
+input#last_name {
+    width: 130px;
+    margin-left: 5px;
+    margin-top: 25%;
+
 }
 
 input#email {
     margin-top: 5%;
-    width: 385px;
+    width: 270px;
+
 }
 
 input#password {
     margin-top: 5%;
-    width: 385px;
-    margin-bottom: 5%;
+    width: 270px;
+    margin-bottom: 10%;
 }
+
+input {
+    background: #fff;
+    color: #525865;
+    border-radius: 4px;
+    border: 1px solid #d1d1d1;
+    box-shadow: inset 1px 2px 8px rgba(0, 0, 0, 0.07);
+    font-family: inherit;
+    font-size: 1em;
+    line-height: 1.45;
+    outline: none;
+    padding: 0.6em 1.45em 0.7em;
+    -webkit-transition: .18s ease-out;
+    -moz-transition: .18s ease-out;
+    -o-transition: .18s ease-out;
+    transition: .18s ease-out;
+}
+
+input:hover {
+    box-shadow: inset 1px 2px 8px rgba(0, 0, 0, 0.02);
+}
+
+input:focus {
+    color: #4b515d;
+    border: 1px solid #B8B6B6;
+    box-shadow: inset 1px 2px 4px rgba(0, 0, 0, 0.01), 0px 0px 8px rgba(0, 0, 0, 0.2);
+}
+
+button.btn {
+    background-color: #3399FF;
+    color: white;
+}
+
+button.btn:focus {
+    color: white;
+    border: 1px solid #B8B6B6;
+    box-shadow: inset 1px 2px 4px rgba(0, 0, 0, 0.01), 0px 0px 8px rgba(0, 0, 0, 0.2);
+}
+
+button.btn:hover {
+    color: white;
+    box-shadow: inset 1px 2px 8px rgba(0, 0, 0, 0.02);
+}
+
+
