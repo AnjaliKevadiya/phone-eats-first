@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useRef } from "react";
 import Ratings from "../ReadOnlyRatings";
 import { makeStyles } from "@material-ui/core/styles";
 import {
@@ -73,12 +73,14 @@ export function PostListItem({
   number_of_likes,
 }) {
   const classes = useStyles();
+  const commentInput = useRef(null);
 
   const [likes, setLikes] = useState(number_of_likes);
 
-  // useEffect(() => {
-  //   setLikes(num)
-  // }, []);
+  const handleCommentClick = (e) => {
+    e.preventDefault();
+    commentInput.current.focus();
+  };
 
   const handleLikeClick = (e) => {
     e.preventDefault();
@@ -119,7 +121,7 @@ export function PostListItem({
         </Typography>
 
         <IconButton aria-label="comment">
-          <CommentIcon />
+          <CommentIcon onClick={handleCommentClick} />
         </IconButton>
 
         <IconButton aria-label="share">
@@ -144,6 +146,7 @@ export function PostListItem({
           placeholder="Add Comment"
           multiline
           variant="outlined"
+          inputRef={commentInput}
         />
         <Button
           variant="outlined"
