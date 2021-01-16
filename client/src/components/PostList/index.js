@@ -1,4 +1,4 @@
-import React, { useState, useRef, useEffect } from "react";
+import React, { useState, useRef, useEffect, useMemo } from "react";
 import Ratings from "../ReadOnlyRatings";
 import { makeStyles } from "@material-ui/core/styles";
 import {
@@ -86,11 +86,30 @@ export function PostListItem({
     setAllComments(comments);
   }, []);
 
+  const toRenderComments = useMemo(
+    () => {
+      return comments.map((comment) => {
+        return (
+          <Typography
+            className={classes.comments}
+            variant="body2"
+            color="textSecondary"
+            component="p"
+          >
+            {comment.comment}
+          </Typography>
+        );
+      });
+    },
+    allComments.length,
+    allComments
+  );
+
   // Loads all posts and sets them to pots
   function getCommentsOfPost() {
     API.getAllComments(id)
       .then((res) => {
-        console.log("comments", res.data);
+        console.log("comments", res.data.comments);
         setAllComments(res.data.comments);
       })
       .catch((err) => console.log(err));
@@ -120,9 +139,10 @@ export function PostListItem({
         username: username,
       })
         .then((res) => {
+          console.log("load all comments", comments);
+
           setComment("");
           getCommentsOfPost();
-          console.log("load all comments", comments);
         })
         .catch((err) => console.log(err));
     }
@@ -167,14 +187,7 @@ export function PostListItem({
       </CardActions>
 
       <CardContent className={classes.comments}>
-        <Typography
-          className={classes.comments}
-          variant="body2"
-          color="textSecondary"
-          component="p"
-        >
-          {"It was delicious!!"}
-        </Typography>
+        {toRenderComments}
 
         {/* <form noValidate> */}
         <TextField
