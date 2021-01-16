@@ -72,13 +72,29 @@ export function PostListItem({
   rating,
   caption,
   number_of_likes,
+  comments,
 }) {
   const classes = useStyles();
   const commentInput = useRef(null);
 
   const [likes, setLikes] = useState(number_of_likes);
   const [comment, setComment] = useState("");
-  const [comments, setComments] = useState([]);
+  const [allComments, setAllComments] = useState([]);
+
+  // Load all comments
+  useEffect(() => {
+    setAllComments(comments);
+  }, []);
+
+  // Loads all posts and sets them to pots
+  function getCommentsOfPost() {
+    API.getAllComments(id)
+      .then((res) => {
+        console.log("comments", res.data);
+        setAllComments(res.data.comments);
+      })
+      .catch((err) => console.log(err));
+  }
 
   const handleCommentClick = (e) => {
     e.preventDefault();
@@ -105,7 +121,8 @@ export function PostListItem({
       })
         .then((res) => {
           setComment("");
-          console.log("load all the comments");
+          getCommentsOfPost();
+          console.log("load all comments", comments);
         })
         .catch((err) => console.log(err));
     }

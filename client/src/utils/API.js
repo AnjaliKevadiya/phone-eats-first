@@ -40,4 +40,9 @@ export default {
   createComment: function (commentData) {
     return axios.post("/api/comments/create", commentData);
   },
+
+  // get all comments
+  getAllComments: function (id) {
+    return axios.get("/api/posts/" + id);
+  },
 };

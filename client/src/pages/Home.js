@@ -41,6 +41,7 @@ function Home() {
                 caption={post.caption}
                 number_of_likes={post.number_of_likes}
                 username={post.username}
+                comments={post.comments}
               />
             );
           })}

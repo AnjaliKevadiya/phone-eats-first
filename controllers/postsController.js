@@ -3,12 +3,14 @@ const db = require("../models");
 //Defining methods for the postsController
 module.exports = {
   findAll: function (req, res) {
-    db.Post.find(req.query)
+    db.Post.find({})
+      .populate("comments")
       .then((dbModel) => res.json(dbModel))
       .catch((err) => res.status(422).json(err));
   },
   findById: function (req, res) {
     db.Post.findById(req.params.id)
+      .populate("comments")
       .then((dbModel) => res.json(dbModel))
       .catch((err) => res.status(422).json(err));
   },
