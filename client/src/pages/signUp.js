@@ -4,6 +4,7 @@ import {
   Card,
   Row,
   Form,
+  H1,
   FirstNameInput,
   LastNameInput,
   EmailInput,
@@ -50,7 +51,7 @@ function SignUp() {
         <Card>
           <Row>
             <Form>
-              <h1>SIGN UP</h1>
+              <H1 />
               <Row>
                 <FirstNameInput onChange={handleInputChange} name="first_name" />
                 <LastNameInput onChange={handleInputChange} name="last_name" />
