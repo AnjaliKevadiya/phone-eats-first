@@ -1,5 +1,9 @@
 const db = require("../models");
 const bcrypt = require("bcrypt");
+const { OAuth2Client } = require("google-auth-library");
+
+//google auth
+const client = new OAuth2Client("1082885186579-00j5a8kbt4tt0q3h6mua0b1ei0fgu9n1.apps.googleusercontent.com");
 
 // Defining methods for the usersController
 
@@ -95,4 +99,47 @@ module.exports = {
       .then((dbModel) => res.json(dbModel))
       .catch((err) => res.status(422).json(err));
   },
+
+  googlelogin: function (req, res) {
+    const {tokenId} = req.body;
+
+    client.verifyIdToken({idToken: tokenId, audience: "1082885186579-00j5a8kbt4tt0q3h6mua0b1ei0fgu9n1.apps.googleusercontent.com"
+  }).then (result => {
+    console.log("Info: ", result);
+    const {email_verified, given_name, family_name, email} = result.payload;
+    if (email_verified) {
+      db.User.findOne({email}).exec((err, user) => {
+        if (err) {
+          return res.status(404).json({
+            error: "Something went wrong..."
+          })
+        } else {
+          if (user) {
+            res.json(user);
+          } else {
+            db.User.create({
+              first_name: given_name,
+              last_name: family_name,
+              email: email,
+              password: "",
+            })
+              .then((userData) => {
+                console.log("registerd successfully", userData);
+                res.json({
+                  user: userData,
+                  message: "Welcome!",
+                });
+              })
+              .catch((err) => {
+                res.status(400).json(err);
+              });
+          }
+        }
+      })
+    }
+
+    console.log(res.payload);
+  })
+    console.log();
+  }
 };

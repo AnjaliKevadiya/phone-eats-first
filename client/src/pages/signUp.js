@@ -18,16 +18,19 @@ function SignUp() {
   const [formObject, setFormObject] = useState({});
 
   const responseSuccessGoogle = (res) => {
-    console.log("Google Login Data: ",res);
+    console.log("Success: ",res);
     API.googlelogin({
       tokenId: res.tokenId
-    }).then(res => {
-      console.log(res);
     })
+    .then((res) => {
+      console.log("api.googlelogin -res: ", res)
+      window.location.href = "/home";
+    })
+    .catch((err) => console.log("api.googlelogin error: ", err));
   }
 
   const responseErrorGoogle = (res) => {
-
+    console.log("Google Login Error: ", res);
   }
 
   function handleInputChange(event) {
@@ -81,7 +84,7 @@ function SignUp() {
               </Row>
               <Row>
                 <GoogleLogin 
-                    clientId="705876653433-5ntahk4lcfni1meauaunmfcld2npgs0u.apps.googleusercontent.com"
+                    clientId="1082885186579-00j5a8kbt4tt0q3h6mua0b1ei0fgu9n1.apps.googleusercontent.com"
                     buttonText="Continue with Google"
                     onSuccess={responseSuccessGoogle}
                     onFailure={responseErrorGoogle}

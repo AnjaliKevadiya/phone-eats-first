@@ -32,7 +32,7 @@ export default {
   },
 
   //Google login
-  googlelogin: function (tokenId) {
-    return axios.post("/api/user/googlelogin", tokenId);
+  googlelogin: function (googleData) {
+    return axios.post("/api/user/googlelogin", googleData);
   }
 };

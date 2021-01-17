@@ -22,10 +22,12 @@ router.post("/login", passport.authenticate("local"), function (req, res) {
 // endpoint /api/user/userdata
 router.route("/userdata").get(usersController.checkUserLogin);
 
+//google login endpoint "/api/user/googlelogin"
+router.route("/googlelogin").post(usersController.googlelogin);
+
 //Matches with "/api/user/:id"
 router.route("/:id").get(usersController.findById).put(usersController.update);
 
-//google login endpoint "/api/user/googlelogin"
-router.post("/googlelogin", googlelogin);
+
 
 module.exports = router;
