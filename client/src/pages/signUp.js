@@ -11,11 +11,19 @@ import {
   PasswordInput,
   SignUpBtn,
 } from "../components/SignUpForm";
-import GoogleSignUpBtn from "react-google-login";
+import GoogleLogin from "react-google-login";
 import API from "../utils/API";
 
 function SignUp() {
   const [formObject, setFormObject] = useState({});
+
+  const responseSuccessGoogle = (res) => {
+    console.log(res)
+  }
+
+  const responseErrorGoogle = (res) => {
+
+  }
 
   function handleInputChange(event) {
     const { name, value } = event.target;
@@ -67,11 +75,11 @@ function SignUp() {
                 <SignUpBtn onClick={handleFormSubmit} />
               </Row>
               <Row>
-                <GoogleSignUpBtn 
-                    clientId="705876653433-b1hjnhdhnp4e4kkitd1fbdoj4hl7lu58.apps.googleusercontent.com"
-                    buttonText="Login with Google"
-                    onSuccess={responseGoogle}
-                    onFailure={responseGoogle}
+                <GoogleLogin 
+                    clientId="705876653433-5ntahk4lcfni1meauaunmfcld2npgs0u.apps.googleusercontent.com"
+                    buttonText="Continue with Google"
+                    onSuccess={responseSuccessGoogle}
+                    onFailure={responseErrorGoogle}
                     cookiePolicy={'single_host_origin'}
                 />
               </Row>
