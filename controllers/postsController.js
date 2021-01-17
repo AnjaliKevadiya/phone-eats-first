@@ -36,11 +36,4 @@ module.exports = {
       .then((dbModel) => res.json(dbModel))
       .catch((err) => res.status(422).json(err));
   },
-  uploadPhoto: function (req, res) {
-    console.log("req.files ", req.files);
-    var newItem = new Item();
-    newItem.img.data = fs.readFileSync(req.files.userPhoto.path);
-    newItem.img.contentType = "image/png";
-    newItem.save();
-  },
 };

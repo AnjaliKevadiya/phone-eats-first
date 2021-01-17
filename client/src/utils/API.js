@@ -21,11 +21,6 @@ export default {
     return axios.post("/api/posts/create", postData);
   },
 
-  // upload photo
-  uploadPhoto: function (postData) {
-    return axios.post("/api/posts/photo", postData);
-  },
-
   // update existing post
   updatePost: function (id) {
     return axios.put("/api/posts/", id);

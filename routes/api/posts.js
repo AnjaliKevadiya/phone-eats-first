@@ -17,7 +17,4 @@ router
 // endpoint "/api/posts/updateLike"
 router.route("/updateLike").post(postsController.updateLike);
 
-// endpoint "/api/posts/photo"
-router.route("/photo").post(postsController.uploadPhoto);
-
 module.exports = router;
