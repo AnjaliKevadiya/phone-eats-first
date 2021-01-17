@@ -6,10 +6,24 @@ const UserSchema = new Schema({
   email: {
     type: String,
     unique: true,
+    match: [/.+@.+\..+/, "Please enter a valid e-mail address"],
   },
-  password: String,
-  first_name: String,
-  last_name: String,
+  password: {
+    type: String,
+    trim: true,
+    required: "Password is Required",
+    validate: [({ length }) => length >= 6, "Password should be longer."],
+  },
+  first_name: {
+    type: String,
+    trim: true,
+    required: "First Name is Required",
+  },
+  last_name: {
+    type: String,
+    trim: true,
+    required: "Last Name is Required",
+  },
   profile_url: String,
   posts: [
     {
