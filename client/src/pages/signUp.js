@@ -11,7 +11,7 @@ import {
   PasswordInput,
   SignUpBtn,
 } from "../components/SignUpForm";
-import {GoogleSignUpBtn} from "../components/GoogleAuthBtn";
+import GoogleSignUpBtn from "react-google-login";
 import API from "../utils/API";
 
 function SignUp() {
@@ -67,7 +67,13 @@ function SignUp() {
                 <SignUpBtn onClick={handleFormSubmit} />
               </Row>
               <Row>
-                <GoogleSignUpBtn onClick={} />
+                <GoogleSignUpBtn 
+                    clientId="705876653433-b1hjnhdhnp4e4kkitd1fbdoj4hl7lu58.apps.googleusercontent.com"
+                    buttonText="Login with Google"
+                    onSuccess={responseGoogle}
+                    onFailure={responseGoogle}
+                    cookiePolicy={'single_host_origin'}
+                />
               </Row>
             </Form>
           </Row>
