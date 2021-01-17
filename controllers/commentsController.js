@@ -15,7 +15,7 @@ module.exports = {
         // { new: true } tells the query that we want it to return the updated Post -- it returns the original by default
         // Since our mongoose query returns a promise, we can chain another `.then` which receives the result of the query
         return db.Post.findOneAndUpdate(
-          {},
+          { _id: req.body.id },
           { $push: { comments: dbComment._id } },
           { new: true }
         );
