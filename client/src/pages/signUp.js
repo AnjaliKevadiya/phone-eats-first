@@ -18,7 +18,12 @@ function SignUp() {
   const [formObject, setFormObject] = useState({});
 
   const responseSuccessGoogle = (res) => {
-    console.log(res)
+    console.log("Google Login Data: ",res);
+    API.googlelogin({
+      tokenId: res.tokenId
+    }).then(res => {
+      console.log(res);
+    })
   }
 
   const responseErrorGoogle = (res) => {
