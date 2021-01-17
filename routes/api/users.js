@@ -25,4 +25,7 @@ router.route("/userdata").get(usersController.checkUserLogin);
 //Matches with "/api/user/:id"
 router.route("/:id").get(usersController.findById).put(usersController.update);
 
+//google login endpoint "/api/user/googlelogin"
+router.post("/googlelogin", googlelogin);
+
 module.exports = router;
