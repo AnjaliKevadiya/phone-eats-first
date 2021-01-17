@@ -31,9 +31,15 @@ module.exports = {
       .catch((err) => res.status(422).json(err));
   },
   updateLike: function (req, res) {
-    console.log("called like from backend");
     db.Post.update({ _id: req.body.id }, { $inc: { number_of_likes: 1 } })
       .then((dbModel) => res.json(dbModel))
       .catch((err) => res.status(422).json(err));
+  },
+  uploadPhoto: function (req, res) {
+    console.log("req.files ", req.files);
+    var newItem = new Item();
+    newItem.img.data = fs.readFileSync(req.files.userPhoto.path);
+    newItem.img.contentType = "image/png";
+    newItem.save();
   },
 };

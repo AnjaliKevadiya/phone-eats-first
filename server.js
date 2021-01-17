@@ -4,6 +4,8 @@ var session = require("express-session");
 var passport = require("./config/passport");
 const mongoose = require("mongoose");
 const routes = require("./routes");
+const multer = require("multer");
+var cors = require("cors");
 
 const app = express();
 const PORT = process.env.PORT || 3001;
@@ -11,6 +13,17 @@ const PORT = process.env.PORT || 3001;
 //Middleware
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
+
+app.use(cors());
+
+app.use(
+  multer({
+    dest: "./uploads/",
+    rename: function (fieldname, filename) {
+      return filename;
+    },
+  })
+);
 
 //static assets
 if (process.env.NODE_ENV === "production") {

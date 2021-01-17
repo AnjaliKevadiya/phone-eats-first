@@ -2,6 +2,7 @@ import React from "react";
 import "./style.css";
 import API from "../utils/API";
 import { Button } from "@material-ui/core";
+import ImageUpload from "../components/ImageUpload";
 
 const handleUploadImageClick = (e) => {
   e.preventDefault();
@@ -22,49 +23,26 @@ const handleUploadImageClick = (e) => {
 };
 
 function NewPost() {
-  return <FileUpload />;
-}
-
-export default NewPost;
-
-/**
- * Component to handle file upload. Works for image
- * uploads, but can be edited to work for any file.
- */
-function FileUpload() {
-  // State to store uploaded file
   const [file, setFile] = React.useState("");
 
-  // Handles file upload event and updates state
-  function handleUpload(event) {
+  const handlerFileUpload = (event) => {
     setFile(event.target.files[0]);
-
-    // Add code here to upload file to server
-    // ...
-  }
-
+  };
   return (
-    <div id="upload-box">
-      <Button
+    <div>
+      {/* <Button
         variant="contained"
         color="primary"
         onClick={handleUploadImageClick}
       >
         Upload Image
-      </Button>
+      </Button> */}
 
-      <input type="file" accept="image/*" onChange={handleUpload} />
-      <p>Filename: {file.name}</p>
-      <p>File type: {file.type}</p>
-      <p>File size: {file.size} bytes</p>
-      {file && <ImageThumb image={file} />}
+      {file && <img src={URL.createObjectURL(file)} alt={file.name} />}
+
+      <ImageUpload onUpload={handlerFileUpload} />
     </div>
   );
 }
 
-/**
- * Component to display thumbnail of image.
- */
-const ImageThumb = ({ image }) => {
-  return <img src={URL.createObjectURL(image)} alt={image.name} />;
-};
+export default NewPost;

@@ -21,6 +21,10 @@ export default {
     return axios.post("/api/posts/create", postData);
   },
 
+  // create new post
+  createNewPost: function (postData) {
+    return axios.post("/api/posts/create", postData);
+  },
   // update existing post
   updatePost: function (id) {
     return axios.put("/api/posts/", id);
