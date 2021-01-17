@@ -79,16 +79,23 @@ export function PostListItem({
 
   const [likes, setLikes] = useState(number_of_likes);
   const [comment, setComment] = useState("");
-  const [allComments, setAllComments] = useState([]);
+  const [allComments, setAllComments] = useState(comments);
+  const [loadComments, setLoadComments] = useState(false);
 
-  // Load all comments
   useEffect(() => {
-    setAllComments(comments);
-  }, []);
+    API.getAllComments(id)
+      .then((res) => {
+        console.log("comments", res.data.comments);
+        setAllComments((ac) => {
+          return { ...ac }, res.data.comments;
+        });
+      })
+      .catch((err) => console.log(err));
+  }, [loadComments]);
 
   const toRenderComments = useMemo(
     () => {
-      return comments.map((comment) => {
+      return allComments.map((comment) => {
         return (
           <Typography
             className={classes.comments}
@@ -142,7 +149,7 @@ export function PostListItem({
           console.log("load all comments", comments);
 
           setComment("");
-          getCommentsOfPost();
+          setLoadComments((loadComments) => !loadComments);
         })
         .catch((err) => console.log(err));
     }
