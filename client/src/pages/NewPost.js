@@ -1,7 +1,7 @@
 import React from "react";
 import "./style.css";
 import API from "../utils/API";
-import { Button } from "@material-ui/core";
+import { Button, CssBaseline, Container } from "@material-ui/core";
 import ImageUpload from "../components/ImageUpload";
 
 function NewPost() {
@@ -37,19 +37,24 @@ function NewPost() {
   };
 
   return (
-    <div>
-      <Button
-        variant="contained"
-        color="primary"
-        onClick={handleCreateNewPostClick}
-      >
-        Upload Image
-      </Button>
+    <React.Fragment>
+      <CssBaseline />
+      <Container maxWidth="sm">
+        <div>
+          <Button
+            variant="contained"
+            color="primary"
+            onClick={handleCreateNewPostClick}
+          >
+            Upload Image
+          </Button>
 
-      {file && <img src={URL.createObjectURL(file)} alt={file.name} />}
+          {file && <img src={URL.createObjectURL(file)} alt={file.name} />}
 
-      <ImageUpload onUpload={handlerFileUpload} />
-    </div>
+          <ImageUpload onUpload={handlerFileUpload} />
+        </div>
+      </Container>
+    </React.Fragment>
   );
 }
 

@@ -79,45 +79,32 @@ export function PostListItem({
 
   const [likes, setLikes] = useState(number_of_likes);
   const [comment, setComment] = useState("");
-  const [allComments, setAllComments] = useState(comments);
-  const [loadComments, setLoadComments] = useState(false);
+  const [allComments, setAllComments] = useState([...comments]);
 
-  useEffect(() => {
-    API.getAllComments(id)
-      .then((res) => {
-        console.log("comments", res.data.comments);
-        setAllComments((ac) => {
-          return { ...ac }, res.data.comments;
-        });
-      })
-      .catch((err) => console.log(err));
-  }, [loadComments]);
-
-  const toRenderComments = useMemo(
-    () => {
-      return allComments.map((comment) => {
-        return (
-          <Typography
-            className={classes.comments}
-            variant="body2"
-            color="textSecondary"
-            component="p"
-          >
-            {comment.comment}
-          </Typography>
-        );
-      });
-    },
-    allComments.length,
-    allComments
-  );
+  const toRenderComments = useMemo(() => {
+    return allComments.map((comment) => {
+      return (
+        <Typography
+          className={classes.comments}
+          variant="body2"
+          color="textSecondary"
+          component="p"
+        >
+          {comment.comment}
+        </Typography>
+      );
+    });
+  }, [allComments]);
 
   // Loads all posts and sets them to pots
   function getCommentsOfPost() {
     API.getAllComments(id)
       .then((res) => {
         console.log("comments", res.data.comments);
-        setAllComments(res.data.comments);
+        setAllComments([
+          ...allComments,
+          res.data.comments[res.data.comments.length - 1],
+        ]);
       })
       .catch((err) => console.log(err));
   }
@@ -149,7 +136,7 @@ export function PostListItem({
           console.log("load all comments", comments);
 
           setComment("");
-          setLoadComments((loadComments) => !loadComments);
+          getCommentsOfPost();
         })
         .catch((err) => console.log(err));
     }
@@ -195,7 +182,6 @@ export function PostListItem({
 
       <CardContent className={classes.comments}>
         {toRenderComments}
-
         {/* <form noValidate> */}
         <TextField
           className={classes.addComment}
@@ -216,7 +202,6 @@ export function PostListItem({
         >
           Send
         </Button>
-
         {/* </form> */}
       </CardContent>
     </Card>
