@@ -6,7 +6,7 @@ const PostSchema = new Schema({
   restaurant_name: String,
   rating: Number,
   caption: String,
-  number_of_likes: Number,
+  number_of_likes: { type: Number, default: 0 },
   username: String,
   comments: [{ type: Schema.Types.ObjectId, ref: "Comment" }],
 });

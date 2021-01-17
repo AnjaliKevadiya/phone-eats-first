@@ -18,6 +18,8 @@ function NewPost() {
     reader.readAsDataURL(file);
     reader.onload = () => {
       console.log("reader ", reader.result);
+
+      //create a new post
       API.createNewPost({
         image: reader.result,
         restaurant_name: "Mexican",
@@ -28,7 +30,7 @@ function NewPost() {
       })
         .then((res) => {
           console.log("post created ", res);
-          // window.location.href = "/home";
+          window.location.href = "/home";
         })
         .catch((err) => console.log(err));
     };
