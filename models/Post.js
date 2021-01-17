@@ -2,10 +2,7 @@ const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 
 const PostSchema = new Schema({
-  image: {
-    data: Buffer,
-    contentType: String,
-  },
+  image: String,
   restaurant_name: String,
   rating: Number,
   caption: String,
