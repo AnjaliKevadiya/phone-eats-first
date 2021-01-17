@@ -11,6 +11,7 @@ import {
   PasswordInput,
   SignUpBtn,
 } from "../components/SignUpForm";
+import {GoogleSignUpBtn} from "../components/GoogleAuthBtn";
 import API from "../utils/API";
 
 function SignUp() {
@@ -64,6 +65,9 @@ function SignUp() {
               </Row>
               <Row>
                 <SignUpBtn onClick={handleFormSubmit} />
+              </Row>
+              <Row>
+                <GoogleSignUpBtn onClick={} />
               </Row>
             </Form>
           </Row>
