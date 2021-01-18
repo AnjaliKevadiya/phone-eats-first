@@ -6,7 +6,8 @@ export default function FBShareButton(props) {
     <FacebookShareButton
       url={"https://phone-eats-first.herokuapp.com/"}
       quote={"Phone Eats First"}
-      //   hashtag="#Testing"
+      //   imageURL={props.data.image}
+      //   hashtag={props.caption}
     >
       <FacebookIcon size={36} round={true} />
     </FacebookShareButton>
