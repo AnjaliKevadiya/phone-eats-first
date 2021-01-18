@@ -12,6 +12,7 @@ import {
   SignUpBtn,
 } from "../components/SignUpForm";
 import GoogleLogin from "react-google-login";
+import FacebookLogin from "react-facebook-login";
 import API from "../utils/API";
 
 function SignUp() {
