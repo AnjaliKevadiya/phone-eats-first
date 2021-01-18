@@ -14,6 +14,7 @@ import {
 import GoogleLogin from "react-google-login";
 import FacebookLogin from "react-facebook-login";
 import API from "../utils/API";
+import EntryNavBar from "../components/EntryNavBar"
 
 function SignUp() {
   const [formObject, setFormObject] = useState({});
@@ -82,6 +83,7 @@ function SignUp() {
 
   return (
     <div>
+      <EntryNavBar />
       <Container>
         <Card>
           <Row>

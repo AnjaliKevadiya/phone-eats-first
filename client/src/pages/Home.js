@@ -3,6 +3,7 @@ import { PostList, PostListItem } from "../components/PostList";
 import "./style.css";
 import NewPostButton from "../components/NewPostButton";
 import API from "../utils/API";
+import Navbar from "../components/Navbar";
 
 function Home() {
   // Setting our component's initial state
@@ -24,6 +25,7 @@ function Home() {
   }
   return (
     <div>
+      <Navbar />
       <NewPostButton />
 
       {!posts.length ? (
