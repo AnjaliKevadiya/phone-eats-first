@@ -4,9 +4,19 @@ var session = require("express-session");
 var passport = require("./config/passport");
 const mongoose = require("mongoose");
 const routes = require("./routes");
+const bodyParser = require("body-parser");
 
 const app = express();
 const PORT = process.env.PORT || 3001;
+
+app.use(bodyParser.json({ limit: "50mb", extended: true }));
+app.use(
+  bodyParser.urlencoded({
+    limit: "50mb",
+    extended: true,
+    parameterLimit: 50000,
+  })
+);
 
 //Middleware
 app.use(express.urlencoded({ extended: true }));
