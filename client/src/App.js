@@ -7,11 +7,13 @@ import Wrapper from "./components/Wrapper";
 import SignIn from "./pages/signIn";
 import Profile from "./pages/Profile";
 import NewPost from "./pages/NewPost";
+import Navbar from "./components/Navbar";
 
 function App() {
   return (
     <Router>
       <div>
+      <Navbar />
         <Wrapper>
           <Switch>
             <Route exact path={["/", "/signin"]} component={SignIn} />
