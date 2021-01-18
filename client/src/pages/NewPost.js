@@ -1,7 +1,7 @@
 import React from "react";
 import "./style.css";
 import API from "../utils/API";
-import { Button, CssBaseline, Container } from "@material-ui/core";
+import { Button, Container } from "@material-ui/core";
 import ImageUpload from "../components/ImageUpload";
 
 function NewPost() {
@@ -38,7 +38,6 @@ function NewPost() {
 
   return (
     <React.Fragment>
-      <CssBaseline />
       <Container maxWidth="sm">
         <div>
           <Button
