@@ -2,6 +2,11 @@
   margin-bottom: 20px;
 }
 
+
+img {
+  height: 500px;
+  width: 500px;
+}
 .body{
   background-color: rgba(0, 0, 255, 0.116);
   justify-content: center;
@@ -36,9 +41,13 @@ h2 {
   height: 400px;
 }
 
+
 .form {
   width: 130px;
   margin-right: 5px;
   margin-top: 25%;
+}
 
+.form-group {
+  justify-content: center;
 }

@@ -33,6 +33,7 @@ function Home() {
           {posts.map((post) => {
             return (
               <PostListItem
+                id={post._id}
                 key={post.username}
                 image={post.image}
                 restaurant_name={post.restaurant_name}
@@ -40,6 +41,7 @@ function Home() {
                 caption={post.caption}
                 number_of_likes={post.number_of_likes}
                 username={post.username}
+                comments={post.comments}
               />
             );
           })}

@@ -54,7 +54,8 @@ const userSeed = [
 
 const postSeed = [
   {
-    image: "https://images.app.goo.gl/QmLhidh65s97g2b49",
+    image:
+      "https://images.japancentre.com/recipes/pics/18/main/makisushi.jpg?1557308201",
     restaurant_name: "Sushi Palace",
     rating: 5,
     caption: "sushi rolls",
@@ -68,7 +69,8 @@ const postSeed = [
     ],
   },
   {
-    image: "https://images.app.goo.gl/QmLhidh65s97g2b49",
+    image:
+      "https://www.happyfoodstube.com/wp-content/uploads/2016/03/homemade-sushi-image.jpg",
     restaurant_name: "Sushi Palace",
     rating: 5,
     caption: "sushi rolls",

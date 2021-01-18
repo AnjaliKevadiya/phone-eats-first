@@ -6,7 +6,6 @@ var passport = require("../../config/passport");
 router.route("/signup").post(usersController.register);
 
 // login endpoint /api/user/login
-// router.route("/login").post(usersController.login);
 router.post("/login", passport.authenticate("local"), function (req, res) {
   console.log("Requested User: ", req.user);
   if (!req.user) {
@@ -22,7 +21,15 @@ router.post("/login", passport.authenticate("local"), function (req, res) {
 // endpoint /api/user/userdata
 router.route("/userdata").get(usersController.checkUserLogin);
 
+//google login endpoint "/api/user/googlelogin"
+router.route("/googlelogin").post(usersController.googlelogin);
+
+//facebook login endpoint "/api/user/facebooklogin"
+router.route("/facebooklogin").post(usersController.facebooklogin);
+
 //Matches with "/api/user/:id"
 router.route("/:id").get(usersController.findById).put(usersController.update);
+
+
 
 module.exports = router;

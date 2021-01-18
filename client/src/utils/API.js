@@ -30,4 +30,29 @@ export default {
   deletePost: function (id) {
     return axios.delete("/api/posts/", id);
   },
+
+  // update like
+  updateLike: function (id) {
+    return axios.post("/api/posts/updateLike", { id: id });
+  },
+
+  // create comment
+  createComment: function (commentData) {
+    return axios.post("/api/comments/create", commentData);
+  },
+
+  // get all comments
+  getAllComments: function (id) {
+    return axios.get("/api/posts/" + id);
+  },
+  //Google login
+  googlelogin: function (googleData) {
+    return axios.post("/api/user/googlelogin", googleData);
+  },
+
+  //Facebook login
+  facebooklogin: function (facebookData) {
+    return axios.post("/api/user/facebooklogin", facebookData)
+  }
+
 };

@@ -14,4 +14,7 @@ router
   .put(postsController.update)
   .delete(postsController.remove);
 
+// endpoint "/api/posts/updateLike"
+router.route("/updateLike").post(postsController.updateLike);
+
 module.exports = router;
