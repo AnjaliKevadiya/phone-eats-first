@@ -20,21 +20,26 @@ function SignUp() {
 
   //GOOGLE LOGIN SUCCESS
   const responseSuccessGoogle = (res) => {
-    console.log("Success: ",res);
+    console.log("Success: ", res);
     API.googlelogin({
       tokenId: res.tokenId
     })
-    .then((res) => {
-      console.log("api.googlelogin -res: ", res)
-      window.location.href = "/home";
-    })
-    .catch((err) => console.log("api.googlelogin error: ", err));
+      .then((res) => {
+        console.log("api.googlelogin -res: ", res)
+        window.location.href = "/home";
+      })
+      .catch((err) => console.log("api.googlelogin error: ", err));
   }
 
   //GOOGLE LOGIN ERROR
   const responseErrorGoogle = (res) => {
     console.log("Google Login Error: ", res);
   }
+
+    //FACEBOOK LOGIN SUCCESS
+    const responseFacebook = (res) => {
+      console.log("Facebook Login: ", res);
+    }
 
   function handleInputChange(event) {
     const { name, value } = event.target;
@@ -87,12 +92,19 @@ function SignUp() {
                 <SignUpBtn onClick={handleFormSubmit} />
               </Row>
               <Row>
-                <GoogleLogin 
-                    clientId="1082885186579-00j5a8kbt4tt0q3h6mua0b1ei0fgu9n1.apps.googleusercontent.com"
-                    buttonText="Continue with Google"
-                    onSuccess={responseSuccessGoogle}
-                    onFailure={responseErrorGoogle}
-                    cookiePolicy={'single_host_origin'}
+                <GoogleLogin
+                  clientId="1082885186579-00j5a8kbt4tt0q3h6mua0b1ei0fgu9n1.apps.googleusercontent.com"
+                  buttonText="Continue with Google"
+                  onSuccess={responseSuccessGoogle}
+                  onFailure={responseErrorGoogle}
+                  cookiePolicy={'single_host_origin'}
+                />
+              </Row>
+              <Row>
+                <FacebookLogin
+                  appId="510466926594332"
+                  autoLoad={true}
+                  callback={responseFacebook} 
                 />
               </Row>
             </Form>
