@@ -36,6 +36,9 @@ h2 {
   height: 400px;
 }
 
-.form-group {
-  justify-content: center;
+.form {
+  width: 130px;
+  margin-right: 5px;
+  margin-top: 25%;
+
 }

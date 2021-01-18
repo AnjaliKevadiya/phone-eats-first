@@ -38,7 +38,7 @@ function SignIn() {
               onChange={(e) => setEmail(e.target.value)}
             />
           </Row>
-          <Row className="form-group row">
+          <Row className="form-group form">
             <input
               className="form-control"
               type="password"
