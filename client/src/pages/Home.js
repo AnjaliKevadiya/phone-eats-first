@@ -5,6 +5,20 @@ import NewPostButton from "../components/NewPostButton";
 import API from "../utils/API";
 
 function Home() {
+  function init() {
+    //make sure the user is logged in
+    API.checkUserLoginOrNot().then((userData) => {
+      console.log(userData.data);
+      if (userData.data.email === undefined) {
+        window.location.replace("/signin");
+      } else {
+        console.log("You're logged in!");
+      }
+    });
+  }
+
+  init();
+
   // Setting our component's initial state
   const [posts, setPosts] = useState([]);
 

@@ -52,7 +52,11 @@ export default {
 
   //Facebook login
   facebooklogin: function (facebookData) {
-    return axios.post("/api/user/facebooklogin", facebookData)
-  }
+    return axios.post("/api/user/facebooklogin", facebookData);
+  },
 
+  // Check user login
+  checkUserLoginOrNot: function () {
+    return axios.get("/api/user/userdata");
+  },
 };

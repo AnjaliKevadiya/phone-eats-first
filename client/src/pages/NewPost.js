@@ -32,6 +32,7 @@ function NewPost() {
 
         //create a new post using post data
         API.createNewPost({
+          id: "5fff5bc19ba96ba02ce5b9a8",
           image: reader.result,
           restaurant_name: restaurantName,
           rating: ratings,
