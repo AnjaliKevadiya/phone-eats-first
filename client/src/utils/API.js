@@ -18,7 +18,7 @@ export default {
 
   // get login user's all posts
   getloginUsersAllPosts: function (id) {
-    return axios.get("/api/users/" + id);
+    return axios.get("/api/user/" + id);
   },
 
   // create new post
