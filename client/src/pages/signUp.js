@@ -45,8 +45,9 @@ function SignUp() {
       })
       .then((res) => {
         console.log("api.facebooklogin - res: ", res)
+        window.location.href = "/home";
       })
-      .catch((err) => console.log("api.faceboooklogin error: ", err));
+      .catch((err) => console.log("api.facebooklogin error: ", err));
     }
 
   function handleInputChange(event) {
@@ -110,7 +111,7 @@ function SignUp() {
               </Row>
               <Row>
                 <FacebookLogin
-                  appId="510466926594332"
+                  appId="3217579161677338"
                   autoLoad={false}
                   callback={responseFacebook} 
                 />

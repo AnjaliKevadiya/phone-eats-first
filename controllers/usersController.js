@@ -152,50 +152,49 @@ module.exports = {
 
     console.log(req.body);
     const { userID, accessToken } = req.body;
-
-
-    let urlGraphFacebook = 'https://graph.facebook.com/v2.11${userId}/?fields=id,name,email&access_token=${accessToken}'
+    
+    let urlGraphFacebook = `https://graph.facebook.com/v2.11/${userID}/?fields=id,name,email&access_token=${accessToken}`
+    
     fetch(urlGraphFacebook, {
       method: 'GET'
     })
-      .then(result => {
-        const { email, name } = result;
-        console.log(name);
-        let firstName = name.split(' ')[0];
-        console.log(firstName)
-        // .slice(0, -1).join(' ');
-        let lastName = name.split(' ')[1];
-        console.log(lastName);
-        // .slice(-1).join(' ');
-        //check to see if user already exists
-        // db.User.findOne({ email }).exec((err, user) => {
-        //   if (err) {
-        //     return res.status(404).json({
-        //       error: "Something went wrong..."
-        //     })
-        //   } else {
-        //     if (user) {
-        //       res.json(user);
-        //     } else {
-        //       db.User.create({
-        //         first_name: firstName,
-        //         last_name: lastName,
-        //         email: email,
-        //         password: ""
-        //       })
-        //         .then((userData) => {
-        //           console.log("registerd successfully", userData);
-        //           res.json({
-        //             user: userData,
-        //             message: "Welcome!"
-        //           });
-        //         })
-        //         .catch((err) => {
-        //           res.status(400).json(err);
-        //         });
-        //     }
-        //   }
-        // })
+    .then(response => response.json())
+    .then(response => {
+      const { email, name } = response;
+      console.log("NAME: ", name, "EMAIL: ", email);
+        let firstName = name.split(' ').slice(0, -1).join(' ');
+        let lastName = name.split(' ').slice(-1).join(' ');
+        console.log("DATA: ", firstName, lastName);
+
+        //check if user is registered
+        db.User.findOne({ email }).exec((err, user) => {
+          if (err) {
+            return res.status(400).json({
+              error: "Something went wrong..."
+            })
+          } else {
+            if (user) {
+                res.json(user);
+              } else {
+                db.User.create({
+                  first_name: firstName,
+                  last_name: lastName,
+                  email: email,
+                  password: ""
+                })
+                  .then((userData) => {
+                    console.log("registerd successfully", userData);
+                    res.json({
+                      user: userData,
+                      message: "Welcome!"
+                    });
+                  })
+                  .catch((err) => {
+                    res.status(400).json(err);
+                  });
+              }
+          }
+        })
     });
   }
 };
