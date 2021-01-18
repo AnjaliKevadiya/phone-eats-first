@@ -53,8 +53,10 @@ function SignIn() {
           <button className="btn btn-success" type="submit">
             Submit
           </button>
+          <p className="signUp">To sign up click <a href="/signup">here</a></p>
         </Container>
       </form>
+
     </div>
     </card>
     </div>
