@@ -158,8 +158,8 @@ module.exports = {
     fetch(urlGraphFacebook, {
       method: 'GET'
     })
-      .then(res => {
-        const { email, name } = res;
+      .then(result => {
+        const { email, name } = result;
         console.log(name);
         let firstName = name.split(' ')[0];
         console.log(firstName)
