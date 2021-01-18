@@ -24,7 +24,7 @@ h1 {
     font-variant:small-caps;
     letter-spacing:2px;
     color:#ffff;
-    background-color:#3399FF;
+    background-color:#3F51B5;
     padding-bottom: 5%;
     padding-top: 5%;
 }
@@ -87,7 +87,7 @@ input:focus {
 }
 
 button.btn {
-    background-color: #3399FF;
+    background-color: #3F51B5;
     color: white;
 }
 
