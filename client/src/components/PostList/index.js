@@ -16,7 +16,6 @@ import {
 
 import { red } from "@material-ui/core/colors";
 import FavoriteIcon from "@material-ui/icons/Favorite";
-import ShareIcon from "@material-ui/icons/Share";
 import CommentIcon from "@material-ui/icons/Comment";
 
 import API from "../../utils/API";
