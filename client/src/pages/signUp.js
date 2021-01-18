@@ -39,6 +39,14 @@ function SignUp() {
     //FACEBOOK LOGIN SUCCESS
     const responseFacebook = (res) => {
       console.log("Facebook Login: ", res);
+      API.facebooklogin({
+        accessToken: res.accessToken,
+        userID: res.userID
+      })
+      .then((res) => {
+        console.log("api.facebooklogin - res: ", res)
+      })
+      .catch((err) => console.log("api.faceboooklogin error: ", err));
     }
 
   function handleInputChange(event) {
