@@ -174,10 +174,10 @@ export function PostListItem({
           <CommentIcon onClick={handleCommentClick} />
         </IconButton>
 
-        <IconButton aria-label="share">
-          <ShareIcon />
-          {/* <FBShareButton /> */}
-        </IconButton>
+        {/* <IconButton aria-label="share"> */}
+        {/* <ShareIcon /> */}
+        <FBShareButton />
+        {/* </IconButton> */}
       </CardActions>
 
       <CardContent className={classes.comments}>
