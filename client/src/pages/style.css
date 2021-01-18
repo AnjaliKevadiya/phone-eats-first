@@ -2,6 +2,11 @@
   margin-bottom: 20px;
 }
 
+<<<<<<< HEAD
+img {
+  height: 500px;
+  width: 500px;
+=======
 .body{
   background-color: rgba(0, 0, 255, 0.116);
   justify-content: center;
@@ -38,4 +43,5 @@ h2 {
 
 .form-group {
   justify-content: center;
+>>>>>>> d4d6b85a852c089bdbfff8ae16ee77977765fb94
 }
