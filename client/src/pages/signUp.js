@@ -103,7 +103,7 @@ function SignUp() {
               <Row>
                 <FacebookLogin
                   appId="510466926594332"
-                  autoLoad={true}
+                  autoLoad={false}
                   callback={responseFacebook} 
                 />
               </Row>
