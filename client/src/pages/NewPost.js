@@ -1,16 +1,32 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Button, Container, Box } from "@material-ui/core";
 import Rating from "@material-ui/lab/Rating";
 import ImageUpload from "../components/ImageUpload";
 import { Row } from "../components/SignUpForm";
 import API from "../utils/API";
 import "./style.css";
+import Cookies from "universal-cookie";
 
 function NewPost() {
+  const [userid, setUserid] = useState("");
+  const [username, setUsername] = useState("");
+
   const [file, setFile] = useState("");
   const [restaurantName, setRestaurantName] = useState();
   const [dishName, setDishName] = useState();
   const [ratings, setRatings] = useState(0);
+
+  useEffect(() => {
+    const cookies = new Cookies();
+    console.log("cookie", cookies.get("userid"));
+
+    if (cookies.get("userid") === undefined) {
+      window.location.replace("/signin");
+    } else {
+      setUserid(cookies.get("userid"));
+      setUsername(cookies.get("username"));
+    }
+  }, []);
 
   const handlerFileUpload = (event) => {
     setFile(event.target.files[0]);
@@ -23,6 +39,8 @@ function NewPost() {
       console.log("restaurantName is " + restaurantName);
       console.log("dishName is " + dishName);
       console.log("ratings is " + ratings);
+      console.log("id is " + userid);
+      console.log("username is " + username);
 
       // convert image in base64
       let reader = new FileReader();
@@ -32,13 +50,12 @@ function NewPost() {
 
         //create a new post using post data
         API.createNewPost({
-          id: "5fff5bc19ba96ba02ce5b9a8",
+          id: userid,
           image: reader.result,
           restaurant_name: restaurantName,
           rating: ratings,
           caption: dishName,
-          //   number_of_likes: 0,
-          username: "Anji",
+          username: username,
         })
           .then((res) => {
             console.log("post created ", res);

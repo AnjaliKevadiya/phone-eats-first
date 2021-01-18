@@ -3,6 +3,7 @@ import { PostList, PostListItem } from "../components/PostList";
 import "./style.css";
 import NewPostButton from "../components/NewPostButton";
 import API from "../utils/API";
+import Cookies from "universal-cookie";
 
 function Home() {
   function init() {
@@ -13,6 +14,16 @@ function Home() {
         window.location.replace("/signin");
       } else {
         console.log("You're logged in!");
+        const cookies = new Cookies();
+        // set user id in cookie
+        cookies.set("userid", userData.data._id, { path: "/" });
+
+        //set username in cookie
+        cookies.set(
+          "username",
+          userData.data.first_name + " " + userData.data.last_name,
+          { path: "/" }
+        );
       }
     });
   }
