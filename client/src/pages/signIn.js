@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { Container, Row } from "../components/SignUpForm";
 import API from "../utils/API";
 import "./style.css"
+import EntryNavBar from "../components/EntryNavBar"
 
 
 function SignIn() {
@@ -22,6 +23,8 @@ function SignIn() {
       .catch((err) => console.log(err));
   };
   return (
+      <div>
+    <EntryNavBar />
       <card className="card">
     <div className="container">
       <div className="mt-4">
@@ -54,6 +57,7 @@ function SignIn() {
       </form>
     </div>
     </card>
+    </div>
   );
 }
 export default SignIn;
