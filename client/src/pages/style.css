@@ -13,23 +13,23 @@ img {
 
 card {
   margin: 0 auto;
-  margin-top: 7%; 
+  margin-top: 7%;
   float: none;
   margin-bottom: 10px;
   width: 300px;
   height: 400px;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
   text-align: center;
-  padding: 0 0 0 0;  
+  padding: 0 0 0 0;
 }
 
 h2 {
-  text-align:center;
-  font-family:Helvetica;
-  font-variant:small-caps;
-  letter-spacing:2px;
-  color:#ffff;
-  background-color:#3399FF;
+  text-align: center;
+  font-family: Helvetica;
+  font-variant: small-caps;
+  letter-spacing: 2px;
+  color: #ffff;
+  background-color: #3399ff;
   padding-bottom: 5%;
   padding-top: 5%;
 }
