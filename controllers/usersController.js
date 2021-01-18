@@ -162,9 +162,6 @@ module.exports = {
     .then(response => {
       const { email, name } = response;
       console.log("NAME: ", name, "EMAIL: ", email);
-        let firstName = name.split(' ').slice(0, -1).join(' ');
-        let lastName = name.split(' ').slice(-1).join(' ');
-        console.log("DATA: ", firstName, lastName);
 
         //check if user is registered
         db.User.findOne({ email }).exec((err, user) => {
@@ -177,8 +174,8 @@ module.exports = {
                 res.json(user);
               } else {
                 db.User.create({
-                  first_name: firstName,
-                  last_name: lastName,
+                  first_name: name.split(' ').slice(0, -1).join(' '),
+                  last_name: name.split(' ').slice(-1).join(' '),
                   email: email,
                   password: ""
                 })
