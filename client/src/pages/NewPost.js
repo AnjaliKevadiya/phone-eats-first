@@ -3,6 +3,7 @@ import "./style.css";
 import API from "../utils/API";
 import { Button, CssBaseline, Container } from "@material-ui/core";
 import ImageUpload from "../components/ImageUpload";
+import Navbar from "../components/Navbar";
 
 function NewPost() {
   const [file, setFile] = React.useState("");
@@ -38,6 +39,7 @@ function NewPost() {
 
   return (
     <React.Fragment>
+      <Navbar />
       <CssBaseline />
       <Container maxWidth="sm">
         <div>

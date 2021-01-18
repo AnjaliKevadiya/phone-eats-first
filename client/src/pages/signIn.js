@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { Container, Row } from "../components/SignUpForm";
 import API from "../utils/API";
 import "./style.css"
+import EntryNavBar from "../components/EntryNavBar"
 
 
 function SignIn() {
@@ -22,25 +23,27 @@ function SignIn() {
       .catch((err) => console.log(err));
   };
   return (
-      <card>
+      <div>
+    <EntryNavBar />
+      <card className="card">
     <div className="container">
       <div className="mt-4">
-        <h2>Sign In</h2>
+        <h2 className="signinheader">Sign In</h2>
       </div>
       <form onSubmit={handleSubmit}>
         <Container className="mt-3 px-5">
           <Row className="form-group">
             <input
-              className="form-control"
+              className="form-control email"
               type="text"
               placeholder="Email"
               name="email"
               onChange={(e) => setEmail(e.target.value)}
             />
           </Row>
-          <Row className="form-group row">
+          <Row className="form-group">
             <input
-              className="form-control"
+              className="form-control password"
               type="password"
               placeholder="Password"
               name="password"
@@ -54,6 +57,7 @@ function SignIn() {
       </form>
     </div>
     </card>
+    </div>
   );
 }
 export default SignIn;
