@@ -1,6 +1,9 @@
 import React, { useState } from "react";
 import { Container, Row } from "../components/SignUpForm";
 import API from "../utils/API";
+import "./style.css"
+
+
 function SignIn() {
   const [email, setEmail] = useState();
   const [password, setPassword] = useState();
@@ -19,7 +22,8 @@ function SignIn() {
       .catch((err) => console.log(err));
   };
   return (
-    <div>
+      <card>
+    <div className="container">
       <div className="mt-4">
         <h2>Sign In</h2>
       </div>
@@ -34,7 +38,7 @@ function SignIn() {
               onChange={(e) => setEmail(e.target.value)}
             />
           </Row>
-          <Row className="form-group">
+          <Row className="form-group row">
             <input
               className="form-control"
               type="password"
@@ -49,6 +53,7 @@ function SignIn() {
         </Container>
       </form>
     </div>
+    </card>
   );
 }
 export default SignIn;
