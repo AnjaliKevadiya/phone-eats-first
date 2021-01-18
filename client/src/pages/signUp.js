@@ -20,7 +20,7 @@ function SignUp() {
 
   //GOOGLE LOGIN SUCCESS
   const responseSuccessGoogle = (res) => {
-    console.log("Success: ", res);
+    console.log("Google Success: ", res);
     API.googlelogin({
       tokenId: res.tokenId
     })

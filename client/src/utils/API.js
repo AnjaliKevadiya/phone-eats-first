@@ -35,4 +35,9 @@ export default {
   googlelogin: function (googleData) {
     return axios.post("/api/user/googlelogin", googleData);
   }
+
+  //Facebook login
+  // facebooklogin: function (facebookData) {
+  //   return axios.post("/api/user/facebooklogin", facebooklogin)
+  // }
 };

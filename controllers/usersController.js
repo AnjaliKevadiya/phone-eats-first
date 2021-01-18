@@ -1,6 +1,7 @@
 const db = require("../models");
 const bcrypt = require("bcrypt");
 const { OAuth2Client } = require("google-auth-library");
+const fetch = require('node-fetch');
 
 //google auth clientID
 const client = new OAuth2Client("1082885186579-00j5a8kbt4tt0q3h6mua0b1ei0fgu9n1.apps.googleusercontent.com");
@@ -144,5 +145,11 @@ module.exports = {
       })
     }
   });
-}
+  }
+
+  //facebook login
+  // facebooklogin: function (req, res) {
+
+  // }
+
 };
