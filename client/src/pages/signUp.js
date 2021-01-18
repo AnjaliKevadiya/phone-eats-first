@@ -17,6 +17,7 @@ import API from "../utils/API";
 function SignUp() {
   const [formObject, setFormObject] = useState({});
 
+  //GOOGLE LOGIN SUCCESS
   const responseSuccessGoogle = (res) => {
     console.log("Success: ",res);
     API.googlelogin({
@@ -29,6 +30,7 @@ function SignUp() {
     .catch((err) => console.log("api.googlelogin error: ", err));
   }
 
+  //GOOGLE LOGIN ERROR
   const responseErrorGoogle = (res) => {
     console.log("Google Login Error: ", res);
   }
@@ -39,6 +41,7 @@ function SignUp() {
     setFormObject({ ...formObject, [name]: value });
   }
 
+  //SIGNUP BUTTON
   function handleFormSubmit(event) {
     event.preventDefault();
     console.log("handleFormSubmit - FormData: ", formObject);
