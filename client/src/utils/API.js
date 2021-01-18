@@ -30,4 +30,15 @@ export default {
   deletePost: function (id) {
     return axios.delete("/api/posts/", id);
   },
+
+  //Google login
+  googlelogin: function (googleData) {
+    return axios.post("/api/user/googlelogin", googleData);
+  },
+
+  //Facebook login
+  facebooklogin: function (facebookData) {
+    return axios.post("/api/user/facebooklogin", facebookData)
+  }
+
 };
