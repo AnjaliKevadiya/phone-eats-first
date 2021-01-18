@@ -17,7 +17,7 @@ export default {
   },
 
   // get login user's all posts
-  getloginUsersPostAll: function (id) {
+  getloginUsersAllPosts: function (id) {
     return axios.get("/api/users/" + id);
   },
 
