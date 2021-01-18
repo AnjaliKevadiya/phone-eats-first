@@ -16,6 +16,11 @@ export default {
     return axios.get("/api/posts/all");
   },
 
+  // get login user's all posts
+  getloginUsersPostAll: function (id) {
+    return axios.get("/api/users/" + id);
+  },
+
   // create new post
   createNewPost: function (postData) {
     return axios.post("/api/posts/create", postData);
@@ -45,6 +50,7 @@ export default {
   getAllComments: function (id) {
     return axios.get("/api/posts/" + id);
   },
+
   //Google login
   googlelogin: function (googleData) {
     return axios.post("/api/user/googlelogin", googleData);

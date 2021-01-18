@@ -15,7 +15,6 @@ module.exports = {
       .catch((err) => res.status(422).json(err));
   },
   create: function (req, res) {
-    console.log("reqqqq ", req.body);
     db.Post.create(req.body)
       .then((dbPost) => {
         return db.User.findOneAndUpdate(
