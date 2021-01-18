@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import API from "../utils/API";
 import Cookies from "universal-cookie";
+import Navbar from "../components/Navbar"
 
 function Profile() {
   const [userid, setUserid] = useState("");
@@ -32,6 +33,7 @@ function Profile() {
 
   return (
     <div>
+      <Navbar />
       <div className="mt-4">
         <h2>Profile Page</h2>
       </div>

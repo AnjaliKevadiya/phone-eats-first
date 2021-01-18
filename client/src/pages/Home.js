@@ -3,7 +3,11 @@ import { PostList, PostListItem } from "../components/PostList";
 import "./style.css";
 import NewPostButton from "../components/NewPostButton";
 import API from "../utils/API";
+<<<<<<< HEAD
 import Cookies from "universal-cookie";
+=======
+import Navbar from "../components/Navbar";
+>>>>>>> 2cd83d49763c12398b425d4b28addff0c2d51c8d
 
 function Home() {
   function init() {
@@ -49,6 +53,7 @@ function Home() {
   }
   return (
     <div>
+      <Navbar />
       <NewPostButton />
 
       {!posts.length ? (
