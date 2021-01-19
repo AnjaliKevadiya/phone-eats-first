@@ -6,6 +6,21 @@ import Typography from '@material-ui/core/Typography';
 import Button from '@material-ui/core/Button';
 import IconButton from '@material-ui/core/IconButton';
 import MenuIcon from '@material-ui/icons/Menu';
+import API from "../../utils/API";
+
+//Logout functionality
+function handleLogOutBtn(event) {
+  event.preventDefault();
+  console.log("logout hit");
+  API.signOut()
+    .then((res) => {
+      console.log("api hit");
+        // const cookies = new Cookies();
+        // cookies.remove("userid", { path: "/" });
+        // console.log("Logged out");
+    })
+    .catch((err) => console.log("logout error: ", err));
+}
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -18,6 +33,8 @@ const useStyles = makeStyles((theme) => ({
     flexGrow: 1,
   },
 }));
+
+
 
 export default function ButtonAppBar() {
   const classes = useStyles();
@@ -35,7 +52,7 @@ export default function ButtonAppBar() {
             <Button variant="contained" color="primary" href="/profile">
             Profile
         </Button>
-        <Button variant="contained" color="primary" href="/signin">
+        <Button onClick={handleLogOutBtn} variant="contained" color="primary" href="/signin">
             Log Out
         </Button>
         </Toolbar>

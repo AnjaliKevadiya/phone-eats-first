@@ -65,4 +65,9 @@ export default {
   checkUserLoginOrNot: function () {
     return axios.get("/api/user/userdata");
   },
+
+  //signOut
+  signOut: function () {
+    return axios.get("/api/user/signOut");
+  }
 };
