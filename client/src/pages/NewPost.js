@@ -49,6 +49,7 @@ function NewPost() {
 
   const [userid, setUserid] = useState("");
   const [username, setUsername] = useState("");
+  const [showUpload, setShowUpload] = useState(true);
 
   const [file, setFile] = useState("");
   const [restaurantName, setRestaurantName] = useState();
@@ -69,6 +70,7 @@ function NewPost() {
 
   const handlerFileUpload = (event) => {
     setFile(event.target.files[0]);
+    setShowUpload(false);
   };
 
   const handleCreateNewPostClick = (e) => {
@@ -130,8 +132,12 @@ function NewPost() {
               className={classes.spacing}
               onChange={(e) => setDishName(e.target.value)}
             />
-
-            <Box component="fieldset" mb={3} borderColor="transparent">
+            <Box
+              component="fieldset"
+              mb={3}
+              borderColor="transparent"
+              className={classes.spacing}
+            >
               <Rating
                 name="simple-controlled"
                 value={ratings}
@@ -141,7 +147,7 @@ function NewPost() {
               />
             </Box>
             {file && <img src={URL.createObjectURL(file)} alt={file.name} />}
-            <ImageUpload onUpload={handlerFileUpload} />
+            {showUpload && <ImageUpload onUpload={handlerFileUpload} />}
           </CardContent>
 
           <CardContent className={classes.caption}>
