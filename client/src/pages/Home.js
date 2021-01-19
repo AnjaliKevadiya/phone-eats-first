@@ -54,7 +54,7 @@ function Home() {
       <NewPostButton />
 
       {!posts.length ? (
-        <h1 className="text-center">No Posts to Display</h1>
+        <p className="text-center">No Posts to Display</p>
       ) : (
         <PostList>
           {posts.map((post) => {

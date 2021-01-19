@@ -27,7 +27,6 @@ const useStyles = makeStyles((theme) => ({
 
 
 function Profile() {
-  const [userid, setUserid] = useState("");
   const [posts, setPosts] = useState([]);
   const classes = useStyles();
   // Load all posts
@@ -38,17 +37,15 @@ function Profile() {
     if (cookies.get("userid") === undefined) {
       window.location.replace("/signin");
     } else {
-      setUserid("600628742a02ed41214ffaec"); //cookies.get("userid"));
-
-      loadPosts();
+      loadPosts(cookies.get("userid"));
     }
   }, []);
 
   // Loads all posts and sets them to pots
-  function loadPosts() {
-    console.log("userid userid", userid);
+  function loadPosts(uid) {
+    console.log("userid userid", uid);
 
-    API.getloginUsersAllPosts(userid)
+    API.getloginUsersAllPosts(uid)
       .then((res) => {
         console.log("posts", res.data);
         setPosts(res.data);
