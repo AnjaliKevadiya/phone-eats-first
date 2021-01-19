@@ -4,7 +4,6 @@ import Cookies from "universal-cookie";
 import Navbar from "../components/Navbar";
 
 function Profile() {
-  const [userid, setUserid] = useState("");
   const [posts, setPosts] = useState([]);
 
   // Load all posts
@@ -15,17 +14,15 @@ function Profile() {
     if (cookies.get("userid") === undefined) {
       window.location.replace("/signin");
     } else {
-      setUserid("5fff5bc19ba96ba02ce5b9a8"); //cookies.get("userid"));
-
-      loadPosts();
+      loadPosts(cookies.get("userid"));
     }
   }, []);
 
   // Loads all posts and sets them to pots
-  function loadPosts() {
-    console.log("userid userid", userid);
+  function loadPosts(uid) {
+    console.log("userid userid", uid);
 
-    API.getloginUsersAllPosts(userid)
+    API.getloginUsersAllPosts(uid)
       .then((res) => {
         console.log("posts", res.data);
         setPosts(res.data);
