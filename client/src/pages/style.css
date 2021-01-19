@@ -55,9 +55,15 @@ img {
 }
 
 .signUp{
-  margin-top: 115px;
+  margin-top: 40px;
 }
 
+.googleLogin{
+  margin-top: 10px;
+}
+ .facebookLogin{
+   margin-top: 40px;
+ }
 /* .form-group {
   justify-content: center;
 } */
