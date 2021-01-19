@@ -7,6 +7,12 @@ import Button from '@material-ui/core/Button';
 import IconButton from '@material-ui/core/IconButton';
 import MenuIcon from '@material-ui/icons/Menu';
 
+//Logout functionality
+function handleLogOut(event) {
+  event.preventDefault();
+
+}
+
 const useStyles = makeStyles((theme) => ({
   root: {
     flexGrow: 1,
@@ -18,6 +24,8 @@ const useStyles = makeStyles((theme) => ({
     flexGrow: 1,
   },
 }));
+
+
 
 export default function ButtonAppBar() {
   const classes = useStyles();
@@ -35,7 +43,7 @@ export default function ButtonAppBar() {
             <Button variant="contained" color="primary" href="/profile">
             Profile
         </Button>
-        <Button variant="contained" color="primary" href="/signin">
+        <Button onClick={handleLogOut} variant="contained" color="primary" href="/signin">
             Log Out
         </Button>
         </Toolbar>
