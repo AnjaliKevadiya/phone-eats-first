@@ -16,7 +16,6 @@ import {
 
 import { red } from "@material-ui/core/colors";
 import FavoriteIcon from "@material-ui/icons/Favorite";
-import ShareIcon from "@material-ui/icons/Share";
 import CommentIcon from "@material-ui/icons/Comment";
 
 import API from "../../utils/API";
@@ -174,10 +173,10 @@ export function PostListItem({
           <CommentIcon onClick={handleCommentClick} />
         </IconButton>
 
-        <IconButton aria-label="share">
-          <ShareIcon />
-          {/* <FBShareButton /> */}
-        </IconButton>
+        {/* <IconButton aria-label="share"> */}
+        {/* <ShareIcon /> */}
+        <FBShareButton />
+        {/* </IconButton> */}
       </CardActions>
 
       <CardContent className={classes.comments}>

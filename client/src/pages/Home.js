@@ -3,9 +3,34 @@ import { PostList, PostListItem } from "../components/PostList";
 import "./style.css";
 import NewPostButton from "../components/NewPostButton";
 import API from "../utils/API";
+import Cookies from "universal-cookie";
 import Navbar from "../components/Navbar";
 
 function Home() {
+  function init() {
+    //make sure the user is logged in
+    API.checkUserLoginOrNot().then((userData) => {
+      console.log(userData.data);
+      if (userData.data.email === undefined) {
+        window.location.replace("/signin");
+      } else {
+        console.log("You're logged in!");
+        const cookies = new Cookies();
+        // set user id in cookie
+        cookies.set("userid", userData.data._id, { path: "/" });
+
+        //set username in cookie
+        cookies.set(
+          "username",
+          userData.data.first_name + " " + userData.data.last_name,
+          { path: "/" }
+        );
+      }
+    });
+  }
+
+  init();
+
   // Setting our component's initial state
   const [posts, setPosts] = useState([]);
 

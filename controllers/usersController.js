@@ -1,10 +1,12 @@
 const db = require("../models");
 const bcrypt = require("bcrypt");
 const { OAuth2Client } = require("google-auth-library");
-const fetch = require('node-fetch');
+const fetch = require("node-fetch");
 
 //google auth clientID
-const client = new OAuth2Client("1082885186579-00j5a8kbt4tt0q3h6mua0b1ei0fgu9n1.apps.googleusercontent.com");
+const client = new OAuth2Client(
+  "1082885186579-00j5a8kbt4tt0q3h6mua0b1ei0fgu9n1.apps.googleusercontent.com"
+);
 
 // Defining methods for the usersController
 
@@ -14,6 +16,7 @@ module.exports = {
       res.json({});
     } else {
       db.User.find(req.query)
+        .populate("posts")
         .sort({ date: -1 })
         .then((dbModel) => res.json(dbModel))
         .catch((err) => res.status(422).json(err));
@@ -31,6 +34,7 @@ module.exports = {
 
   findById: function (req, res) {
     db.User.findById(req.params.id)
+      .populate("posts")
       .then((dbModel) => res.json(dbModel))
       .catch((err) => res.status(422).json(err));
   },
@@ -103,23 +107,30 @@ module.exports = {
 
   //check to see whether user exists in db already, if not cerate new user
   googlelogin: function (req, res) {
-
     const { tokenId } = req.body;
 
-    client.verifyIdToken({
-      idToken: tokenId, audience: "1082885186579-00j5a8kbt4tt0q3h6mua0b1ei0fgu9n1.apps.googleusercontent.com"
-    })
-      .then(result => {
+    client
+      .verifyIdToken({
+        idToken: tokenId,
+        audience:
+          "1082885186579-00j5a8kbt4tt0q3h6mua0b1ei0fgu9n1.apps.googleusercontent.com",
+      })
+      .then((result) => {
         console.log("Info: ", result);
 
-        const { email_verified, given_name, family_name, email } = result.payload;
+        const {
+          email_verified,
+          given_name,
+          family_name,
+          email,
+        } = result.payload;
 
         if (email_verified) {
           db.User.findOne({ email }).exec((err, user) => {
             if (err) {
               return res.status(404).json({
-                error: "Something went wrong..."
-              })
+                error: "Something went wrong...",
+              });
             } else {
               if (user) {
                 res.json(user);
@@ -127,6 +138,54 @@ module.exports = {
                 db.User.create({
                   first_name: given_name,
                   last_name: family_name,
+                  email: email,
+                  password: "",
+                })
+                  .then((userData) => {
+                    console.log("registerd successfully", userData);
+                    res.json({
+                      user: userData,
+                      message: "Welcome!",
+                    });
+                  })
+                  .catch((err) => {
+                    res.status(400).json(err);
+                  });
+              }
+            }
+          });
+        }
+      });
+  },
+
+  //facebook login
+  facebooklogin: function (req, res) {
+    console.log(req.body);
+    const { userID, accessToken } = req.body;
+    
+    let urlGraphFacebook = `https://graph.facebook.com/v2.11/${userID}/?fields=id,name,email&access_token=${accessToken}`
+    
+    fetch(urlGraphFacebook, {
+      method: 'GET'
+    })
+    .then(response => response.json())
+    .then(response => {
+      const { email, name } = response;
+      console.log("NAME: ", name, "EMAIL: ", email);
+
+        //check if user is registered
+        db.User.findOne({ email }).exec((err, user) => {
+          if (err) {
+            return res.status(400).json({
+              error: "Something went wrong..."
+            })
+          } else {
+            if (user) {
+                res.json(user);
+              } else {
+                db.User.create({
+                  first_name: name.split(' ').slice(0, -1).join(' '),
+                  last_name: name.split(' ').slice(-1).join(' '),
                   email: email,
                   password: ""
                 })
@@ -141,61 +200,8 @@ module.exports = {
                     res.status(400).json(err);
                   });
               }
-            }
-          })
-        }
-      });
-  },
-
-  //facebook login
-  facebooklogin: function (req, res) {
-
-    console.log(req.body);
-    const { userID, accessToken } = req.body;
-
-
-    let urlGraphFacebook = 'https://graph.facebook.com/v2.11${userId}/?fields=id,name,email&access_token=${accessToken}'
-    fetch(urlGraphFacebook, {
-      method: 'GET'
-    })
-      .then(res => {
-        const { email, name } = res;
-        console.log(name);
-        let firstName = name.split(' ')[0];
-        console.log(firstName)
-        // .slice(0, -1).join(' ');
-        let lastName = name.split(' ')[1];
-        console.log(lastName);
-        // .slice(-1).join(' ');
-        //check to see if user already exists
-        // db.User.findOne({ email }).exec((err, user) => {
-        //   if (err) {
-        //     return res.status(404).json({
-        //       error: "Something went wrong..."
-        //     })
-        //   } else {
-        //     if (user) {
-        //       res.json(user);
-        //     } else {
-        //       db.User.create({
-        //         first_name: firstName,
-        //         last_name: lastName,
-        //         email: email,
-        //         password: ""
-        //       })
-        //         .then((userData) => {
-        //           console.log("registerd successfully", userData);
-        //           res.json({
-        //             user: userData,
-        //             message: "Welcome!"
-        //           });
-        //         })
-        //         .catch((err) => {
-        //           res.status(400).json(err);
-        //         });
-        //     }
-        //   }
-        // })
+          }
+        })
     });
   }
 };

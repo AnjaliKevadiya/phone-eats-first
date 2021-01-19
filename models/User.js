@@ -10,9 +10,9 @@ const UserSchema = new Schema({
   },
   password: {
     type: String,
-    trim: true,
-    required: "Password is Required",
-    validate: [({ length }) => length >= 6, "Password should be longer."],
+    // trim: true,
+    // required: "Password is Required",
+    // validate: [({ length }) => length >= 6, "Password should be longer."],
   },
   first_name: {
     type: String,
