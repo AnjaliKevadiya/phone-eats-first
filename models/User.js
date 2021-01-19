@@ -35,7 +35,7 @@ const UserSchema = new Schema({
 
 //Validate hashed password
 UserSchema.methods.comparePassword = function (plaintext) {
-  console.log("checking password");
+  // console.log("checking password");
   return bcrypt.compareSync(plaintext, this.password);
 };
 
