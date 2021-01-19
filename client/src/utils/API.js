@@ -67,7 +67,7 @@ export default {
   },
 
   //logout
-  logout: function () {
+  logout: function (userData) {
     return axios.delete("/api/user/logout", userData);
   }
 };
