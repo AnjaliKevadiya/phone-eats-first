@@ -30,10 +30,4 @@ router.route("/facebooklogin").post(usersController.facebooklogin);
 //Matches with "/api/user/:id"
 router.route("/:id").get(usersController.findById).put(usersController.update);
 
-//logout endpoint "/api/user/signOut"
-router.route("/signOut").get(usersController.signOut);
-
-
-
-
 module.exports = router;

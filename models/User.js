@@ -25,6 +25,7 @@ const UserSchema = new Schema({
     required: "Last Name is Required",
   },
   profile_url: String,
+  date: { type: Date, default: Date.now },
   posts: [
     {
       type: Schema.Types.ObjectId,
@@ -35,7 +36,7 @@ const UserSchema = new Schema({
 
 //Validate hashed password
 UserSchema.methods.comparePassword = function (plaintext) {
-  console.log("checking password");
+  // console.log("checking password");
   return bcrypt.compareSync(plaintext, this.password);
 };
 

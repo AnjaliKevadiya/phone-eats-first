@@ -39,11 +39,12 @@ module.exports = {
       .catch((err) => res.status(422).json(err));
   },
 
-    //logout
-    signOut: function (req, res) {
-      req.logout();
-      res.redirect("/");
-    },
+  //logout
+  logout: function (req, res) {
+    console.log("signout ffsdfs");
+    req.logout();
+    res.redirect("/");
+  },
 
   register: async function (req, res) {
     try {
