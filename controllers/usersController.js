@@ -1,10 +1,12 @@
 const db = require("../models");
 const bcrypt = require("bcrypt");
 const { OAuth2Client } = require("google-auth-library");
-const fetch = require('node-fetch');
+const fetch = require("node-fetch");
 
 //google auth clientID
-const client = new OAuth2Client("1082885186579-00j5a8kbt4tt0q3h6mua0b1ei0fgu9n1.apps.googleusercontent.com");
+const client = new OAuth2Client(
+  "1082885186579-00j5a8kbt4tt0q3h6mua0b1ei0fgu9n1.apps.googleusercontent.com"
+);
 
 // Defining methods for the usersController
 
@@ -14,6 +16,7 @@ module.exports = {
       res.json({});
     } else {
       db.User.find(req.query)
+        .populate("posts")
         .sort({ date: -1 })
         .then((dbModel) => res.json(dbModel))
         .catch((err) => res.status(422).json(err));
@@ -31,6 +34,7 @@ module.exports = {
 
   findById: function (req, res) {
     db.User.findById(req.params.id)
+      .populate("posts")
       .then((dbModel) => res.json(dbModel))
       .catch((err) => res.status(422).json(err));
   },
@@ -103,23 +107,30 @@ module.exports = {
 
   //check to see whether user exists in db already, if not cerate new user
   googlelogin: function (req, res) {
-
     const { tokenId } = req.body;
 
-    client.verifyIdToken({
-      idToken: tokenId, audience: "1082885186579-00j5a8kbt4tt0q3h6mua0b1ei0fgu9n1.apps.googleusercontent.com"
-    })
-      .then(result => {
+    client
+      .verifyIdToken({
+        idToken: tokenId,
+        audience:
+          "1082885186579-00j5a8kbt4tt0q3h6mua0b1ei0fgu9n1.apps.googleusercontent.com",
+      })
+      .then((result) => {
         console.log("Info: ", result);
 
-        const { email_verified, given_name, family_name, email } = result.payload;
+        const {
+          email_verified,
+          given_name,
+          family_name,
+          email,
+        } = result.payload;
 
         if (email_verified) {
           db.User.findOne({ email }).exec((err, user) => {
             if (err) {
               return res.status(404).json({
-                error: "Something went wrong..."
-              })
+                error: "Something went wrong...",
+              });
             } else {
               if (user) {
                 res.json(user);
@@ -128,13 +139,13 @@ module.exports = {
                   first_name: given_name,
                   last_name: family_name,
                   email: email,
-                  password: ""
+                  password: "",
                 })
                   .then((userData) => {
                     console.log("registerd successfully", userData);
                     res.json({
                       user: userData,
-                      message: "Welcome!"
+                      message: "Welcome!",
                     });
                   })
                   .catch((err) => {
@@ -142,14 +153,13 @@ module.exports = {
                   });
               }
             }
-          })
+          });
         }
       });
   },
 
   //facebook login
   facebooklogin: function (req, res) {
-
     console.log(req.body);
     const { userID, accessToken } = req.body;
     
