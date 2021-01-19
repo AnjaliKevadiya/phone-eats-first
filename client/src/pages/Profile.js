@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import API from "../utils/API";
 import Cookies from "universal-cookie";
-import Navbar from "../components/Navbar"
+import Navbar from "../components/Navbar";
 
 function Profile() {
   const [userid, setUserid] = useState("");
@@ -15,7 +15,7 @@ function Profile() {
     if (cookies.get("userid") === undefined) {
       window.location.replace("/signin");
     } else {
-      setUserid(cookies.get("userid"));
+      setUserid("5fff5bc19ba96ba02ce5b9a8"); //cookies.get("userid"));
 
       loadPosts();
     }
@@ -23,6 +23,8 @@ function Profile() {
 
   // Loads all posts and sets them to pots
   function loadPosts() {
+    console.log("userid userid", userid);
+
     API.getloginUsersAllPosts(userid)
       .then((res) => {
         console.log("posts", res.data);

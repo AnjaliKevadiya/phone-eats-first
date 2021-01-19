@@ -2,14 +2,11 @@ import React, { useEffect, useState } from "react";
 import { Button, Container, Box } from "@material-ui/core";
 import Rating from "@material-ui/lab/Rating";
 import ImageUpload from "../components/ImageUpload";
-<<<<<<< HEAD
 import { Row } from "../components/SignUpForm";
 import API from "../utils/API";
 import "./style.css";
 import Cookies from "universal-cookie";
-=======
 import Navbar from "../components/Navbar";
->>>>>>> 2cd83d49763c12398b425d4b28addff0c2d51c8d
 
 function NewPost() {
   const [userid, setUserid] = useState("");
@@ -74,11 +71,6 @@ function NewPost() {
 
   return (
     <React.Fragment>
-<<<<<<< HEAD
-=======
-      <Navbar />
-      <CssBaseline />
->>>>>>> 2cd83d49763c12398b425d4b28addff0c2d51c8d
       <Container maxWidth="sm">
         <input
           className="form-control"
