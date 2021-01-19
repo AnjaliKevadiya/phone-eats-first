@@ -99,7 +99,6 @@ function SignIn() {
                                 autoLoad={false}
                                 callback={responseFacebook}
                             />
-
                             <p className="signUp">To sign up click <a href="/signup">here</a></p>
                         </Container>
                     </form>
