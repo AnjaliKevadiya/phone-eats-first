@@ -11,17 +11,15 @@ import API from "../../utils/API";
 //Logout functionality
 function handleLogOutBtn(event) {
   event.preventDefault();
-  handleLogOut(event);
-}
-
-function handleLogOut(event) {
-  API.logout({
-    email: {}
-  })
-  .then((res) => {
-    console.log("Logged out!");
-  })
-  .catch((err) => console.log("logout error: ", err));
+  console.log("logout hit");
+  API.signOut()
+    .then((res) => {
+      console.log("api hit");
+        // const cookies = new Cookies();
+        // cookies.remove("userid", { path: "/" });
+        // console.log("Logged out");
+    })
+    .catch((err) => console.log("logout error: ", err));
 }
 
 const useStyles = makeStyles((theme) => ({
