@@ -30,7 +30,7 @@ img {
   font-variant: small-caps;
   letter-spacing: 2px;
   color: #ffff;
-  background-color: #3F51B5;
+  background-color: #3f51b5;
   padding-bottom: 5%;
   padding-top: 5%;
 }
@@ -41,7 +41,7 @@ img {
   height: 400px;
 } */
 
-.email{
+.email {
   width: 130px;
   margin-right: 5px;
   margin-top: 10%;
@@ -49,7 +49,7 @@ img {
   text-align: center;
 }
 
-.password{
+.password {
   margin-bottom: 10%;
   text-align: center;
 }
@@ -61,5 +61,3 @@ img {
 /* .form-group {
   justify-content: center;
 } */
-
-
