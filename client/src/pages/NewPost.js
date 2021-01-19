@@ -71,6 +71,7 @@ function NewPost() {
 
   return (
     <React.Fragment>
+      <Navbar />
       <Container maxWidth="sm">
         <input
           className="form-control"
