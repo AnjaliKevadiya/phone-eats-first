@@ -25,6 +25,7 @@ const UserSchema = new Schema({
     required: "Last Name is Required",
   },
   profile_url: String,
+  date: { type: Date, default: Date.now },
   posts: [
     {
       type: Schema.Types.ObjectId,
