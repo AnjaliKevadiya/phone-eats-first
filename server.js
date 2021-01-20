@@ -24,7 +24,7 @@ app.use(express.json());
 
 //static assets
 if (process.env.NODE_ENV === "production") {
-  app.use(express.static("client/build"));
+  app.use(express.static("client/public"));
 }
 
 // We need to use sessions to keep track of our user's login status
