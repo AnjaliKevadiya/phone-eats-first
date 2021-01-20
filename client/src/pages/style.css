@@ -55,10 +55,26 @@ img {
   text-align: center;
 }
 
-.signUp {
-  margin-top: 115px;
+.signUp{
+  margin-top: 40px;
 }
 
+.googleLogin{
+  margin-top: 10px;
+}
+
+.facebookLogin{
+   height: 150px;
+   margin-top: 40px;
+ }
 /* .form-group {
   justify-content: center;
 } */
+
+html {
+  background: url(../assets/images/bg3.jpg) no-repeat center center fixed;
+  /* -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover; */
+  background-size: cover;
+}
