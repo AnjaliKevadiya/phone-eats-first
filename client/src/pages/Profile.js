@@ -38,7 +38,12 @@ function Profile() {
       return (
         <Grid item xs={4}>
           <CardActionArea>
-            <CardMedia className={classes.postItem} component="img" alt="placeholder" image={post.image} />
+            <CardMedia
+              className={classes.postItem}
+              component="img"
+              alt="placeholder"
+              image={post.image}
+            />
           </CardActionArea>
         </Grid>
       );

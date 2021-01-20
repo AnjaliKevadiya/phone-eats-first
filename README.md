@@ -1,13 +1,10 @@
-<!-- # Phone Eats First
+# Phone Eats First
+
 ## Table of Contents
 
 - [Technologies Used](#technologies-used)
 
-- [User Story](#user-story)
-
-- [Business Context](#business-context)
-
-- [Acceptance Criteria](#acceptance-criteria)
+- [Description](#description)
 
 - [Installation](#installation)
 
@@ -23,39 +20,21 @@
 
 **Language:** React, Node.js, HTML, CSS
 
-**Dependencies:** material-ui, axios, bootstrap, gh-pages, react, react-dom, react-router-dom, react-scripts
+**Database:** MongoDB
 
-**Version Control:** GitHub
+**Dependencies:** bcryptjs, express, passport, mongoose, material-ui, axios, bootstrap, react, universal-cookie
 
-**Cloud Platform:** Github Pages
+**Version Control:** Git, GitHub
 
-## User Story
+**Cloud Platform:** Heroku
+
+## Description
 
 - As a user, I want to be able to view my entire employee directory at once so that I have quick access to their information.
-
-## Business Context
-
-An employee or manager would benefit greatly from being able to view non-sensitive data about other employees. It would be particularly helpful to be able to filter employees by name.
-
-## Acceptance Criteria
-
-Given a table of random users, when the user loads the page, a table of employees should render.
-
-The user should be able to:
-
-- Sort the table by at least one category
-
-- Filter the users by at least one property.
 
 ## Installation
 
 To install necessary dependencies, run the following command:
-
-```
-npm i
-```
-
-OR
 
 ```
 npm install
@@ -69,10 +48,7 @@ To run this project, run the following command:
 npm start
 ```
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
-
-## [Deployed Link](https://anjalikevadiya.github.io/employee-directory/)
+## [Deployed Link](https://phone-eats-first.herokuapp.com/)
 
 ## Preview
 
@@ -84,4 +60,4 @@ Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 
 ## Questions
 
-If you have any questions about the repo, open issue or contact me directly at [anjalikevadiya5@gmail.com](anjalikevadiya5@gmail.com). You can find more of my work at [AnjaliKevadiya](https://github.com/AnjaliKevadiya). -->
+If you have any questions about the repo, open issue or contact us directly at [Phone Eats First](anjalikevadiya5@gmail.com).
