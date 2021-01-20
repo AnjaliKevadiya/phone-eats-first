@@ -74,6 +74,22 @@ export function SignUpBtn(props) {
             {props.children}
         </div>
     );
+
+    // export function GoogleBtn(props) {
+    //     return (
+    //         <div className="input-field col s12">
+    //             <button onClick={props.onClick} type="submit" className="btn" href>Sign Up</button>
+    //             {props.children}
+    //         </div>
+    //     );
+
+    //     export function FacebookBtn(props) {
+    //         return (
+    //             <div className="input-field col s12">
+    //                 <button onClick={props.onClick} type="submit" className="btn">Sign Up</button>
+    //                 {props.children}
+    //             </div>
+    //         );
 }
 
 {/* <h1>Privacy Policy</h1>

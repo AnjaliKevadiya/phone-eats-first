@@ -12,6 +12,8 @@ import {
   SignUpBtn
 } from "../components/SignUpForm";
 import { useHistory } from "react-router-dom";
+// import FacebookStrategy from "passport-facebook";
+// import GoogleStrategy from "passport-google-oauth";
 import GoogleLogin from "react-google-login";
 import FacebookLogin from "react-facebook-login";
 import API from "../utils/API";
@@ -22,7 +24,7 @@ function SignUp() {
   const history = useHistory();
 
   //GOOGLE LOGIN SUCCESS
-  const responseSuccessGoogle = (res) => {
+  const responseSuccessGoogle = async (res) => {
     console.log("Google Success: ", res);
     API.googlelogin({
       tokenId: res.tokenId
@@ -42,7 +44,7 @@ function SignUp() {
   }
 
     //FACEBOOK LOGIN SUCCESS
-    const responseFacebook = (res) => {
+    const responseFacebook = async (res) => {
       console.log("Facebook Login: ", res);
       API.facebooklogin({
         accessToken: res.accessToken,

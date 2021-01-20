@@ -1,7 +1,7 @@
 var passport = require("passport");
 var LocalStrategy = require("passport-local").Strategy;
-var FacebookStrategy = require('passport-facebook').Strategy;
-var GoogleStrategy = require('passport-google-oauth').OAuthStrategy;
+// var FacebookStrategy = require('passport-facebook').Strategy;
+// var GoogleStrategy = require('passport-google-oauth').OAuthStrategy;
 
 var db = require("../models");
 var keys = require("./index");
@@ -38,48 +38,48 @@ passport.use(
   )
 );
 
-//FACEBOOK STRATEGY
-passport.user(new FacebookStrategy({
-    clientId: keys.FACEBOOK.clientID,
-    clientSecret: keys.FACEBOOK.clientSecret,
-    callbackURL: "/auth/facebook/callback"
-  },
-  function (accessToken, refreshToken, profile, done) {
-    User.findOrCreate(...User, function(err, user) {
-      if (err) { return done(err); }
-      done (null, user);
-    });
-  }
-));
+// //FACEBOOK STRATEGY
+// passport.user(new FacebookStrategy({
+//     clientId: keys.FACEBOOK.clientID,
+//     clientSecret: keys.FACEBOOK.clientSecret,
+//     callbackURL: "/auth/facebook/callback"
+//   },
+//   function (accessToken, refreshToken, profile, done) {
+//     User.findOrCreate(...User, function(err, user) {
+//       if (err) { return done(err); }
+//       done (null, user);
+//     });
+//   }
+// ));
 
-app.get("/auth/facebook", passport.authenticate("facebook"));
-app.get ("/auth/facebook/callback",
-  passport.authenticate(("facebook"),
-  (req, res) => {
-    res.redirect("/home");
-  })
-)
+// app.get("/auth/facebook", passport.authenticate("facebook"));
+// app.get ("/auth/facebook/callback",
+//   passport.authenticate(("facebook"),
+//   (req, res) => {
+//     res.redirect("/home");
+//   })
+// )
 
-//GOOGLE STRATEGY
-passport.user(new GoogleStrategy({
-  clientId: keys.GOOGLE.clientID,
-  clientSecret: keys.GOOGLE.clientSecret,
-  callbackURL: "/auth/google/callback"
-},
-function (token, tokenSecret, profile, done) {
-  User.findOrCreate({ googleId: profile.id}, function (err, user) {
-    return done(err, user);
-  })
-}
-));
+// //GOOGLE STRATEGY
+// passport.user(new GoogleStrategy({
+//   clientId: keys.GOOGLE.clientID,
+//   clientSecret: keys.GOOGLE.clientSecret,
+//   callbackURL: "/auth/google/callback"
+// },
+// function (token, tokenSecret, profile, done) {
+//   User.findOrCreate({ googleId: profile.id}, function (err, user) {
+//     return done(err, user);
+//   })
+// }
+// ));
 
-app.get("/auth/google", passport.authenticate("google", {scope: "https://www.google.com/m8/feeds"}));
-app.get ("/auth/google/callback",
-  passport.authenticate(("google"),
-  (req, res) => {
-    res.redirect("/home");
-  })
-)
+// app.get("/auth/google", passport.authenticate("google", {scope: "https://www.google.com/m8/feeds"}));
+// app.get ("/auth/google/callback",
+//   passport.authenticate(("google"),
+//   (req, res) => {
+//     res.redirect("/home");
+//   })
+// )
 
 // In order to help keep authentication state across HTTP requests,
 // Sequelize needs to serialize and deserialize the user
