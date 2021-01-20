@@ -38,6 +38,7 @@ passport.use(
   )
 );
 
+//FACEBOOK STRATEGY
 passport.user(new FacebookStrategy({
     clientId: keys.FACEBOOK.clientID,
     clientSecret: keys.FACEBOOK.clientSecret,
@@ -51,6 +52,15 @@ passport.user(new FacebookStrategy({
   }
 ));
 
+app.get("/auth/facebook", passport.authenticate("facebook"));
+app.get ("/auth/facebook/callback",
+  passport.authenticate(("facebook"),
+  (req, res) => {
+    res.redirect("/home");
+  })
+)
+
+//GOOGLE STRATEGY
 passport.user(new GoogleStrategy({
   clientId: keys.GOOGLE.clientID,
   clientSecret: keys.GOOGLE.clientSecret,
@@ -63,6 +73,14 @@ function (token, tokenSecret, profile, done) {
 }
 ));
 
+app.get("/auth/google", passport.authenticate("google", {scope: "https://www.google.com/m8/feeds"}));
+app.get ("/auth/google/callback",
+  passport.authenticate(("google"),
+  (req, res) => {
+    res.redirect("/home");
+  })
+)
+
 // In order to help keep authentication state across HTTP requests,
 // Sequelize needs to serialize and deserialize the user
 // Just consider this part boilerplate needed to make it all work
@@ -73,24 +91,6 @@ passport.serializeUser(function (user, cb) {
 passport.deserializeUser(function (obj, cb) {
   cb(null, obj);
 });
-
-app.get("/auth/facebook", passport.authenticate("facebook"));
-app.get ("/auth/facebook/callback",
-  passport.authenticate(("facebook"),
-  (req, res) => {
-    res.redirect("/home");
-  })
-)
-
-app.get("/auth/google", passport.authenticate("google", {scope: "https://www.google.com/m8/feeds"}));
-app.get ("/auth/google/callback",
-  passport.authenticate(("google"),
-  (req, res) => {
-    res.redirect("/home");
-  })
-)
-
-
 
 // Exporting our configured passport
 module.exports = passport;
