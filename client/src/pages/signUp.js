@@ -118,6 +118,10 @@ function SignUp() {
     }
   }
 
+  //GOOGLE LOGIN BUTTON
+
+  //FACEBOOK LOGIN BUTTON
+
   return (
     <div>
       <EntryNavBar />
@@ -147,7 +151,7 @@ function SignUp() {
                   onFailure={responseErrorGoogle}
                   cookiePolicy={'single_host_origin'}
                 /> */}
-                <GoogleBtn />
+                <GoogleBtn onClick={handleFormGoogleSubmit} />
               </Row>
               <Row>
                 {/* <FacebookLogin
@@ -155,7 +159,7 @@ function SignUp() {
                   autoLoad={false}
                   callback={responseFacebook} 
                 /> */}
-                <FacebookBtn />
+                <FacebookBtn onClick={handleFormFacebookSubmit} />
               </Row>
               <Row>
                 <SignInLink />

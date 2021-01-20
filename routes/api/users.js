@@ -18,21 +18,21 @@ router.post("/login", passport.authenticate("local"), function (req, res) {
   }
 });
 
-// router.get("/auth/google", passport.authenticate("google", {scope: "https://www.google.com/m8/feeds"}));
-// router.get ("/auth/google/callback",
-//   passport.authenticate(("google"),
-//   (req, res) => {
-//     res.redirect("/home");
-//   })
-// )
+router.route("/auth/google", passport.authenticate("google", {scope: "https://www.google.com/m8/feeds"}));
+router.route ("/auth/google/callback",
+  passport.authenticate(("google"),
+  (req, res) => {
+    res.redirect("/home");
+  })
+)
 
-// router.get("/auth/facebook", passport.authenticate("facebook"));
-// router.get ("/auth/facebook/callback",
-//   passport.authenticate(("facebook"),
-//   (req, res) => {
-//     res.redirect("/home");
-//   })
-// )
+router.route("/auth/facebook", passport.authenticate("facebook"));
+router.route ("/auth/facebook/callback",
+  passport.authenticate(("facebook"),
+  (req, res) => {
+    res.redirect("/home");
+  })
+)
 
 // endpoint /api/user/userdata
 router.route("/userdata").get(usersController.checkUserLogin);
