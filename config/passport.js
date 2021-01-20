@@ -1,6 +1,7 @@
 var passport = require("passport");
 var LocalStrategy = require("passport-local").Strategy;
 var FacebookStrategy = require('passport-facebook').Strategy;
+var GoogleStrategy = require('passport-google-oauth').OAuthStrategy;
 
 var db = require("../models");
 var keys = require("./index");
@@ -46,6 +47,18 @@ passport.user(new FacebookStrategy({
     user = {...profile};
     return cb(null, profile)
   }
+));
+
+passport.user(new GoogleStrategy({
+  clientId: keys.GOOGLE.clientID,
+  clientSecret: keys.GOOGLE.clientSecret,
+  callbackURL: "/auth/google/callback"
+},
+function (token, tokenSecret, profile, done) {
+  User.findOrCreate({ googleId: profile.id}, function (err, user) {
+    return done(err, user);
+  })
+}
 ));
 
 // In order to help keep authentication state across HTTP requests,
