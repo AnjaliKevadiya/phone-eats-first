@@ -19,9 +19,11 @@ router.post("/login", passport.authenticate("local"), function (req, res) {
 });
 
 //endpoint /api/user/auth/google
-router.route("/auth/google", passport.authenticate("google", {scope: "profile"}));
+router.route("/auth/google").get(
+  passport.authenticate("google", {scope: "profile"})
+);
 
-router.route ("/auth/google/callback",
+router.route("/auth/google/callback").get(
   passport.authenticate(("google"),
   (req, res) => {
     console.log("HIT GOOGLE");

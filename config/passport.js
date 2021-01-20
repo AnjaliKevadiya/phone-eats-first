@@ -1,7 +1,7 @@
 var passport = require("passport");
 var LocalStrategy = require("passport-local").Strategy;
 var FacebookStrategy = require('passport-facebook').Strategy;
-var GoogleStrategy = require('passport-google-oauth').OAuthStrategy;
+var GoogleStrategy = require('passport-google-oauth20').Strategy;
 
 var db = require("../models");
 var keys = require("./keys");
@@ -62,13 +62,13 @@ passport.use(new FacebookStrategy({
 
 // //GOOGLE STRATEGY
 passport.use(new GoogleStrategy({
-  consumerKey: keys.GOOGLE.clientID,
-  consumerSecret: keys.GOOGLE.clientSecret,
-  callbackURL: "/api/user/auth/google/callback"
-},
-function (token, tokenSecret, profile, done) {
-  db.User.findOne({
-    email: email,
+  clientID: keys.GOOGLE.clientID,
+  clientSecret: keys.GOOGLE.clientSecret,
+  callbackURL: "/auth/google/redirect"
+}, (accessToken, refreshToken, profile, done) => {
+  console.log("Passport Google")
+  User.findOne({
+    user: email
   }).then(function (dbUser) {
     // If there's no user with the given email
     if (!dbUser) {

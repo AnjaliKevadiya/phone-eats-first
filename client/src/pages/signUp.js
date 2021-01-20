@@ -117,17 +117,6 @@ function SignUp() {
     }
   }
 
-  //GOOGLE LOGIN BUTTON
-  function handleFormGoogleSubmit (event) {
-    event.preventDefault();
-    console.log("button clicked");
-  }
-
-  //FACEBOOK LOGIN BUTTON
-  function handleFormFacebookSubmit (event) {
-    event.preventDefault();
-  }
-
   return (
     <div>
       <EntryNavBar />
@@ -157,7 +146,7 @@ function SignUp() {
                   onFailure={responseErrorGoogle}
                   cookiePolicy={'single_host_origin'}
                 /> */}
-                <GoogleBtn onClick={handleFormGoogleSubmit} />
+                <GoogleBtn  />
               </Row>
               <Row>
                 {/* <FacebookLogin
@@ -165,7 +154,7 @@ function SignUp() {
                   autoLoad={false}
                   callback={responseFacebook} 
                 /> */}
-                <FacebookBtn onClick={handleFormFacebookSubmit} />
+                <FacebookBtn />
               </Row>
               <Row>
                 <SignInLink />
