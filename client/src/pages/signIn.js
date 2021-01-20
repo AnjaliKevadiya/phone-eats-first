@@ -3,7 +3,7 @@ import { Container, Row } from "../components/SignUpForm";
 import API from "../utils/API";
 import "./style.css"
 import EntryNavBar from "../components/EntryNavBar"
-import { GoogleLogin } from "react-google-login";
+import GoogleLogin from "react-google-login";
 import FacebookLogin from "react-facebook-login";
 
 
