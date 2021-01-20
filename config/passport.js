@@ -41,7 +41,7 @@ passport.use(
 passport.user(new FacebookStrategy({
     clientId: keys.FACEBOOK.clientID,
     clientSecret: keys.FACEBOOK.clientSecret,
-    callbackURL: "/facebooklogin"
+    callbackURL: "/auth/facebook/callback"
   },
   function (accessToken, refreshToken, profile, done) {
     User.findOrCreate(...User, function(err, user) {
@@ -54,7 +54,7 @@ passport.user(new FacebookStrategy({
 passport.user(new GoogleStrategy({
   clientId: keys.GOOGLE.clientID,
   clientSecret: keys.GOOGLE.clientSecret,
-  callbackURL: "/googlelogin"
+  callbackURL: "/auth/google/callback"
 },
 function (token, tokenSecret, profile, done) {
   User.findOrCreate({ googleId: profile.id}, function (err, user) {
