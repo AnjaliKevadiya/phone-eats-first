@@ -140,22 +140,22 @@ function SignUp() {
                 <SignUpBtn onClick={handleFormSubmit} />
               </Row>
               <Row>
-                <GoogleLogin
+                {/* <GoogleLogin
                   clientId="1082885186579-00j5a8kbt4tt0q3h6mua0b1ei0fgu9n1.apps.googleusercontent.com"
                   buttonText="Continue with Google"
                   onSuccess={responseSuccessGoogle}
                   onFailure={responseErrorGoogle}
                   cookiePolicy={'single_host_origin'}
-                />
-                {/* <GoogleBtn /> */}
+                /> */}
+                <GoogleBtn />
               </Row>
               <Row>
-                <FacebookLogin
+                {/* <FacebookLogin
                   appId="3217579161677338"
                   autoLoad={false}
                   callback={responseFacebook} 
-                />
-                {/* <FacebookBtn /> */}
+                /> */}
+                <FacebookBtn />
               </Row>
               <Row>
                 <SignInLink />
