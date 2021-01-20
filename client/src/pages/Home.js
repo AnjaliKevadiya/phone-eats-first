@@ -74,14 +74,6 @@ function Home() {
           })}
         </PostList>
       )}
-
-      {/* {posts.length ? (
-        <div className="postCard">
-          <PostCard data={posts} />
-        </div>
-      ) : (
-        <h3>No Results to Display</h3>
-      )} */}
     </div>
   );
 }
