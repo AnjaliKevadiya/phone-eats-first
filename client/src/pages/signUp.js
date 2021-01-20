@@ -29,7 +29,7 @@ function SignUp() {
     })
       .then((res) => {
         sessionStorage.setItem("userData", JSON.stringify(res));
-        history.push('/home');
+        history.push(window.location.href = "/home");
         console.log("api.googlelogin -res: ", res)
         // window.location.href = "/home";
       })

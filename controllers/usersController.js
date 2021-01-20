@@ -146,7 +146,7 @@ module.exports = {
                   first_name: given_name,
                   last_name: family_name,
                   email: email,
-                  password: "",
+                  password: "123",
                 })
                   .then((userData) => {
                     console.log("registerd successfully", userData);
