@@ -59,60 +59,58 @@ function SignIn() {
     <div>
       <EntryNavBar />
       <card className="card">
-        <div className="container">
-          <div className="mt-4">
-            <h2 className="signinheader">Sign In</h2>
-          </div>
-          <form onSubmit={handleSubmit}>
-            <Container className="mt-3 px-5">
-              <Row>
-                <input
-                  className="email form-control"
-                  type="text"
-                  placeholder="Email"
-                  name="email"
-                  onChange={(e) => setEmail(e.target.value)}
-                />
-              </Row>
-              <Row>
-                <input
-                  className="password form-control"
-                  type="password"
-                  placeholder="Password"
-                  name="password"
-                  onChange={(e) => setPassword(e.target.value)}
-                />
-              </Row>
-              <Row>
-                <button className="btn btn-success" type="submit">
-                  Sign In
-                </button>
-              </Row>
-              <Row>
-                <GoogleLogin
-                  className="googleLogin"
-                  clientId="1082885186579-00j5a8kbt4tt0q3h6mua0b1ei0fgu9n1.apps.googleusercontent.com"
-                  buttonText="Continue with Google"
-                  onSuccess={responseSuccessGoogle}
-                  onFailure={responseErrorGoogle}
-                  cookiePolicy={"single_host_origin"}
-                />
-              </Row>
-              <Row>
-                <FacebookLogin
-                  className="facebookLogin"
-                  appId="3217579161677338"
-                  autoLoad={false}
-                  callback={responseFacebook}
-                />
-              </Row>
-
-              <p className="signUp">
-                To sign up click <a href="/signup">here</a>
-              </p>
-            </Container>
-          </form>
+        <div className="mt-4">
+          <h3 className="signinheader">Sign In</h3>
         </div>
+        <form onSubmit={handleSubmit}>
+          <Container className="mt-3 px-5">
+            <Row>
+              <input
+                className="email"
+                type="text"
+                placeholder="Email"
+                name="email"
+                onChange={(e) => setEmail(e.target.value)}
+              />
+            </Row>
+            <Row>
+              <input
+                className="password"
+                type="password"
+                placeholder="Password"
+                name="password"
+                onChange={(e) => setPassword(e.target.value)}
+              />
+            </Row>
+            <Row>
+              <button className="btn btn-success" type="submit">
+                Sign In
+              </button>
+            </Row>
+            <Row>
+              <GoogleLogin
+                className="googleLogin"
+                clientId="1082885186579-00j5a8kbt4tt0q3h6mua0b1ei0fgu9n1.apps.googleusercontent.com"
+                buttonText="Continue with Google"
+                onSuccess={responseSuccessGoogle}
+                onFailure={responseErrorGoogle}
+                cookiePolicy={"single_host_origin"}
+              />
+            </Row>
+            <Row>
+              <FacebookLogin
+                className="facebookLogin"
+                appId="3217579161677338"
+                autoLoad={false}
+                callback={responseFacebook}
+              />
+            </Row>
+
+            <p className="signUp">
+              To sign up click <a href="/signup">here</a>
+            </p>
+          </Container>
+        </form>
       </card>
     </div>
   );
