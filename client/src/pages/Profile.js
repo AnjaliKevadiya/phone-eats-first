@@ -58,9 +58,9 @@ function Profile() {
   return (
     <div>
       <Navbar />
-      <Typography variant="body2" color="textSecondary" component="p">
+      {/* <Typography variant="body2" color="textSecondary" component="p">
         {user.first_name} {user.last_name}
-      </Typography>
+      </Typography> */}
       <Grid container className={classes.grid} spacing={8} justify="center">
         {toRenderPosts}
       </Grid>
