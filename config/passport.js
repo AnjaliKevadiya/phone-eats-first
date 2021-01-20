@@ -1,7 +1,9 @@
 var passport = require("passport");
 var LocalStrategy = require("passport-local").Strategy;
+var FacebookStrategy = require('passport-facebook').Strategy;
 
 var db = require("../models");
+var keys = require("./index");
 
 // Telling passport we want to use a Local Strategy. In other words, we want login with a username/email and password
 passport.use(
@@ -34,6 +36,17 @@ passport.use(
     }
   )
 );
+
+passport.user(new FacebookStrategy({
+    clientId: keys.FACEBOOK.clientID,
+    clientSecret: keys.FACEBOOK.clientSecret,
+    callbackURL: "/auth/facebook/callback"
+  },
+  (accessToken, regreshToken, profile, cb) => {
+    user = {...profile};
+    return cb(null, profile)
+  }
+));
 
 // In order to help keep authentication state across HTTP requests,
 // Sequelize needs to serialize and deserialize the user
