@@ -11,6 +11,7 @@ import {
   PasswordInput,
   SignUpBtn
 } from "../components/SignUpForm";
+import { useHistory } from "react-router-dom";
 import GoogleLogin from "react-google-login";
 import FacebookLogin from "react-facebook-login";
 import API from "../utils/API";
@@ -18,6 +19,7 @@ import EntryNavBar from "../components/EntryNavBar"
 
 function SignUp() {
   const [formObject, setFormObject] = useState({});
+  const history = useHistory();
 
   //GOOGLE LOGIN SUCCESS
   const responseSuccessGoogle = (res) => {
