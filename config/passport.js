@@ -43,9 +43,11 @@ passport.user(new FacebookStrategy({
     clientSecret: keys.FACEBOOK.clientSecret,
     callbackURL: "/auth/facebook/callback"
   },
-  (accessToken, regreshToken, profile, cb) => {
-    user = {...profile};
-    return cb(null, profile)
+  function (accessToken, refreshToken, profile, done) {
+    User.findOrCreate(...User, function(err, user) {
+      if (err) { return done(err); }
+      done (null, user);
+    });
   }
 ));
 
