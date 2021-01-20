@@ -2,81 +2,97 @@ import React from "react";
 import "./style.css";
 
 export function Container(props) {
-    return (
-        <div className="container">{props.children}</div>
-    );
+  return <div className="container">{props.children}</div>;
 }
 
 export function Card(props) {
-    return (
-        <div className="card">{props.children}</div>
-    );
+  return <div className="card">{props.children}</div>;
 }
 export function H1(props) {
-    return (
-        <h2>Sign Up</h2>
-    )
+  return <h2>Sign Up</h2>;
 }
 
 export function Row(props) {
-    return (
-        <div className="row">{props.children}</div>
-
-    );
+  return <div className="row">{props.children}</div>;
 }
 
 export function Form(props) {
-    return (
-        <form className="col s12">{props.children}</form>
-    );
+  return <form className="col s12">{props.children}</form>;
 }
 
 export function FirstNameInput(props) {
-    return (
-        <div className="input-field">
-            <input name={props.name} onChange={props.onChange} placeholder="First Name" id="first_name" type="text" />
-            {props.children}
-        </div>
-    );
+  return (
+    <div className="input-field">
+      <input
+        name={props.name}
+        onChange={props.onChange}
+        placeholder="First Name"
+        id="first_name"
+        type="text"
+      />
+      {props.children}
+    </div>
+  );
 }
 
 export function LastNameInput(props) {
-    return (
-        <div className="input-field">
-            <input name={props.name} onChange={props.onChange} placeholder="Last Name" id="last_name" type="text" />
-            {props.children}
-        </div>
-    );
+  return (
+    <div className="input-field">
+      <input
+        name={props.name}
+        onChange={props.onChange}
+        placeholder="Last Name"
+        id="last_name"
+        type="text"
+      />
+      {props.children}
+    </div>
+  );
 }
 
 export function EmailInput(props) {
-    return (
-        <div className="input-field col s12">
-            <input name={props.name} onChange={props.onChange} placeholder="Email Address" id="email" type="email" />
-            {props.children}
-        </div>
-    );
+  return (
+    <div className="input-field col s12">
+      <input
+        name={props.name}
+        onChange={props.onChange}
+        placeholder="Email Address"
+        id="email"
+        type="email"
+      />
+      {props.children}
+    </div>
+  );
 }
 
 export function PasswordInput(props) {
-    return (
-        <div className="input-field col s12">
-            <input name={props.name} onChange={props.onChange} placeholder="password" id="password" type="password" />
-            {props.children}
-        </div>
-    );
+  return (
+    <div className="input-field col s12">
+      <input
+        name={props.name}
+        onChange={props.onChange}
+        placeholder="password"
+        id="password"
+        type="password"
+      />
+      {props.children}
+    </div>
+  );
 }
 
 export function SignUpBtn(props) {
-    return (
-        <div className="input-field col s12">
-            <button onClick={props.onClick} type="submit" className="btn">Sign Up</button>
-            {props.children}
-        </div>
-    );
+  return (
+    <div className="input-field col s12">
+      <button onClick={props.onClick} type="submit" className="btn">
+        Sign Up
+      </button>
+      {props.children}
+    </div>
+  );
 }
 
-{/* <h1>Privacy Policy</h1>
+{
+  /* <h1>Privacy Policy</h1>
 <p>Last updated: January 19, 2021</p>
 <p>This Privacy Policy describes Our policies and procedures on the collection, use and disclosure of Your information when You use the Service and tells You about Your privacy rights and how the law protects You.</p>
 <p>We use Your Personal data to provide and improve the Service. By using the Service, You agree to the collection and use of information in accordance with this Privacy Policy. This Privacy Policy has been created with the help of the <a href="https://www.privacypolicies.com/privacy-policy-generator/" target="_blank">Privacy Policy Generator</a>.</p>
@@ -230,4 +246,5 @@ export function SignUpBtn(props) {
 <p>If you have any questions about this Privacy Policy, You can contact us:</p>
 <ul>
 <li>By email: ashvinithomas@gmail.com</li>
-</ul> */}
+</ul> */
+}
