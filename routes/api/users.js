@@ -18,6 +18,18 @@ router.post("/login", passport.authenticate("local"), function (req, res) {
   }
 });
 
+router.get("/auth/facebook", passport.authenticate("facebook"), function (req, res) {
+  console.log("Requested User: ", req.user);
+  if (!req.user) {
+    console.log("User not logged in");
+    res.json({});
+  } else {
+    console.log("Loging in ", req.user.email);
+    res.setHeader("content-type", "text/plain");
+    res.json(req.user);
+  }
+})
+
 // endpoint /api/user/userdata
 router.route("/userdata").get(usersController.checkUserLogin);
 
