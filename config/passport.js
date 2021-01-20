@@ -1,10 +1,10 @@
 var passport = require("passport");
 var LocalStrategy = require("passport-local").Strategy;
-// var FacebookStrategy = require('passport-facebook').Strategy;
-// var GoogleStrategy = require('passport-google-oauth').OAuthStrategy;
+var FacebookStrategy = require('passport-facebook').Strategy;
+var GoogleStrategy = require('passport-google-oauth').OAuthStrategy;
 
 var db = require("../models");
-// var keys = require("./index");
+var keys = require("./index");
 
 // Telling passport we want to use a Local Strategy. In other words, we want login with a username/email and password
 passport.use(
@@ -38,51 +38,51 @@ passport.use(
   )
 );
 
-// // //FACEBOOK STRATEGY
-// passport.use(new FacebookStrategy({
-//     clientID: keys.FACEBOOK.clientID,
-//     clientSecret: keys.FACEBOOK.clientSecret,
-//     callbackURL: "/auth/facebook/callback"
-//   },
-//   function (accessToken, refreshToken, profile, done) {
-//     db.User.findOne({
-//       email: email,
-//     }).then(function (dbUser) {
-//       // If there's no user with the given email
-//       if (!dbUser) {
-//         return done(null, false, {
-//           message: "Incorrect email.",
-//         });
-//   }
-// });
-// }
-// )
-// );
+// //FACEBOOK STRATEGY
+passport.use(new FacebookStrategy({
+    clientID: keys.FACEBOOK.clientID,
+    clientSecret: keys.FACEBOOK.clientSecret,
+    callbackURL: "/auth/facebook/callback"
+  },
+  function (accessToken, refreshToken, profile, done) {
+    db.User.findOne({
+      email: email,
+    }).then(function (dbUser) {
+      // If there's no user with the given email
+      if (!dbUser) {
+        return done(null, false, {
+          message: "Incorrect email.",
+        });
+  }
+});
+}
+)
+);
 
 
 
 
 
-// // //GOOGLE STRATEGY
-// passport.use(new GoogleStrategy({
-//   clientID: keys.GOOGLE.clientID,
-//   clientSecret: keys.GOOGLE.clientSecret,
-//   callbackURL: "/auth/google/callback"
-// },
-// function (token, tokenSecret, profile, done) {
-//   db.User.findOne({
-//     email: email,
-//   }).then(function (dbUser) {
-//     // If there's no user with the given email
-//     if (!dbUser) {
-//       return done(null, false, {
-//         message: "Incorrect email.",
-//       });
-// }
-// });
-// }
-// )
-// );
+// //GOOGLE STRATEGY
+passport.use(new GoogleStrategy({
+  consumerKey: keys.GOOGLE.clientID,
+  consumerSecret: keys.GOOGLE.clientSecret,
+  callbackURL: "/auth/google/callback"
+},
+function (token, tokenSecret, profile, done) {
+  db.User.findOne({
+    email: email,
+  }).then(function (dbUser) {
+    // If there's no user with the given email
+    if (!dbUser) {
+      return done(null, false, {
+        message: "Incorrect email.",
+      });
+}
+});
+}
+)
+);
 
 
 

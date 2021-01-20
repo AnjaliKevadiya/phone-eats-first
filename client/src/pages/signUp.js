@@ -18,8 +18,8 @@ import { useHistory } from "react-router-dom";
 // import passport from "../../../config/passport";
 // import FacebookStrategy from "passport-facebook";
 // import GoogleStrategy from "passport-google-oauth";
-import GoogleLogin from "react-google-login";
-import FacebookLogin from "react-facebook-login";
+// import GoogleLogin from "react-google-login";
+// import FacebookLogin from "react-facebook-login";
 import API from "../utils/API";
 import EntryNavBar from "../components/EntryNavBar"
 
@@ -54,39 +54,39 @@ function SignUp() {
 // })
 // );
 
-  //GOOGLE LOGIN SUCCESS
-  const responseSuccessGoogle = async (res) => {
-    console.log("Google Success: ", res);
-    API.googlelogin({
-      tokenId: res.tokenId
-    })
-      .then((res) => {
-        sessionStorage.setItem("userData", JSON.stringify(res));
-        history.push(window.location.href = "/home");
-        console.log("api.googlelogin -res: ", res)
-        // window.location.href = "/home";
-      })
-      .catch((err) => console.log("api.googlelogin error: ", err));
-  }
+  // //GOOGLE LOGIN SUCCESS
+  // const responseSuccessGoogle = async (res) => {
+  //   console.log("Google Success: ", res);
+  //   API.googlelogin({
+  //     tokenId: res.tokenId
+  //   })
+  //     .then((res) => {
+  //       sessionStorage.setItem("userData", JSON.stringify(res));
+  //       history.push(window.location.href = "/home");
+  //       console.log("api.googlelogin -res: ", res)
+  //       // window.location.href = "/home";
+  //     })
+  //     .catch((err) => console.log("api.googlelogin error: ", err));
+  // }
 
-  //GOOGLE LOGIN ERROR
-  const responseErrorGoogle = (res) => {
-    console.log("Google Login Error: ", res);
-  }
+  // //GOOGLE LOGIN ERROR
+  // const responseErrorGoogle = (res) => {
+  //   console.log("Google Login Error: ", res);
+  // }
 
-    //FACEBOOK LOGIN SUCCESS
-    const responseFacebook = async (res) => {
-      console.log("Facebook Login: ", res);
-      API.facebooklogin({
-        accessToken: res.accessToken,
-        userID: res.userID
-      })
-      .then((res) => {
-        console.log("api.facebooklogin - res: ", res)
-        window.location.href = "/home";
-      })
-      .catch((err) => console.log("api.facebooklogin error: ", err));
-    }
+  //   //FACEBOOK LOGIN SUCCESS
+  //   const responseFacebook = async (res) => {
+  //     console.log("Facebook Login: ", res);
+  //     API.facebooklogin({
+  //       accessToken: res.accessToken,
+  //       userID: res.userID
+  //     })
+  //     .then((res) => {
+  //       console.log("api.facebooklogin - res: ", res)
+  //       window.location.href = "/home";
+  //     })
+  //     .catch((err) => console.log("api.facebooklogin error: ", err));
+  //   }
 
   function handleInputChange(event) {
     const { name, value } = event.target;
