@@ -1,6 +1,6 @@
 const GOOGLE = {
-    clientID: "1082885186579-00j5a8kbt4tt0q3h6mua0b1ei0fgu9n1.apps.googleusercontent.com",
-    clientSecret: "SbLS8BLqaJnkCrFaGtu7daNT"
+    clientID: "1082885186579-k68v58vqorip7fe6sqdp4dlp27tfh0b0.apps.googleusercontent.com",
+    clientSecret: "R-GIHzhVyDJJtdFB-2G3KUe_"
 };
 
 const FACEBOOK = {

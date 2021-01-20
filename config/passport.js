@@ -4,7 +4,7 @@ var FacebookStrategy = require('passport-facebook').Strategy;
 var GoogleStrategy = require('passport-google-oauth').OAuthStrategy;
 
 var db = require("../models");
-var keys = require("./index");
+var keys = require("./keys");
 
 // Telling passport we want to use a Local Strategy. In other words, we want login with a username/email and password
 passport.use(
@@ -60,9 +60,6 @@ passport.use(new FacebookStrategy({
 );
 
 
-
-
-
 // //GOOGLE STRATEGY
 passport.use(new GoogleStrategy({
   consumerKey: keys.GOOGLE.clientID,
@@ -83,8 +80,6 @@ function (token, tokenSecret, profile, done) {
 }
 )
 );
-
-
 
 
 // In order to help keep authentication state across HTTP requests,

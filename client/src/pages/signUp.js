@@ -14,7 +14,6 @@ import {
   GoogleBtn,
   FacebookBtn
 } from "../components/SignUpForm";
-import { useHistory } from "react-router-dom";
 // import passport from "../../../config/passport";
 // import FacebookStrategy from "passport-facebook";
 // import GoogleStrategy from "passport-google-oauth";
@@ -23,11 +22,12 @@ import { useHistory } from "react-router-dom";
 import API from "../utils/API";
 import EntryNavBar from "../components/EntryNavBar"
 
+
 // var keys = require("../../../config/index");
 
 function SignUp() {
   const [formObject, setFormObject] = useState({});
-  const history = useHistory();
+
 
 
 // // //FACEBOOK STRATEGY
@@ -97,7 +97,6 @@ function SignUp() {
   //SIGNUP BUTTON
   function handleFormSubmit(event) {
     event.preventDefault();
-    console.log("handleFormSubmit - FormData: ", formObject);
     if (
       formObject.first_name &&
       formObject.last_name &&
@@ -119,8 +118,15 @@ function SignUp() {
   }
 
   //GOOGLE LOGIN BUTTON
+  function handleFormGoogleSubmit (event) {
+    event.preventDefault();
+    console.log("button clicked");
+  }
 
   //FACEBOOK LOGIN BUTTON
+  function handleFormFacebookSubmit (event) {
+    event.preventDefault();
+  }
 
   return (
     <div>

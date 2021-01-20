@@ -19,14 +19,17 @@ router.post("/login", passport.authenticate("local"), function (req, res) {
 });
 
 router.route("/auth/google", passport.authenticate("google", {scope: "https://www.google.com/m8/feeds"}));
+
 router.route ("/auth/google/callback",
   passport.authenticate(("google"),
   (req, res) => {
+    console.log("HIT GOOGLE");
     res.redirect("/home");
   })
 )
 
 router.route("/auth/facebook", passport.authenticate("facebook"));
+
 router.route ("/auth/facebook/callback",
   passport.authenticate(("facebook"),
   (req, res) => {
@@ -37,11 +40,11 @@ router.route ("/auth/facebook/callback",
 // endpoint /api/user/userdata
 router.route("/userdata").get(usersController.checkUserLogin);
 
-//google login endpoint "/api/user/googlelogin"
-router.route("/googlelogin").post(usersController.googlelogin);
+// //google login endpoint "/api/user/googlelogin"
+// router.route("/googlelogin").post(usersController.googlelogin);
 
-//facebook login endpoint "/api/user/facebooklogin"
-router.route("/facebooklogin").post(usersController.facebooklogin);
+// //facebook login endpoint "/api/user/facebooklogin"
+// router.route("/facebooklogin").post(usersController.facebooklogin);
 
 //Matches with "/api/user/:id"
 router.route("/:id").get(usersController.findById).put(usersController.update);
