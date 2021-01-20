@@ -2,6 +2,7 @@ import React from "react";
 import "./style.css";
 import API from "../../utils/API";
 
+
 export function Container(props) {
     return (
         <div className="container">{props.children}</div>
@@ -87,9 +88,19 @@ export function SignInLink(props) {
 }
 
     export function GoogleBtn(props) {
+        // const googlelogin = (event) => {
+        //     event.preventDefault();
+        //     API.googlelogin().then(res => {
+        //         console.log(res);
+        //     })
+        // }
         return (
             <div className="input-field col s12">
-                <button type="submit" className="btn"><a href="http://localhost:3001/auth/google">Continue with Google</a></button>
+                <button type="submit" className="btn">
+                    <a href="http://localhost:3001/api/user/google">
+                        Continue with Google
+                    </a>
+                </button>
                 {props.children}
             </div>
         );

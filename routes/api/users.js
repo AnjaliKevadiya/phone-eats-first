@@ -19,17 +19,27 @@ router.post("/login", passport.authenticate("local"), function (req, res) {
 });
 
 //endpoint /api/user/auth/google
-router.route("/auth/google").get(
+router.route("/google").get(
   passport.authenticate("google", {scope: "profile"})
-);
+ 
+  );
 
-router.route("/auth/google/callback").get(
+router.route("/google/callback").get(
   passport.authenticate(("google"),
   (req, res) => {
-    console.log("HIT GOOGLE");
+    console.log(res);
     res.redirect("/home");
   })
 )
+
+// router.use("/auth/google"),
+// passport.authenticate("google", {scope: "profile"});
+
+// router.use("/auth/google/callback"),
+// (req, res) => {
+//   console.log("HIT GOOGLE");
+//   res.redirect("/home");
+// };
 
 router.route("/auth/facebook", passport.authenticate("facebook"));
 

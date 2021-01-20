@@ -2,7 +2,6 @@ var passport = require("passport");
 var LocalStrategy = require("passport-local").Strategy;
 var FacebookStrategy = require('passport-facebook').Strategy;
 var GoogleStrategy = require('passport-google-oauth20').Strategy;
-
 var db = require("../models");
 var keys = require("./keys");
 
@@ -39,7 +38,8 @@ passport.use(
 );
 
 // //FACEBOOK STRATEGY
-passport.use(new FacebookStrategy({
+passport.use(
+  new FacebookStrategy({
     clientID: keys.FACEBOOK.clientID,
     clientSecret: keys.FACEBOOK.clientSecret,
     callbackURL: "/auth/facebook/callback"
@@ -61,26 +61,37 @@ passport.use(new FacebookStrategy({
 
 
 // //GOOGLE STRATEGY
-passport.use(new GoogleStrategy({
-  clientID: keys.GOOGLE.clientID,
-  clientSecret: keys.GOOGLE.clientSecret,
-  callbackURL: "/auth/google/redirect"
+passport.use(
+  new GoogleStrategy({
+    clientID: keys.GOOGLE.clientID,
+    clientSecret: keys.GOOGLE.clientSecret,
+    callbackURL: "http://localhost:3001/api/user/google/callback"
 }, (accessToken, refreshToken, profile, done) => {
-  console.log("Passport Google")
-  User.findOne({
-    user: email
+  db.User.findOne({
+    email: profile.email[0].value,
   }).then(function (dbUser) {
     // If there's no user with the given email
     if (!dbUser) {
-      return done(null, false, {
-        message: "Incorrect email.",
-      });
-}
-});
-}
-)
-);
+      console.log(profile);
+      db.User.create({
+                        email: email
 
+                      })
+                        .then((userData) => {
+                          console.log("registerd successfully", userData);
+                          return done(null, userData);
+                      });
+    }
+    // If there is a user with the given email, but the password the user gives us is incorrect
+    // else if (!dbUser.comparePassword(password)) {
+    //   return done(null, false, {
+    //     message: "Incorrect password.",
+    //   });
+    // }
+    // If none of the above, return the user
+    return done(null, dbUser);
+  });
+}));
 
 // In order to help keep authentication state across HTTP requests,
 // Sequelize needs to serialize and deserialize the user
@@ -92,6 +103,7 @@ passport.serializeUser(function (user, cb) {
 passport.deserializeUser(function (obj, cb) {
   cb(null, obj);
 });
+
 
 // Exporting our configured passport
 module.exports = passport;
