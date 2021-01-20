@@ -74,22 +74,33 @@ export function SignUpBtn(props) {
             {props.children}
         </div>
     );
+}
 
-    // export function GoogleBtn(props) {
-    //     return (
-    //         <div className="input-field col s12">
-    //             <button onClick={props.onClick} type="submit" className="btn" href>Sign Up</button>
-    //             {props.children}
-    //         </div>
-    //     );
+export function SignInLink(props) {
+    return (
+        <p className="signInLink">
+            To sign up click <a href="/signin">here</a>
+            {props.children}
+        </p>
+    )
+}
 
-    //     export function FacebookBtn(props) {
-    //         return (
-    //             <div className="input-field col s12">
-    //                 <button onClick={props.onClick} type="submit" className="btn">Sign Up</button>
-    //                 {props.children}
-    //             </div>
-    //         );
+    export function GoogleBtn(props) {
+        return (
+            <div className="input-field col s12">
+                <button onClick={props.onClick} href="/auth/google/callBack" type="submit" className="btn" href>Sign Up</button>
+                {props.children}
+            </div>
+        );
+    }
+
+        export function FacebookBtn(props) {
+            return (
+                <div className="input-field col s12">
+                    <button onClick={props.onClick} href="/auth/facebook/callBack" type="submit" className="btn">Sign Up</button>
+                    {props.children}
+                </div>
+            );
 }
 
 {/* <h1>Privacy Policy</h1>

@@ -9,9 +9,13 @@ import {
   LastNameInput,
   EmailInput,
   PasswordInput,
-  SignUpBtn
+  SignUpBtn,
+  SignInLink,
+  GoogleBtn,
+  FacebookBtn
 } from "../components/SignUpForm";
 import { useHistory } from "react-router-dom";
+// import passport from "../../../config/passport";
 // import FacebookStrategy from "passport-facebook";
 // import GoogleStrategy from "passport-google-oauth";
 import GoogleLogin from "react-google-login";
@@ -19,9 +23,36 @@ import FacebookLogin from "react-facebook-login";
 import API from "../utils/API";
 import EntryNavBar from "../components/EntryNavBar"
 
+// var keys = require("../../../config/index");
+
 function SignUp() {
   const [formObject, setFormObject] = useState({});
   const history = useHistory();
+
+
+// // //FACEBOOK STRATEGY
+// FacebookStrategy({
+//   clientID: keys.FACEBOOK.clientID,
+//   clientSecret: keys.FACEBOOK.clientSecret,
+//   callbackURL: "/auth/facebook/callback"
+// },
+// req.login(user, function(err) {
+//   if (err) { return next(err); }
+//   return res.redirect('/users/' + req.user.username);
+// })
+// );
+
+// // //GOOGLE STRATEGY
+// GoogleStrategy({
+// clientID: keys.GOOGLE.clientID,
+// clientSecret: keys.GOOGLE.clientSecret,
+// callbackURL: "/auth/google/callback"
+// },
+// req.login(user, function(err) {
+//   if (err) { return next(err); }
+//   return res.redirect('/users/' + req.user.username);
+// })
+// );
 
   //GOOGLE LOGIN SUCCESS
   const responseSuccessGoogle = async (res) => {
@@ -116,6 +147,7 @@ function SignUp() {
                   onFailure={responseErrorGoogle}
                   cookiePolicy={'single_host_origin'}
                 />
+                {/* <GoogleBtn /> */}
               </Row>
               <Row>
                 <FacebookLogin
@@ -123,6 +155,10 @@ function SignUp() {
                   autoLoad={false}
                   callback={responseFacebook} 
                 />
+                {/* <FacebookBtn /> */}
+              </Row>
+              <Row>
+                <SignInLink />
               </Row>
             </Form>
           </Row>
