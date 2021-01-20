@@ -26,8 +26,10 @@ function SignUp() {
       tokenId: res.tokenId
     })
       .then((res) => {
+        sessionStorage.setItem("userData", JSON.stringify(res));
+        history.push('/home');
         console.log("api.googlelogin -res: ", res)
-        window.location.href = "/home";
+        // window.location.href = "/home";
       })
       .catch((err) => console.log("api.googlelogin error: ", err));
   }
