@@ -105,6 +105,6 @@ function SignIn() {
                 </div>
             </card>
         </div>
-    );
+  );
 }
 export default SignIn;

@@ -30,6 +30,4 @@ router.route("/facebooklogin").post(usersController.facebooklogin);
 //Matches with "/api/user/:id"
 router.route("/:id").get(usersController.findById).put(usersController.update);
 
-
-
 module.exports = router;
