@@ -18,7 +18,8 @@ router.post("/login", passport.authenticate("local"), function (req, res) {
   }
 });
 
-router.route("/auth/google", passport.authenticate("google", {scope: "https://www.google.com/m8/feeds"}));
+//endpoint /api/user/auth/google
+router.route("/auth/google", passport.authenticate("google", {scope: "profile"}));
 
 router.route ("/auth/google/callback",
   passport.authenticate(("google"),

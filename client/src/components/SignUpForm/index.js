@@ -88,7 +88,7 @@ export function SignInLink(props) {
     export function GoogleBtn(props) {
         return (
             <div className="input-field col s12">
-                <button onClick={props.onClick} type="submit" className="btn" ><a href="/auth/google">Sign In with Google</a></button>
+                <button type="submit" className="btn" ><a href="/api/user/auth/google">Sign In with Google</a></button>
                 {props.children}
             </div>
         );
@@ -97,7 +97,7 @@ export function SignInLink(props) {
         export function FacebookBtn(props) {
             return (
                 <div className="input-field col s12">
-                    <button onClick={props.onClick} href="/auth/facebook/" type="submit" className="btn">Continue with Facebook</button>
+                    <button onClick={props.onClick} type="submit" className="btn"><a href="/api/user/auth/facebook">Login with Facebook</a></button>
                     {props.children}
                 </div>
             );

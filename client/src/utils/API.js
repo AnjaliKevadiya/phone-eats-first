@@ -53,7 +53,7 @@ export default {
 
   //Google login
   googlelogin: function (googleData) {
-    return axios.post("/api/user/googlelogin", googleData);
+    return axios.post("/api/user/auth/google", googleData);
   },
 
   //Facebook login

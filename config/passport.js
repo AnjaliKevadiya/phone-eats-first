@@ -64,7 +64,7 @@ passport.use(new FacebookStrategy({
 passport.use(new GoogleStrategy({
   consumerKey: keys.GOOGLE.clientID,
   consumerSecret: keys.GOOGLE.clientSecret,
-  callbackURL: "/auth/google/callback"
+  callbackURL: "/api/user/auth/google/callback"
 },
 function (token, tokenSecret, profile, done) {
   db.User.findOne({
