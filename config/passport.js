@@ -74,5 +74,23 @@ passport.deserializeUser(function (obj, cb) {
   cb(null, obj);
 });
 
+app.get("/auth/facebook", passport.authenticate("facebook"));
+app.get ("/auth/facebook/callback",
+  passport.authenticate(("facebook"),
+  (req, res) => {
+    res.redirect("/home");
+  })
+)
+
+app.get("/auth/google", passport.authenticate("google", {scope: "https://www.google.com/m8/feeds"}));
+app.get ("/auth/google/callback",
+  passport.authenticate(("google"),
+  (req, res) => {
+    res.redirect("/home");
+  })
+)
+
+
+
 // Exporting our configured passport
 module.exports = passport;
