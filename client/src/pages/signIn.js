@@ -99,17 +99,18 @@ function SignIn() {
                                     Continue with Google
                                 </a>
                             </button>
-                            <FacebookLogin className="facebookLogin"
+                            {/* <FacebookLogin className="facebookLogin"
                                 appId="3217579161677338"
                                 autoLoad={false}
                                 callback={responseFacebook}
-                            />
+                            /> */}
                             <p className="signUp">To sign up click <a href="/signup">here</a></p>
                         </Container>
                     </form>
                 </div>
             </card>
         </div>
-  );
-}
+        );
+    }
+
 export default SignIn;
