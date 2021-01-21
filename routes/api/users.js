@@ -19,15 +19,17 @@ router.post("/login", passport.authenticate("local"), function (req, res) {
   }
 });
 
+let loginPath = (process.env.NODE_ENV === 'production') ? "https://phone-eats-first.herokuapp.com" : "http://localhost:3000";
+
 //endpoint /api/user/google
 router.route("/google").get(
   passport.authenticate("google", {scope: ["profile", "email"]})
 );
   
 router.route("/google/callback").get(
-  passport.authenticate("google", { failureRedirect: "/signup" }), 
+  passport.authenticate("google", { failureRedirect:loginPath + "/signup" }), 
   function (req, res) {
-    res.redirect("http://localhost:3000/home");
+    res.redirect(loginPath + "/home");
 });
 
 

@@ -1,6 +1,7 @@
 import React from "react";
 import "./style.css";
 import API from "../../utils/API";
+
 export function Container(props) {
   return <div className="container">{props.children}</div>;
 }
@@ -97,10 +98,14 @@ export function GoogleBtn(props) {
   //         console.log(res);
   //     })
   // }
+
+
+  let loginPath = (process.env.NODE_ENV === 'production') ? "https://phone-eats-first.herokuapp.com" : "http://localhost:3001";
+
   return (
-    <div className="input-field col s12">
+      <div className="input-field col s12">
       <button type="submit" className="btn">
-        <a href="http://localhost:3001/api/user/google">Continue with Google</a>
+      <a href={loginPath + "/api/user/google"}>Continue with Google</a>
       </button>
       {props.children}
     </div>

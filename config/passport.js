@@ -66,12 +66,14 @@ passport.use(
 //   }));
 
 
+// let loginPath = (process.env.NODE_ENV === 'production') ? "https://phone-eats-first.herokuapp.com" : "http://localhost:3001";
+
 //GOOGLE STRATEGY
 passport.use(
   new GoogleStrategy({
     clientID: keys.GOOGLE.clientID,
     clientSecret: keys.GOOGLE.clientSecret,
-    callbackURL: "http://localhost:3001/api/user/google/callback"
+    callbackURL: "/api/user/google/callback"
   },
   (accessToken, refreshToken, profile, done) => {
     db.User.findOne({

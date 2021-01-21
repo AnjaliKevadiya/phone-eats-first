@@ -39,6 +39,8 @@ function SignIn() {
     //         .catch((err) => console.log("api.facebooklogin error: ", err));
     // };
 
+    let loginPath = (process.env.NODE_ENV === 'production') ? "https://phone-eats-first.herokuapp.com" : "http://localhost:3001";
+
     const [email, setEmail] = useState();
     const [password, setPassword] = useState();
     const handleSubmit = (e) => {
@@ -98,7 +100,7 @@ function SignIn() {
                                 cookiePolicy={"single_host_origin"}
                             /> */}
                             <button type="submit" className="btn">
-                                <a href="http://localhost:3001/api/user/google">Continue with Google</a>
+                                <a href={loginPath + "/api/user/google"}>Continue with Google</a>
                             </button>
                         </Row>
                         <Row>

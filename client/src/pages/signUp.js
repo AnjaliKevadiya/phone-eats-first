@@ -84,6 +84,8 @@ function SignUp() {
   //     .catch((err) => console.log("api.facebooklogin error: ", err));
   //   }
 
+
+
   function handleInputChange(event) {
     const { name, value } = event.target;
     console.log("handleInputChange - name, value", name, value);
@@ -112,6 +114,11 @@ function SignUp() {
         .catch((err) => console.log("api.signup error: ", err));
     }
   }
+
+  // function handleGoogle(event) {
+  //   event.preventDefault();
+  //   API.googlelogin(/api/user/google)
+  // }
 
   return (
     <div>
