@@ -22,7 +22,7 @@ function NewPostButton() {
 
   return (
     <div className={classes.root}>
-      <Fab variant="add" href="/newpost">
+      <Fab variant="add" color="secondary" href="/newpost">
         <AddIcon className={classes.extendedIcon} />
         New Post
       </Fab>
