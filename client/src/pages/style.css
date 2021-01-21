@@ -14,6 +14,7 @@ img {
 } */
 
 .card {
+  min-width: 30% !important;
   /* margin: 0 auto; */
   margin-top: 7%;
   /* float: none; */
@@ -43,38 +44,29 @@ img {
 } */
 
 .email {
-  width: 130px;
-  margin-right: 5px;
-  margin-top: 10%;
-  margin-bottom: 10%;
+  min-width: 80%;
+  margin-top: 10px;
+  margin-bottom: 10px;
   text-align: center;
 }
 
 .password {
-  margin-bottom: 10%;
+  min-width: 80%;
+  margin-bottom: 10px;
   text-align: center;
 }
 
-.signUp{
+.signUp {
   margin-top: 40px;
 }
 
-.googleLogin{
+.googleLogin {
   margin-top: 10px;
+  margin-bottom: 10px;
 }
 
-.facebookLogin{
-   height: 150px;
-   margin-top: 40px;
- }
-/* .form-group {
-  justify-content: center;
-} */
+.facebookLogin {
+  height: 50px;
+  margin-top: 40px;
+}
 
-/* html {
-  background: url(../assets/images/bg3.jpg) no-repeat center center fixed;
-  /* -webkit-background-size: cover;
-  -moz-background-size: cover;
-  -o-background-size: cover;
-  background-size: cover;
-} */

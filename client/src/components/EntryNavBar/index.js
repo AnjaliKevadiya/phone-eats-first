@@ -1,11 +1,11 @@
-import React from 'react';
-import { makeStyles } from '@material-ui/core/styles';
-import AppBar from '@material-ui/core/AppBar';
-import Toolbar from '@material-ui/core/Toolbar';
-import Typography from '@material-ui/core/Typography';
-import Button from '@material-ui/core/Button';
-import IconButton from '@material-ui/core/IconButton';
-import MenuIcon from '@material-ui/icons/Menu';
+import React from "react";
+import { makeStyles } from "@material-ui/core/styles";
+import AppBar from "@material-ui/core/AppBar";
+import Toolbar from "@material-ui/core/Toolbar";
+import Typography from "@material-ui/core/Typography";
+import Button from "@material-ui/core/Button";
+import IconButton from "@material-ui/core/IconButton";
+import MenuIcon from "@material-ui/icons/Menu";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -26,15 +26,15 @@ export default function ButtonAppBar() {
     <div className={classes.root}>
       <AppBar position="static">
         <Toolbar>
-        <Typography variant="h6" className={classes.title}>
+          <Typography variant="h6" className={classes.title}>
             Phone Eats First
-        </Typography>
-        <Button variant="contained" color="primary" href="/home">
+          </Typography>
+          {/* <Button variant="contained" color="primary" href="/home">
             Home
-            </Button>
-            <Button variant="contained" color="primary" href="/profile">
+          </Button>
+          <Button variant="contained" color="primary" href="/profile">
             Profile
-        </Button>
+          </Button> */}
         </Toolbar>
       </AppBar>
     </div>
