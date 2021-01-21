@@ -59,9 +59,7 @@ function SignIn() {
     <div>
       <EntryNavBar />
       <card className="card">
-        <div className="mt-4">
-          <h3 className="signinheader">Sign In</h3>
-        </div>
+        <h3 className="signinheader">Sign In</h3>
         <form onSubmit={handleSubmit}>
           <Container className="mt-3 px-5">
             <Row>
