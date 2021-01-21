@@ -85,7 +85,7 @@ export function SignUpBtn(props) {
 export function SignInLink(props) {
   return (
     <p className="signInLink">
-      To sign up click <a href="/signin">here</a>
+      Already have account? <a href="/signin">Sign In</a>
       {props.children}
     </p>
   );
@@ -99,9 +99,12 @@ export function GoogleBtn(props) {
   // }
   return (
     <div className="input-field col s12">
-      <button type="submit" className="btn">
-        <a href="http://localhost:3001/api/user/google">Continue with Google</a>
-      </button>
+      <a
+        href="http://localhost:3001/api/user/google"
+        className="btn btn-outline-danger"
+      >
+        Continue with Google
+      </a>
       {props.children}
     </div>
   );
