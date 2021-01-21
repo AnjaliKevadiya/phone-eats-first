@@ -104,9 +104,9 @@ export function GoogleBtn(props) {
 
   return (
       <div className="input-field col s12">
-      <button type="submit" className="btn">
-      <a href={loginPath + "/api/user/google"}>Continue with Google</a>
-      </button>
+
+      <a className="btn btn-outline-danger" href={loginPath + "/api/user/google"}>Continue with Google</a>
+
       {props.children}
     </div>
   );
