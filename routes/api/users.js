@@ -27,8 +27,7 @@ router.route("/google").get(
 router.route("/google/callback").get(
   passport.authenticate("google", { failureRedirect: "/signup" }), 
   function (req, res) {
-    console.log(res);
-    res.redirect("/home");
+    res.redirect("http://localhost:3000/home");
 });
 
 

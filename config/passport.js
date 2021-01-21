@@ -69,13 +69,13 @@ passport.use(
   },
   (accessToken, refreshToken, profile, done) => {
     db.User.findOne({
-      email:email,
+      email: profile.emails[0].value,
     })
     .then(function (dbUser) {
       // If there's no user with the given email
       if (!dbUser) {
         db.User.create({
-          email: email,
+          email: profile.emails[0].value,
           first_name: profile.name.givenName,
           last_name: profile.name.familyName
         })

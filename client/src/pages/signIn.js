@@ -8,37 +8,37 @@ import FacebookLogin from "react-facebook-login";
 
 
 function SignIn() {
-    //GOOGLE LOGIN SUCCESS
-    const responseSuccessGoogle = (res) => {
-        console.log("Google Success: ", res);
-        API.googlelogin({
-            tokenId: res.tokenId
-        })
-            .then((res) => {
-                console.log("api.googlelogin -res: ", res)
-                window.location.href = "/home";
-            })
-            .catch((err) => console.log("api.googlelogin error: ", err));
-    }
+    // //GOOGLE LOGIN SUCCESS
+    // const responseSuccessGoogle = (res) => {
+    //     console.log("Google Success: ", res);
+    //     API.googlelogin({
+    //         tokenId: res.tokenId
+    //     })
+    //         .then((res) => {
+    //             console.log("api.googlelogin -res: ", res)
+    //             window.location.href = "/home";
+    //         })
+    //         .catch((err) => console.log("api.googlelogin error: ", err));
+    // }
 
-    //GOOGLE LOGIN ERROR
-    const responseErrorGoogle = (res) => {
-        console.log("Google Login Error: ", res);
-    }
+    // //GOOGLE LOGIN ERROR
+    // const responseErrorGoogle = (res) => {
+    //     console.log("Google Login Error: ", res);
+    // }
 
-    //FACEBOOK LOGIN SUCCESS
-    const responseFacebook = (res) => {
-        console.log("Facebook Login: ", res);
-        API.facebooklogin({
-            accessToken: res.accessToken,
-            userID: res.userID
-        })
-            .then((res) => {
-                console.log("api.facebooklogin - res: ", res)
-                window.location.href = "/home";
-            })
-            .catch((err) => console.log("api.facebooklogin error: ", err));
-    }
+    // //FACEBOOK LOGIN SUCCESS
+    // const responseFacebook = (res) => {
+    //     console.log("Facebook Login: ", res);
+    //     API.facebooklogin({
+    //         accessToken: res.accessToken,
+    //         userID: res.userID
+    //     })
+    //         .then((res) => {
+    //             console.log("api.facebooklogin - res: ", res)
+    //             window.location.href = "/home";
+    //         })
+    //         .catch((err) => console.log("api.facebooklogin error: ", err));
+    // }
 
     const [email, setEmail] = useState();
     const [password, setPassword] = useState();
@@ -87,13 +87,18 @@ function SignIn() {
                             <button className="btn btn-success" type="submit">
                                 Sign In
                             </button>
-                            <GoogleLogin className="googleLogin"
+                            {/* <GoogleLogin className="googleLogin"
                                 clientId="1082885186579-00j5a8kbt4tt0q3h6mua0b1ei0fgu9n1.apps.googleusercontent.com"
                                 buttonText="Continue with Google"
                                 onSuccess={responseSuccessGoogle}
                                 onFailure={responseErrorGoogle}
                                 cookiePolicy={'single_host_origin'}
-                            />
+                            /> */}
+                            <button type="submit" className="btn">
+                                <a href="http://localhost:3001/api/user/google">
+                                    Continue with Google
+                                </a>
+                            </button>
                             <FacebookLogin className="facebookLogin"
                                 appId="3217579161677338"
                                 autoLoad={false}
