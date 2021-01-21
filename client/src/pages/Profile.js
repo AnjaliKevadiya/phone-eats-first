@@ -9,10 +9,6 @@ const useStyles = makeStyles((theme) => ({
     width: "95%",
     margin: "20px",
   },
-  paper: {
-    padding: theme.spacing(10),
-    textAlign: "center",
-  },
   postItem: {
     width: "300px",
     height: "200px",
@@ -49,6 +45,19 @@ function Profile() {
       );
     });
   }, [posts]);
+
+  const toRenderUserInfo = useMemo(() => {
+    if (user === undefined) {
+      return;
+    } else {
+      return (
+        <Typography variant="body2" color="textSecondary" component="p">
+          {`${user.first_name} ${user.last_name}`}
+        </Typography>
+      );
+    }
+  }, [user]);
+
   // Loads all posts and sets them to pots
   function loadPosts(uid) {
     console.log("userid userid", uid);
@@ -63,9 +72,7 @@ function Profile() {
   return (
     <div>
       <Navbar />
-      {/* <Typography variant="body2" color="textSecondary" component="p">
-        {`${user.first_name} ${user.last_name}`}
-      </Typography> */}
+      {toRenderUserInfo}
       <Grid container className={classes.grid} spacing={8} justify="center">
         {toRenderPosts}
       </Grid>
