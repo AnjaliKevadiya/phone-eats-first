@@ -1,10 +1,16 @@
 import React, { useState, useEffect, useMemo } from "react";
-import { Grid, Typography, CardActionArea, CardMedia, Card, CardContent } from "@material-ui/core";
+import {
+  Grid,
+  Typography,
+  CardActionArea,
+  CardMedia,
+  Card,
+  CardContent,
+} from "@material-ui/core";
 import { makeStyles } from "@material-ui/core/styles";
 import API from "../utils/API";
 import Cookies from "universal-cookie";
 import Navbar from "../components/Navbar";
-
 
 const useStyles = makeStyles((theme) => ({
   grid: {
@@ -50,16 +56,16 @@ function Profile() {
                 image={post.image}
               />
               <CardContent justify="center">
-              <Typography gutterBottom variant="h5" component="h2" >
-                {`${post.restaurant_name}`}
-              </Typography>
-              <Typography gutterBottom variant="h5" component="h2" >
-                {`${post.caption}`}
-              </Typography>
-            </CardContent>
-          </CardActionArea>
-        </Card>
-      </Grid>
+                <Typography gutterBottom variant="h5" component="h2">
+                  {`${post.restaurant_name}`}
+                </Typography>
+                <Typography gutterBottom variant="h5" component="h2">
+                  {`${post.caption}`}
+                </Typography>
+              </CardContent>
+            </CardActionArea>
+          </Card>
+        </Grid>
       );
     });
   }, [posts]);
@@ -70,11 +76,16 @@ function Profile() {
     } else {
       return (
         <Grid>
-        <Typography variant="h3"  component="p" textAllign="right">
-          {`${user.first_name} ${user.last_name}'s Profile`}
-        </Typography>
+          <br />
+          <Typography
+            variant="h3"
+            component="p"
+            textAllign="right"
+            className="text-center"
+          >
+            {`${user.first_name} ${user.last_name}'s Profile`}
+          </Typography>
         </Grid>
-        
       );
     }
   }, [user]);
