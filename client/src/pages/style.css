@@ -69,3 +69,10 @@ img {
   height: 50px;
   margin-top: 40px;
 }
+
+body {
+  background-image: url("../assets/images/bg3.jpg");
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
+}
