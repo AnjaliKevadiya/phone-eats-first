@@ -8,21 +8,9 @@ img {
   height: auto;
 }
 
-/* .body{
-  background-color: rgba(0, 0, 255, 0.116);
-  justify-content: center;
-} */
-
 .card {
-  /* margin: 0 auto; */
-  margin-top: 7%;
-  /* float: none; */
-  /* margin-bottom: 10px; */
-  /* width: 300px; */
-  /* height: 400px; */
-  /* box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19); */
-  /* text-align: center; */
-  /* padding: 0 0 0 0; */
+  min-width: 30% !important;
+  margin-top: 5%;
 }
 
 .signinheader {
@@ -32,49 +20,59 @@ img {
   letter-spacing: 2px;
   color: #ffff;
   background-color: #3f51b5;
-  padding-bottom: 5%;
-  padding-top: 5%;
+  padding-bottom: 4%;
+  padding-top: 4%;
 }
 
-/* .container {
-  position: relative;
-  width: 300px;
-  height: 400px;
-} */
-
 .email {
-  width: 130px;
-  margin-right: 5px;
-  margin-top: 10%;
-  margin-bottom: 10%;
+  min-width: 80%;
+  margin-top: 8%;
+  margin-bottom: 10px;
   text-align: center;
 }
 
 .password {
-  margin-bottom: 10%;
+  min-width: 80%;
+  margin-bottom: 10px;
   text-align: center;
 }
 
-.signUp{
-  margin-top: 40px;
+.signIn {
+  width: 130px;
+  margin-bottom: 20px;
 }
 
-.googleLogin{
+.signUp {
+  margin-top: 30px;
+}
+
+.googleLogin {
   margin-top: 10px;
+  margin-bottom: 10px;
 }
 
-.facebookLogin{
-   height: 150px;
-   margin-top: 40px;
- }
-/* .form-group {
-  justify-content: center;
-} */
+.facebookLogin {
+  height: 46px;
+  font-family: Helvetica, sans-serif;
+  font-weight: 700;
+  -webkit-font-smoothing: antialiased;
+  color: #fff;
+  cursor: pointer;
+  display: inline-block;
+  font-size: calc(0.27548vw + 12.71074px);
+  text-decoration: none;
+  text-transform: uppercase;
+  transition: background-color 0.3s, border-color 0.3s;
+  background-color: #4c69ba;
+  border: calc(0.06887vw + 0.67769px) solid #4c69ba;
+  border-radius: 3px;
+  font-size: 12px;
+  padding: 13px 25px;
+}
 
-/* html {
-  background: url(../assets/images/bg3.jpg) no-repeat center center fixed;
-  /* -webkit-background-size: cover;
-  -moz-background-size: cover;
-  -o-background-size: cover;
+body {
+  background-image: url("../assets/images/bg3.jpg");
+  background-repeat: no-repeat;
+  background-attachment: fixed;
   background-size: cover;
-} */
+}
