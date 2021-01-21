@@ -41,57 +41,57 @@ function SignIn() {
 
     let loginPath = (process.env.NODE_ENV === 'production') ? "https://phone-eats-first.herokuapp.com" : "http://localhost:3001";
 
-    const [email, setEmail] = useState();
-    const [password, setPassword] = useState();
-    const handleSubmit = (e) => {
-        e.preventDefault();
-        console.log("email is " + email);
-        console.log("password is " + password);
-        API.login({
-            email: email,
-            password: password,
-        })
-            .then((res) => {
-                console.log("login response ", res);
-                window.location.href = "/home";
-            })
-            .catch((err) => console.log(err));
-    };
-    return (
-        <div>
-            <EntryNavBar />
-            <card className="card">
-                <h3 className="signinheader">Sign In</h3>
-                <form onSubmit={handleSubmit}>
-                    <Container className="mt-3 px-5">
-                        <Row>
-                            <input
-                                className="email"
-                                type="text"
-                                placeholder="Email"
-                                name="email"
-                                onChange={(e) => setEmail(e.target.value)}
-                            />
-                        </Row>
-                        <Row>
-                            <input
-                                className="password"
-                                type="password"
-                                placeholder="Password"
-                                name="password"
-                                onChange={(e) => setPassword(e.target.value)}
-                            />
-                        </Row>
-                        <Row>
-                            <button className="btn btn-success signIn" type="submit">
-                                Sign In
-                            </button>
-                        </Row>
-                        <Row>
-                            <p>--- OR ---</p>
-                        </Row>
-                        <Row>
-                            {/* <GoogleLogin
+  const [email, setEmail] = useState();
+  const [password, setPassword] = useState();
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    console.log("email is " + email);
+    console.log("password is " + password);
+    API.login({
+      email: email,
+      password: password,
+    })
+      .then((res) => {
+        console.log("login response ", res);
+        window.location.href = "/home";
+      })
+      .catch((err) => console.log(err));
+  };
+  return (
+    <div>
+      <EntryNavBar />
+      <card className="card">
+        <h3 className="signinheader">Sign In</h3>
+        <form onSubmit={handleSubmit}>
+          <Container className="mt-3 px-5">
+            <Row>
+              <input
+                className="email"
+                type="text"
+                placeholder="Email"
+                name="email"
+                onChange={(e) => setEmail(e.target.value)}
+              />
+            </Row>
+            <Row>
+              <input
+                className="password"
+                type="password"
+                placeholder="Password"
+                name="password"
+                onChange={(e) => setPassword(e.target.value)}
+              />
+            </Row>
+            <Row>
+              <button className="btn btn-success signIn" type="submit">
+                Sign In
+              </button>
+            </Row>
+            <Row>
+              <p>--- OR ---</p>
+            </Row>
+            <Row>
+              {/* <GoogleLogin
                                 className="googleLogin"
                                 clientId="1082885186579-00j5a8kbt4tt0q3h6mua0b1ei0fgu9n1.apps.googleusercontent.com"
                                 buttonText="Continue with Google"
@@ -110,15 +110,15 @@ function SignIn() {
                                 autoLoad={false}
                                 callback={responseFacebook}
                             /> */}
-                        </Row>
+            </Row>
 
-                        <p className="signUp">
-                            Don't have account? <a href="/signup">Sign Up</a>
-                        </p>
-                    </Container>
-                </form>
-            </card>
-        </div>
-    );
+            <p className="signUp">
+              Don't have account? <a href="/signup">Sign Up</a>
+            </p>
+          </Container>
+        </form>
+      </card>
+    </div>
+  );
 }
 export default SignIn;

@@ -1,9 +1,17 @@
 import React, { useState, useEffect, useMemo } from "react";
-import { Grid, Typography, CardActionArea, CardMedia } from "@material-ui/core";
+import {
+  Grid,
+  Typography,
+  CardActionArea,
+  CardMedia,
+  Card,
+  CardContent,
+} from "@material-ui/core";
 import { makeStyles } from "@material-ui/core/styles";
 import API from "../utils/API";
 import Cookies from "universal-cookie";
 import Navbar from "../components/Navbar";
+
 const useStyles = makeStyles((theme) => ({
   grid: {
     width: "95%",
@@ -12,6 +20,12 @@ const useStyles = makeStyles((theme) => ({
   postItem: {
     width: "300px",
     height: "200px",
+  },
+  root: {
+    maxWidth: 345,
+  },
+  media: {
+    height: 150,
   },
 }));
 
@@ -33,14 +47,24 @@ function Profile() {
     return posts.map((post) => {
       return (
         <Grid item xs={4}>
-          <CardActionArea>
-            <CardMedia
-              className={classes.postItem}
-              component="img"
-              alt="placeholder"
-              image={post.image}
-            />
-          </CardActionArea>
+          <Card className={classes.root}>
+            <CardActionArea>
+              <CardMedia
+                className={classes.media}
+                component="img"
+                alt="placeholder"
+                image={post.image}
+              />
+              <CardContent justify="center">
+                <Typography gutterBottom variant="h5" component="h2">
+                  {`${post.restaurant_name}`}
+                </Typography>
+                <Typography gutterBottom variant="h5" component="h2">
+                  {`${post.caption}`}
+                </Typography>
+              </CardContent>
+            </CardActionArea>
+          </Card>
         </Grid>
       );
     });
@@ -51,9 +75,17 @@ function Profile() {
       return;
     } else {
       return (
-        <Typography variant="body2" color="textSecondary" component="p">
-          {`${user.first_name} ${user.last_name}`}
-        </Typography>
+        <Grid>
+          <br />
+          <Typography
+            variant="h3"
+            component="p"
+            textAllign="right"
+            className="text-center"
+          >
+            {`${user.first_name} ${user.last_name}'s Profile`}
+          </Typography>
+        </Grid>
       );
     }
   }, [user]);

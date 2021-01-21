@@ -86,7 +86,7 @@ export function SignUpBtn(props) {
 export function SignInLink(props) {
   return (
     <p className="signInLink">
-      To sign up click <a href="/signin">here</a>
+      Already have account? <a href="/signin">Sign In</a>
       {props.children}
     </p>
   );

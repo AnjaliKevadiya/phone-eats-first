@@ -11,7 +11,7 @@ import {
   PasswordInput,
   SignUpBtn,
   SignInLink,
-  GoogleBtn
+  GoogleBtn,
 } from "../components/SignUpForm";
 // import passport from "../../../config/passport";
 // import FacebookStrategy from "passport-facebook";
@@ -165,6 +165,8 @@ function SignUp() {
                 />
                 <FacebookBtn />
               </Row> */}
+              <br />
+
               <Row>
                 <SignInLink />
               </Row>
