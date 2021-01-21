@@ -1,6 +1,6 @@
 var passport = require("passport");
 var LocalStrategy = require("passport-local").Strategy;
-var FacebookStrategy = require('passport-facebook').Strategy;
+// var FacebookStrategy = require('passport-facebook').Strategy;
 var GoogleStrategy = require('passport-google-oauth20').Strategy;
 var db = require("../models");
 var keys = require("./keys");
@@ -38,26 +38,32 @@ passport.use(
 );
 
 // //FACEBOOK STRATEGY
-passport.use(
-  new FacebookStrategy({
-    clientID: keys.FACEBOOK.clientID,
-    clientSecret: keys.FACEBOOK.clientSecret,
-    callbackURL: "/auth/facebook/callback"
-  },
-  function (accessToken, refreshToken, profile, done) {
-    db.User.findOne({
-      email: email,
-    }).then(function (dbUser) {
-      // If there's no user with the given email
-      if (!dbUser) {
-        return done(null, false, {
-          message: "Incorrect email.",
-        });
-  }
-});
-}
-)
-);
+// passport.use(
+//   new FacebookStrategy({
+//     clientID: keys.FACEBOOK.clientID,
+//     clientSecret: keys.FACEBOOK.clientSecret,
+//     callbackURL: "http://localhost:3001/api/user/facebook/callback"
+//   },
+//   (accessToken, refreshToken, profile, done) => {
+//     db.User.findOne({
+//       email: profile.emails[0].value,
+//     })
+//     .then(function (dbUser) {
+//       // If there's no user with the given email
+//       if (!dbUser) {
+//         db.User.create({
+//           email: profile.emails[0].value,
+//           first_name: profile.name.givenName,
+//           last_name: profile.name.familyName
+//         })
+//         .then((userData) => {
+//           console.log("registerd successfully", userData);
+//           return done(null, userData);
+//         });
+//       }
+//       return done(null, dbUser);
+//     });
+//   }));
 
 
 //GOOGLE STRATEGY
@@ -69,13 +75,13 @@ passport.use(
   },
   (accessToken, refreshToken, profile, done) => {
     db.User.findOne({
-      email:email,
+      email: profile.emails[0].value,
     })
     .then(function (dbUser) {
       // If there's no user with the given email
       if (!dbUser) {
         db.User.create({
-          email: email,
+          email: profile.emails[0].value,
           first_name: profile.name.givenName,
           last_name: profile.name.familyName
         })
