@@ -27,28 +27,18 @@ router.route("/google").get(
 router.route("/google/callback").get(
   passport.authenticate("google", { failureRedirect: "/signup" }), 
   function (req, res) {
-    console.log(res);
-    res.redirect("/home");
+    res.redirect("http://localhost:3000/home");
 });
 
 
-// router.use("/auth/google"),
-// passport.authenticate("google", {scope: "profile"});
+// router.route("/auth/facebook", passport.authenticate("facebook"));
 
-// router.use("/auth/google/callback"),
-// (req, res) => {
-//   console.log("HIT GOOGLE");
-//   res.redirect("/home");
-// };
-
-router.route("/auth/facebook", passport.authenticate("facebook"));
-
-router.route ("/auth/facebook/callback",
-  passport.authenticate(("facebook"),
-  (req, res) => {
-    res.redirect("/home");
-  })
-)
+// router.route ("/auth/facebook/callback",
+//   passport.authenticate(("facebook"),
+//   (req, res) => {
+//     res.redirect("/home");
+//   })
+// )
 
 // endpoint /api/user/userdata
 router.route("/userdata").get(usersController.checkUserLogin);

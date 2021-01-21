@@ -11,8 +11,7 @@ import {
   PasswordInput,
   SignUpBtn,
   SignInLink,
-  GoogleBtn,
-  FacebookBtn,
+  GoogleBtn
 } from "../components/SignUpForm";
 // import passport from "../../../config/passport";
 // import FacebookStrategy from "passport-facebook";
@@ -139,6 +138,9 @@ function SignUp() {
                 <SignUpBtn onClick={handleFormSubmit} />
               </Row>
               <Row>
+                <p>--- OR ---</p>
+              </Row>
+              <Row>
                 {/* <GoogleLogin
                   clientId="1082885186579-00j5a8kbt4tt0q3h6mua0b1ei0fgu9n1.apps.googleusercontent.com"
                   buttonText="Continue with Google"
@@ -148,14 +150,14 @@ function SignUp() {
                 /> */}
                 <GoogleBtn />
               </Row>
-              <Row>
-                {/* <FacebookLogin
+              {/* <Row>
+                <FacebookLogin
                   appId="3217579161677338"
                   autoLoad={false}
                   callback={responseFacebook} 
-                /> */}
+                />
                 <FacebookBtn />
-              </Row>
+              </Row> */}
               <Row>
                 <SignInLink />
               </Row>

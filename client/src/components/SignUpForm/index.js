@@ -106,13 +106,13 @@ export function GoogleBtn(props) {
     </div>
   );
 }
-export function FacebookBtn(props) {
-  return (
-    <div className="input-field col s12">
-      <button type="submit" className="btn">
-        <a href="/api/user/auth/facebook">Continue with Facebook</a>
-      </button>
-      {props.children}
-    </div>
-  );
-}
+// export function FacebookBtn(props) {
+//   return (
+//     <div className="input-field col s12">
+//       <button type="submit" className="btn">
+//         <a href="/api/user/auth/facebook">Continue with Facebook</a>
+//       </button>
+//       {props.children}
+//     </div>
+//   );
+// }
