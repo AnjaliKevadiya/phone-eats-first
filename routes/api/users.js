@@ -27,7 +27,7 @@ router.route("/google").get(
 );
   
 router.route("/google/callback").get(
-  passport.authenticate("google", { failureRedirect:loginPath + "/signup" }), 
+  passport.authenticate("google", { failureRedirect:loginPath + "/signin" }), 
   function (req, res) {
     res.redirect(loginPath + "/home");
 });
