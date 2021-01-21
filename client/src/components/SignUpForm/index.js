@@ -1,26 +1,21 @@
 import React from "react";
 import "./style.css";
 import API from "../../utils/API";
-
 export function Container(props) {
   return <div className="container">{props.children}</div>;
 }
-
 export function Card(props) {
   return <div className="card">{props.children}</div>;
 }
 export function H1(props) {
   return <h2>Sign Up</h2>;
 }
-
 export function Row(props) {
   return <div className="row">{props.children}</div>;
 }
-
 export function Form(props) {
   return <form className="col s12">{props.children}</form>;
 }
-
 export function FirstNameInput(props) {
   return (
     <div className="input-field">
@@ -35,7 +30,6 @@ export function FirstNameInput(props) {
     </div>
   );
 }
-
 export function LastNameInput(props) {
   return (
     <div className="input-field">
@@ -50,7 +44,6 @@ export function LastNameInput(props) {
     </div>
   );
 }
-
 export function EmailInput(props) {
   return (
     <div className="input-field col s12">
@@ -65,7 +58,6 @@ export function EmailInput(props) {
     </div>
   );
 }
-
 export function PasswordInput(props) {
   return (
     <div className="input-field col s12">
@@ -80,7 +72,6 @@ export function PasswordInput(props) {
     </div>
   );
 }
-
 export function SignUpBtn(props) {
   return (
     <div className="input-field col s12">
@@ -91,7 +82,6 @@ export function SignUpBtn(props) {
     </div>
   );
 }
-
 export function SignInLink(props) {
   return (
     <p className="signInLink">
@@ -100,7 +90,6 @@ export function SignInLink(props) {
     </p>
   );
 }
-
 export function GoogleBtn(props) {
   // const googlelogin = (event) => {
   //     event.preventDefault();
@@ -117,7 +106,6 @@ export function GoogleBtn(props) {
     </div>
   );
 }
-
 export function FacebookBtn(props) {
   return (
     <div className="input-field col s12">

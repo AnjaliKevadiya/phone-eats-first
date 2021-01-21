@@ -10,12 +10,9 @@ import {
   EmailInput,
   PasswordInput,
   SignUpBtn,
-<<<<<<< HEAD
-=======
   SignInLink,
   GoogleBtn,
-  FacebookBtn
->>>>>>> 2d73b6e4977dcce62471b6024df9971a0f27b504
+  FacebookBtn,
 } from "../components/SignUpForm";
 // import passport from "../../../config/passport";
 // import FacebookStrategy from "passport-facebook";
@@ -25,70 +22,34 @@ import {
 import API from "../utils/API";
 import EntryNavBar from "../components/EntryNavBar";
 
-
 // var keys = require("../../../config/index");
 
 function SignUp() {
   const [formObject, setFormObject] = useState({});
 
-<<<<<<< HEAD
-  //GOOGLE LOGIN SUCCESS
-  const responseSuccessGoogle = (res) => {
-    console.log("Google Success: ", res);
-    API.googlelogin({
-      tokenId: res.tokenId,
-    })
-      .then((res) => {
-        console.log("api.googlelogin -res: ", res);
-        window.location.href = "/home";
-      })
-      .catch((err) => console.log("api.googlelogin error: ", err));
-  };
+  // // //FACEBOOK STRATEGY
+  // FacebookStrategy({
+  //   clientID: keys.FACEBOOK.clientID,
+  //   clientSecret: keys.FACEBOOK.clientSecret,
+  //   callbackURL: "/auth/facebook/callback"
+  // },
+  // req.login(user, function(err) {
+  //   if (err) { return next(err); }
+  //   return res.redirect('/users/' + req.user.username);
+  // })
+  // );
 
-  //GOOGLE LOGIN ERROR
-  const responseErrorGoogle = (res) => {
-    console.log("Google Login Error: ", res);
-  };
-
-  //FACEBOOK LOGIN SUCCESS
-  const responseFacebook = (res) => {
-    console.log("Facebook Login: ", res);
-    API.facebooklogin({
-      accessToken: res.accessToken,
-      userID: res.userID,
-    })
-      .then((res) => {
-        console.log("api.facebooklogin - res: ", res);
-        window.location.href = "/home";
-      })
-      .catch((err) => console.log("api.facebooklogin error: ", err));
-  };
-=======
-
-
-// // //FACEBOOK STRATEGY
-// FacebookStrategy({
-//   clientID: keys.FACEBOOK.clientID,
-//   clientSecret: keys.FACEBOOK.clientSecret,
-//   callbackURL: "/auth/facebook/callback"
-// },
-// req.login(user, function(err) {
-//   if (err) { return next(err); }
-//   return res.redirect('/users/' + req.user.username);
-// })
-// );
-
-// // //GOOGLE STRATEGY
-// GoogleStrategy({
-// clientID: keys.GOOGLE.clientID,
-// clientSecret: keys.GOOGLE.clientSecret,
-// callbackURL: "/auth/google/callback"
-// },
-// req.login(user, function(err) {
-//   if (err) { return next(err); }
-//   return res.redirect('/users/' + req.user.username);
-// })
-// );
+  // // //GOOGLE STRATEGY
+  // GoogleStrategy({
+  // clientID: keys.GOOGLE.clientID,
+  // clientSecret: keys.GOOGLE.clientSecret,
+  // callbackURL: "/auth/google/callback"
+  // },
+  // req.login(user, function(err) {
+  //   if (err) { return next(err); }
+  //   return res.redirect('/users/' + req.user.username);
+  // })
+  // );
 
   // //GOOGLE LOGIN SUCCESS
   // const responseSuccessGoogle = async (res) => {
@@ -123,7 +84,6 @@ function SignUp() {
   //     })
   //     .catch((err) => console.log("api.facebooklogin error: ", err));
   //   }
->>>>>>> 2d73b6e4977dcce62471b6024df9971a0f27b504
 
   function handleInputChange(event) {
     const { name, value } = event.target;
@@ -184,30 +144,20 @@ function SignUp() {
                   buttonText="Continue with Google"
                   onSuccess={responseSuccessGoogle}
                   onFailure={responseErrorGoogle}
-<<<<<<< HEAD
-                  cookiePolicy={"single_host_origin"}
-                />
-=======
                   cookiePolicy={'single_host_origin'}
                 /> */}
-                <GoogleBtn  />
->>>>>>> 2d73b6e4977dcce62471b6024df9971a0f27b504
+                <GoogleBtn />
               </Row>
               <Row>
                 {/* <FacebookLogin
                   appId="3217579161677338"
                   autoLoad={false}
-<<<<<<< HEAD
-                  callback={responseFacebook}
-                />
-=======
                   callback={responseFacebook} 
                 /> */}
                 <FacebookBtn />
               </Row>
               <Row>
                 <SignInLink />
->>>>>>> 2d73b6e4977dcce62471b6024df9971a0f27b504
               </Row>
             </Form>
           </Row>
