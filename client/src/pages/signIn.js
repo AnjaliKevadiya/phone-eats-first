@@ -83,9 +83,12 @@ function SignIn() {
               />
             </Row>
             <Row>
-              <button className="btn btn-success" type="submit">
+              <button className="btn btn-success signIn" type="submit">
                 Sign In
               </button>
+            </Row>
+            <Row>
+              <p>--- OR ---</p>
             </Row>
             <Row>
               <GoogleLogin
@@ -99,7 +102,7 @@ function SignIn() {
             </Row>
             <Row>
               <FacebookLogin
-                className="facebookLogin"
+                cssClass="facebookLogin"
                 appId="3217579161677338"
                 autoLoad={false}
                 callback={responseFacebook}
@@ -107,7 +110,7 @@ function SignIn() {
             </Row>
 
             <p className="signUp">
-              To sign up click <a href="/signup">here</a>
+              Don't have account? <a href="/signup">Sign Up</a>
             </p>
           </Container>
         </form>

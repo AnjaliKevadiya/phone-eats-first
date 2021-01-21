@@ -8,22 +8,9 @@ img {
   height: auto;
 }
 
-/* .body{
-  background-color: rgba(0, 0, 255, 0.116);
-  justify-content: center;
-} */
-
 .card {
   min-width: 30% !important;
-  /* margin: 0 auto; */
-  margin-top: 7%;
-  /* float: none; */
-  /* margin-bottom: 10px; */
-  /* width: 300px; */
-  /* height: 400px; */
-  /* box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19); */
-  /* text-align: center; */
-  /* padding: 0 0 0 0; */
+  margin-top: 5%;
 }
 
 .signinheader {
@@ -33,15 +20,9 @@ img {
   letter-spacing: 2px;
   color: #ffff;
   background-color: #3f51b5;
-  padding-bottom: 5%;
-  padding-top: 5%;
+  padding-bottom: 4%;
+  padding-top: 4%;
 }
-
-/* .container {
-  position: relative;
-  width: 300px;
-  height: 400px;
-} */
 
 .email {
   min-width: 80%;
@@ -56,8 +37,13 @@ img {
   text-align: center;
 }
 
+.signIn {
+  width: 130px;
+  margin-bottom: 20px;
+}
+
 .signUp {
-  margin-top: 40px;
+  margin-top: 30px;
 }
 
 .googleLogin {
@@ -66,8 +52,22 @@ img {
 }
 
 .facebookLogin {
-  height: 50px;
-  margin-top: 40px;
+  height: 46px;
+  font-family: Helvetica, sans-serif;
+  font-weight: 700;
+  -webkit-font-smoothing: antialiased;
+  color: #fff;
+  cursor: pointer;
+  display: inline-block;
+  font-size: calc(0.27548vw + 12.71074px);
+  text-decoration: none;
+  text-transform: uppercase;
+  transition: background-color 0.3s, border-color 0.3s;
+  background-color: #4c69ba;
+  border: calc(0.06887vw + 0.67769px) solid #4c69ba;
+  border-radius: 3px;
+  font-size: 12px;
+  padding: 13px 25px;
 }
 
 body {
