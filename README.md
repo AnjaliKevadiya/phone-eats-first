@@ -54,7 +54,11 @@ npm start
 
 ---
 
-<img src="./public/images/home.png">
+<img src="./client/src/assets/images/readme/signin.png">
+<img src="./client/src/assets/images/readme/signup.png">
+<img src="./client/src/assets/images/readme/home.png">
+<img src="./client/src/assets/images/readme/new post.png">
+<img src="./client/src/assets/images/readme/profile.png">
 
 ---
 
