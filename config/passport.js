@@ -60,38 +60,33 @@ passport.use(
 );
 
 
-// //GOOGLE STRATEGY
+//GOOGLE STRATEGY
 passport.use(
   new GoogleStrategy({
     clientID: keys.GOOGLE.clientID,
     clientSecret: keys.GOOGLE.clientSecret,
     callbackURL: "http://localhost:3001/api/user/google/callback"
-}, (accessToken, refreshToken, profile, done) => {
-  db.User.findOne({
-    email: profile.email[0].value,
-  }).then(function (dbUser) {
-    // If there's no user with the given email
-    if (!dbUser) {
-      console.log(profile);
-      db.User.create({
-                        email: email
-
-                      })
-                        .then((userData) => {
-                          console.log("registerd successfully", userData);
-                          return done(null, userData);
-                      });
-    }
-    // If there is a user with the given email, but the password the user gives us is incorrect
-    // else if (!dbUser.comparePassword(password)) {
-    //   return done(null, false, {
-    //     message: "Incorrect password.",
-    //   });
-    // }
-    // If none of the above, return the user
-    return done(null, dbUser);
-  });
-}));
+  },
+  (accessToken, refreshToken, profile, done) => {
+    db.User.findOne({
+      email:email,
+    })
+    .then(function (dbUser) {
+      // If there's no user with the given email
+      if (!dbUser) {
+        db.User.create({
+          email: email,
+          first_name: profile.name.givenName,
+          last_name: profile.name.familyName
+        })
+        .then((userData) => {
+          console.log("registerd successfully", userData);
+          return done(null, userData);
+        });
+      }
+      return done(null, dbUser);
+    });
+  }));
 
 // In order to help keep authentication state across HTTP requests,
 // Sequelize needs to serialize and deserialize the user

@@ -71,40 +71,40 @@ module.exports = {
     }
   },
 
-  //   login: (req, res) => {
-  //     // checks to see if the user exists
-  //     db.User.findOne({
-  //       email: req.body.email,
-  //     })
-  //       .then(async function (userData) {
-  //         console.log("userData", userData);
-  //         // if there is no user with that email
-  //         if (!userData) {
-  //           res.send({
-  //             user: false,
-  //             message: "No user with that email",
-  //           });
-  //           return;
-  //         }
+    login: (req, res) => {
+      // checks to see if the user exists
+      db.User.findOne({
+        email: req.body.email,
+      })
+        .then(async function (userData) {
+          console.log("userData", userData);
+          // if there is no user with that email
+          if (!userData) {
+            res.send({
+              user: false,
+              message: "No user with that email",
+            });
+            return;
+          }
 
-  //         // checks if both password are same then send the Welcome message
-  //         if (await bcrypt.compare(req.body.password, userData.password)) {
-  //           res.cookie("userAuth", userData.id).send({
-  //             user: userData.id,
-  //             message: "Welcome Back",
-  //           });
-  //         } else {
-  //           res.send({
-  //             user: false,
-  //             message: "Password Incorrect",
-  //           });
-  //         }
-  //       })
-  //       .catch((err) => {
-  //         console.log("We caught an error", err);
-  //         res.send(err);
-  //       });
-  //   },
+          // checks if both password are same then send the Welcome message
+          if (await bcrypt.compare(req.body.password, userData.password)) {
+            res.cookie("userAuth", userData.id).send({
+              user: userData.id,
+              message: "Welcome Back",
+            });
+          } else {
+            res.send({
+              user: false,
+              message: "Password Incorrect",
+            });
+          }
+        })
+        .catch((err) => {
+          console.log("We caught an error", err);
+          res.send(err);
+        });
+    },
 
   update: function (req, res) {
     db.User.findOneAndUpdate({ _id: req.params.id }, req.body)

@@ -2,6 +2,7 @@ const router = require("express").Router();
 const usersController = require("../../controllers/usersController");
 var passport = require("../../config/passport");
 
+
 // signup endpoint "/api/user/singup"
 router.route("/signup").post(usersController.register);
 
@@ -18,19 +19,18 @@ router.post("/login", passport.authenticate("local"), function (req, res) {
   }
 });
 
-//endpoint /api/user/auth/google
+//endpoint /api/user/google
 router.route("/google").get(
-  passport.authenticate("google", {scope: "profile"})
- 
-  );
-
+  passport.authenticate("google", {scope: ["profile", "email"]})
+);
+  
 router.route("/google/callback").get(
-  passport.authenticate(("google"),
-  (req, res) => {
+  passport.authenticate("google", { failureRedirect: "/signup" }), 
+  function (req, res) {
     console.log(res);
     res.redirect("/home");
-  })
-)
+});
+
 
 // router.use("/auth/google"),
 // passport.authenticate("google", {scope: "profile"});
