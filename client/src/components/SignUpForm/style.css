@@ -18,7 +18,7 @@
     
 }
 
-h1 {
+h2 {
     text-align:center;
     font-family:Helvetica;
     font-variant:small-caps;
@@ -89,6 +89,7 @@ input:focus {
 button.btn {
     background-color: #3F51B5;
     color: white;
+    margin-bottom: 3%;
 }
 
 button.btn:focus {
