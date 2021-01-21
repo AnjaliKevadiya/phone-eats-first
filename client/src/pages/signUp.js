@@ -9,47 +9,84 @@ import {
   LastNameInput,
   EmailInput,
   PasswordInput,
-  SignUpBtn
+  SignUpBtn,
+  SignInLink,
+  GoogleBtn,
+  FacebookBtn
 } from "../components/SignUpForm";
-import GoogleLogin from "react-google-login";
-import FacebookLogin from "react-facebook-login";
+// import passport from "../../../config/passport";
+// import FacebookStrategy from "passport-facebook";
+// import GoogleStrategy from "passport-google-oauth";
+// import GoogleLogin from "react-google-login";
+// import FacebookLogin from "react-facebook-login";
 import API from "../utils/API";
 import EntryNavBar from "../components/EntryNavBar"
+
+
+// var keys = require("../../../config/index");
 
 function SignUp() {
   const [formObject, setFormObject] = useState({});
 
-  //GOOGLE LOGIN SUCCESS
-  const responseSuccessGoogle = (res) => {
-    console.log("Google Success: ", res);
-    API.googlelogin({
-      tokenId: res.tokenId
-    })
-      .then((res) => {
-        console.log("api.googlelogin -res: ", res)
-        window.location.href = "/home";
-      })
-      .catch((err) => console.log("api.googlelogin error: ", err));
-  }
 
-  //GOOGLE LOGIN ERROR
-  const responseErrorGoogle = (res) => {
-    console.log("Google Login Error: ", res);
-  }
 
-    //FACEBOOK LOGIN SUCCESS
-    const responseFacebook = (res) => {
-      console.log("Facebook Login: ", res);
-      API.facebooklogin({
-        accessToken: res.accessToken,
-        userID: res.userID
-      })
-      .then((res) => {
-        console.log("api.facebooklogin - res: ", res)
-        window.location.href = "/home";
-      })
-      .catch((err) => console.log("api.facebooklogin error: ", err));
-    }
+// // //FACEBOOK STRATEGY
+// FacebookStrategy({
+//   clientID: keys.FACEBOOK.clientID,
+//   clientSecret: keys.FACEBOOK.clientSecret,
+//   callbackURL: "/auth/facebook/callback"
+// },
+// req.login(user, function(err) {
+//   if (err) { return next(err); }
+//   return res.redirect('/users/' + req.user.username);
+// })
+// );
+
+// // //GOOGLE STRATEGY
+// GoogleStrategy({
+// clientID: keys.GOOGLE.clientID,
+// clientSecret: keys.GOOGLE.clientSecret,
+// callbackURL: "/auth/google/callback"
+// },
+// req.login(user, function(err) {
+//   if (err) { return next(err); }
+//   return res.redirect('/users/' + req.user.username);
+// })
+// );
+
+  // //GOOGLE LOGIN SUCCESS
+  // const responseSuccessGoogle = async (res) => {
+  //   console.log("Google Success: ", res);
+  //   API.googlelogin({
+  //     tokenId: res.tokenId
+  //   })
+  //     .then((res) => {
+  //       sessionStorage.setItem("userData", JSON.stringify(res));
+  //       history.push(window.location.href = "/home");
+  //       console.log("api.googlelogin -res: ", res)
+  //       // window.location.href = "/home";
+  //     })
+  //     .catch((err) => console.log("api.googlelogin error: ", err));
+  // }
+
+  // //GOOGLE LOGIN ERROR
+  // const responseErrorGoogle = (res) => {
+  //   console.log("Google Login Error: ", res);
+  // }
+
+  //   //FACEBOOK LOGIN SUCCESS
+  //   const responseFacebook = async (res) => {
+  //     console.log("Facebook Login: ", res);
+  //     API.facebooklogin({
+  //       accessToken: res.accessToken,
+  //       userID: res.userID
+  //     })
+  //     .then((res) => {
+  //       console.log("api.facebooklogin - res: ", res)
+  //       window.location.href = "/home";
+  //     })
+  //     .catch((err) => console.log("api.facebooklogin error: ", err));
+  //   }
 
   function handleInputChange(event) {
     const { name, value } = event.target;
@@ -60,7 +97,6 @@ function SignUp() {
   //SIGNUP BUTTON
   function handleFormSubmit(event) {
     event.preventDefault();
-    console.log("handleFormSubmit - FormData: ", formObject);
     if (
       formObject.first_name &&
       formObject.last_name &&
@@ -103,20 +139,25 @@ function SignUp() {
                 <SignUpBtn onClick={handleFormSubmit} />
               </Row>
               <Row>
-                <GoogleLogin
+                {/* <GoogleLogin
                   clientId="1082885186579-00j5a8kbt4tt0q3h6mua0b1ei0fgu9n1.apps.googleusercontent.com"
                   buttonText="Continue with Google"
                   onSuccess={responseSuccessGoogle}
                   onFailure={responseErrorGoogle}
                   cookiePolicy={'single_host_origin'}
-                />
+                /> */}
+                <GoogleBtn  />
               </Row>
               <Row>
-                <FacebookLogin
+                {/* <FacebookLogin
                   appId="3217579161677338"
                   autoLoad={false}
                   callback={responseFacebook} 
-                />
+                /> */}
+                <FacebookBtn />
+              </Row>
+              <Row>
+                <SignInLink />
               </Row>
             </Form>
           </Row>

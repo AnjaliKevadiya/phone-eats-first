@@ -5,6 +5,7 @@ var passport = require("./config/passport");
 const mongoose = require("mongoose");
 const routes = require("./routes");
 const bodyParser = require("body-parser");
+const cors = require("cors");
 
 const app = express();
 const PORT = process.env.PORT || 3001;
@@ -31,6 +32,7 @@ if (process.env.NODE_ENV === "production") {
 app.use(
   session({ secret: "keyboard cat", resave: true, saveUninitialized: true })
 );
+app.use(cors());
 app.use(passport.initialize());
 app.use(passport.session());
 
