@@ -7,37 +7,37 @@ import EntryNavBar from "../components/EntryNavBar";
 // import FacebookLogin from "react-facebook-login";
 
 function SignIn() {
-    //GOOGLE LOGIN SUCCESS
-    const responseSuccessGoogle = (res) => {
-        console.log("Google Success: ", res);
-        API.googlelogin({
-            tokenId: res.tokenId,
-        })
-            .then((res) => {
-                console.log("api.googlelogin -res: ", res);
-                window.location.href = "/home";
-            })
-            .catch((err) => console.log("api.googlelogin error: ", err));
-    };
+    // //GOOGLE LOGIN SUCCESS
+    // const responseSuccessGoogle = (res) => {
+    //     console.log("Google Success: ", res);
+    //     API.googlelogin({
+    //         tokenId: res.tokenId,
+    //     })
+    //         .then((res) => {
+    //             console.log("api.googlelogin -res: ", res);
+    //             window.location.href = "/home";
+    //         })
+    //         .catch((err) => console.log("api.googlelogin error: ", err));
+    // };
 
-    //GOOGLE LOGIN ERROR
-    const responseErrorGoogle = (res) => {
-        console.log("Google Login Error: ", res);
-    };
+    // //GOOGLE LOGIN ERROR
+    // const responseErrorGoogle = (res) => {
+    //     console.log("Google Login Error: ", res);
+    // };
 
-    //FACEBOOK LOGIN SUCCESS
-    const responseFacebook = (res) => {
-        console.log("Facebook Login: ", res);
-        API.facebooklogin({
-            accessToken: res.accessToken,
-            userID: res.userID,
-        })
-            .then((res) => {
-                console.log("api.facebooklogin - res: ", res);
-                window.location.href = "/home";
-            })
-            .catch((err) => console.log("api.facebooklogin error: ", err));
-    };
+    // //FACEBOOK LOGIN SUCCESS
+    // const responseFacebook = (res) => {
+    //     console.log("Facebook Login: ", res);
+    //     API.facebooklogin({
+    //         accessToken: res.accessToken,
+    //         userID: res.userID,
+    //     })
+    //         .then((res) => {
+    //             console.log("api.facebooklogin - res: ", res);
+    //             window.location.href = "/home";
+    //         })
+    //         .catch((err) => console.log("api.facebooklogin error: ", err));
+    // };
 
     const [email, setEmail] = useState();
     const [password, setPassword] = useState();
