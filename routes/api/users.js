@@ -31,23 +31,14 @@ router.route("/google/callback").get(
 });
 
 
-// router.use("/auth/google"),
-// passport.authenticate("google", {scope: "profile"});
+// router.route("/auth/facebook", passport.authenticate("facebook"));
 
-// router.use("/auth/google/callback"),
-// (req, res) => {
-//   console.log("HIT GOOGLE");
-//   res.redirect("/home");
-// };
-
-router.route("/auth/facebook", passport.authenticate("facebook"));
-
-router.route ("/auth/facebook/callback",
-  passport.authenticate(("facebook"),
-  (req, res) => {
-    res.redirect("/home");
-  })
-)
+// router.route ("/auth/facebook/callback",
+//   passport.authenticate(("facebook"),
+//   (req, res) => {
+//     res.redirect("/home");
+//   })
+// )
 
 // endpoint /api/user/userdata
 router.route("/userdata").get(usersController.checkUserLogin);
