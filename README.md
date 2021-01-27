@@ -6,6 +6,8 @@
 
 - [Description](#description)
 
+- [User Story](#user-story)
+
 - [Installation](#installation)
 
 - [Usage](#usage)
@@ -30,7 +32,10 @@
 
 ## Description
 
-- As a user, I want to be able to view my entire employee directory at once so that I have quick access to their information.
+Phone Eats First app, let the user post pictures of what the food actually looks like when it reaches to the table. The user can take a picture and upload post. Also they can like and comment on other user's post. 
+
+## User Story
+This app is for someone who hates when they see an advertisement on TV for food and it looks nothing like that when its on your plate. This will save users the disappointment of being let down by their food.
 
 ## Installation
 
